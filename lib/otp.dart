@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OTPTextField extends StatefulWidget {
+  const OTPTextField({super.key});
+
   @override
   _OTPTextFieldState createState() => _OTPTextFieldState();
 }
@@ -64,18 +66,18 @@ class _OTPTextFieldState extends State<OTPTextField> {
   }
 }
 
-void main() {
-  runApp(MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text('OTP TextField Example'),
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: OTPTextField(),
-        ),
-      ),
-    ),
-  ));
-}
+// void main() {
+//   runApp(MaterialApp(
+//     home: Scaffold(
+//       appBar: AppBar(
+//         title: Text('OTP TextField Example'),
+//       ),
+//       body: Center(
+//         child: Padding(
+//           padding: const EdgeInsets.all(20.0),
+//           child: OTPTextField(),
+//         ),
+//       ),
+//     ),
+//   ));
+// }
