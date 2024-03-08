@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       initialRoute: 'otp',
       routes: {
-        'otp': (context) => OTPTextField(),
+        'otp': (context) => MyForm(),
       },
     );
   }
