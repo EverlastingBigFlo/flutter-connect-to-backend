@@ -8,31 +8,38 @@ class MyForm extends StatefulWidget {
 }
 
 class _MyFormState extends State<MyForm> {
-  // final TextEditingController _controller1 = TextEditingController();
-  // final TextEditingController _controller2 = TextEditingController();
-  // final TextEditingController _controller3 = TextEditingController();
-  // final TextEditingController _controller4 = TextEditingController();
-
   @override
-  // void dispose() {
-  //   super.dispose();
-  //   _controller1.dispose();
-  //   _controller2.dispose();
-  //   _controller3.dispose();
-  //   _controller4.dispose();
-  // }
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My Form'),
+      ),
+      body: Container(
+        color: Colors.amber,
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(hintText: 'Enter your name'),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.amber,
-      child: const Column(
-        children: [
-          TextField(
-            decoration: InputDecoration(hintText: 'Enter your name'),
-          )
-        ],
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyForm(),
     );
   }
 }
