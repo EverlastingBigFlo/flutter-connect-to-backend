@@ -30,7 +30,10 @@ class _MyFormState extends State<MyForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-         TextField()
+        TextField(controller: _controller1),
+          TextField(controller: _controller2),
+          TextField(controller: _controller3),
+          TextField(controller: _controller4),
         ],
       )
     );
