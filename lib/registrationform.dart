@@ -1,24 +1,28 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
   @override
   _MyFormState createState() => _MyFormState();
 }
 
 class _MyFormState extends State<MyForm> {
-  final TextEditingController firstname = TextEditingController();
-  final TextEditingController lastname = TextEditingController();
-  final TextEditingController _controller3 = TextEditingController();
-  final TextEditingController _controller4 = TextEditingController();
+  final TextEditingController firstnameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   @override
   void dispose() {
     super.dispose();
-    firstname.dispose();
-    lastname.dispose();
-    _controller3.dispose();
-    _controller4.dispose();
+    firstnameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
   }
 
   @override
@@ -66,7 +70,7 @@ class _MyFormState extends State<MyForm> {
                     ],
                   ),
                   child: TextField(
-                    controller: firstname,
+                    controller: firstnameController,
                     decoration: InputDecoration(
                       hintText: 'First and Last Name',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -92,7 +96,7 @@ class _MyFormState extends State<MyForm> {
                     ],
                   ),
                   child: TextField(
-                    controller: firstname,
+                    controller: emailController,
                     decoration: InputDecoration(
                       hintText: 'Email',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -118,7 +122,7 @@ class _MyFormState extends State<MyForm> {
                     ],
                   ),
                   child: TextField(
-                    controller: firstname,
+                    controller: passwordController,
                     decoration: InputDecoration(
                       hintText: 'Password',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -144,7 +148,7 @@ class _MyFormState extends State<MyForm> {
                     ],
                   ),
                   child: TextField(
-                    controller: firstname,
+                    controller: confirmPasswordController,
                     decoration: InputDecoration(
                       hintText: 'Confirm Password',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
