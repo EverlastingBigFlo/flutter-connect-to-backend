@@ -242,6 +242,8 @@ class _MyFormState extends State<MyForm> {
                       print('Please agree to the terms and conditions');
                     }
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF470037)),
                   child: const Text('SIGN UP'),
                 ),
               ],
