@@ -1,5 +1,4 @@
 // import 'package:connectingtobackend/otp.dart';
-import 'package:connectingtobackend/pin-input-screen.dart';
 import 'package:connectingtobackend/registrationform.dart';
 import 'package:flutter/material.dart';
 
@@ -8,21 +7,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-    const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    initialRoute: '/',
-routes: {
-  // '/': (context) => PinInputScreen(),
-  '/': (context) => MyForm(),
-
-},
-
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        // '/': (context) => PinInputScreen(),
+        '/': (context) => MyForm(),
+      },
     );
   }
 }
-
-
-
