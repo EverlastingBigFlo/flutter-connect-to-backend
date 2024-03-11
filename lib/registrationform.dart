@@ -25,10 +25,17 @@ class _MyFormState extends State<MyForm> {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(20.0),
       child: Column(
-        
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+           TextField(
+              // controller: _controller1,
+              decoration: InputDecoration(labelText: 'Username'),
+            ),
+            SizedBox(height: 12),
+        ],
       )
     );
   }
