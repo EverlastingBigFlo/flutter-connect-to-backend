@@ -1,5 +1,6 @@
 // import 'package:connectingtobackend/otp.dart';
 import 'package:connectingtobackend/pin-input-screen.dart';
+import 'package:connectingtobackend/registrationform.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
       // home: PinInputScreen(),
     initialRoute: '/',
 routes: {
-  '/': (context) => PinInputScreen(),
+  // '/': (context) => PinInputScreen(),
+  '/': (context) => MyForm(),
 
 },
 

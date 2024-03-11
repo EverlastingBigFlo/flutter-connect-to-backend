@@ -64,8 +64,6 @@ class _MyFormState extends State<MyForm> {
                   _controller2.text.isNotEmpty &&
                   _controller3.text.isNotEmpty &&
                   _controller4.text.isNotEmpty) {
-                // All fields have at least one input
-                // You can perform further actions here
                 print('All fields have at least one input');
               } else {
                 // At least one field is empty
