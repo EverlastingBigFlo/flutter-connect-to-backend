@@ -32,12 +32,11 @@ class _MyFormState extends State<MyForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Center(
-              child: Row(
-                children: [
-                  Text('Welcome')
-                ],
-              ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Welcome')
+              ],
             ),
          TextField(
               controller: firstname,
