@@ -236,7 +236,6 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () {
-                    // Perform action after agreeing to terms and conditions
                     if (_agreeToTerms) {
                       print('Agreement accepted');
                     } else {
