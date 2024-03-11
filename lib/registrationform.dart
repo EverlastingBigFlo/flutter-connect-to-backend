@@ -25,12 +25,12 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 35),
+                const SizedBox(height: 35),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -41,20 +41,32 @@ class _MyFormState extends State<MyForm> {
                         text: 'Welcome')
                   ],
                 ),
+                const SizedBox(height: 10),
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MyText(
+                        color: Color(0xFF470037),
+                        fontSize: 1,
+                        fontWeight: FontWeight.normal,
+                        text: 'Sign up to get start with your first task'),
+                  ],
+                ),
+                const SizedBox(height: 35),
                 TextField(
                   controller: firstname,
                   decoration: InputDecoration(
                     hintText: 'First and Last Name',
-                    hintStyle: TextStyle(color: Color(0xFF470037)),
+                    hintStyle: const TextStyle(color: Color(0xFF470037)),
                     filled: true,
-                    fillColor: Colors.grey[200], // Adjust the color as needed
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide.none, // Remove the border
+                      // borderSide: BorderSide.none,
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
               ],
             ),
           )),
