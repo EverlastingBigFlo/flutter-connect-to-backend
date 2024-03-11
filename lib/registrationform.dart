@@ -43,7 +43,16 @@ class _MyFormState extends State<MyForm> {
                 ),
                 TextField(
                   controller: firstname,
-                  decoration: InputDecoration(labelText: 'Username'),
+                  decoration: InputDecoration(
+                    hintText: 'First and Last Name',
+                    hintStyle: TextStyle(color: Color(0xFF470037)),
+                    filled: true,
+                    fillColor: Colors.grey[200], // Adjust the color as needed
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide.none, // Remove the border
+                    ),
+                  ),
                 ),
                 SizedBox(height: 12),
               ],
