@@ -29,21 +29,25 @@ class _MyFormState extends State<MyForm> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Welcome')
-              ],
-            ),
-         TextField(
-              controller: firstname,
-              decoration: InputDecoration(labelText: 'Username'),
-            ),
-            SizedBox(height: 12),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 35),
+          
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Welcome')
+                ],
+              ),
+           TextField(
+                controller: firstname,
+                decoration: const InputDecoration(labelText: 'Username'),
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
         )
       ),
     );
