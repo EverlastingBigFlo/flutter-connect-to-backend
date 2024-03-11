@@ -38,6 +38,7 @@ class _MyFormState extends State<MyForm> {
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // intro section
                     MyText(
                         color: Color(0xFF470037),
                         fontSize: 2.5,
@@ -56,6 +57,8 @@ class _MyFormState extends State<MyForm> {
                         text: 'Sign up to get start with your first task'),
                   ],
                 ),
+
+                // textfield area
                 const SizedBox(height: 35),
                 Container(
                   decoration: BoxDecoration(
