@@ -1,4 +1,5 @@
 
+import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -28,24 +29,24 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const SizedBox(height: 35),
+              SizedBox(height: 35),
           
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Welcome')
+                  MyText(color: Color(0xFF470037), fontSize: 2.5, fontWeight: FontWeight.bold, text: 'Welcome')
                 ],
               ),
            TextField(
                 controller: firstname,
-                decoration: const InputDecoration(labelText: 'Username'),
+                decoration: InputDecoration(labelText: 'Username'),
               ),
-              const SizedBox(height: 12),
+              SizedBox(height: 12),
             ],
           ),
         )
