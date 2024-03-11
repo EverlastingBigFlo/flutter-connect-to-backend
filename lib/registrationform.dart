@@ -25,7 +25,7 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(15.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -78,8 +78,7 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
-                const SizedBox(height: 35),
+                const SizedBox(height: 25),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -105,8 +104,7 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
-                const SizedBox(height: 35),
+                const SizedBox(height: 25),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -132,8 +130,7 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
-                const SizedBox(height: 35),
+                const SizedBox(height: 25),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -159,7 +156,7 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 25),
               ],
             ),
           )),
