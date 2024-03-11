@@ -25,24 +25,26 @@ class _MyFormState extends State<MyForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            child: Column(
-              children: [
-                TextField()
-              ],
-            ),
-          )
-        // TextField(controller: _controller1),
-        //   TextField(controller: _controller2),
-        //   TextField(controller: _controller3),
-        //   TextField(controller: _controller4),
-        ],
-      )
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              child: Column(
+                children: [
+                  TextField()
+                ],
+              ),
+            )
+          // TextField(controller: _controller1),
+          //   TextField(controller: _controller2),
+          //   TextField(controller: _controller3),
+          //   TextField(controller: _controller4),
+          ],
+        )
+      ),
     );
   }
 }
