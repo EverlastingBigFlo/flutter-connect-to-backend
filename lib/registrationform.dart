@@ -13,14 +13,17 @@ class MyForm extends StatefulWidget {
 class _MyFormState extends State<MyForm> {
   final TextEditingController firstnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
   @override
   void dispose() {
     super.dispose();
     firstnameController.dispose();
     emailController.dispose();
+    phoneController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
   }
@@ -102,6 +105,32 @@ class _MyFormState extends State<MyForm> {
                     controller: emailController,
                     decoration: InputDecoration(
                       hintText: 'Email',
+                      hintStyle: const TextStyle(color: Color(0xFF470037)),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 25),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.09),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: const Offset(0, 5),
+                      ),
+                    ],
+                  ),
+                  child: TextField(
+                    controller: phoneController,
+                    decoration: InputDecoration(
+                      hintText: 'Phone Number',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
                       filled: true,
                       fillColor: Colors.white,
