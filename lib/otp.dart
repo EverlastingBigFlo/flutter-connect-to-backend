@@ -1,48 +1,7 @@
+
 import 'package:flutter/material.dart';
 
-class MyForm extends StatefulWidget {
-  const MyForm({Key? key});
 
-  @override
-  State<MyForm> createState() => _MyFormState();
-}
-
-class _MyFormState extends State<MyForm> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('My Form'),
-      ),
-      body: Container(
-        color: Colors.amber,
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(hintText: 'Enter your name'),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyForm(),
-    );
-  }
-}
 
 
 // class MyForm extends StatefulWidget {
