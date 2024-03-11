@@ -1,7 +1,6 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, avoid_print
 
 import 'package:connectingtobackend/components/my-text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyForm extends StatefulWidget {
@@ -18,6 +17,8 @@ class _MyFormState extends State<MyForm> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  bool _agreeToTerms = false;
 
   @override
   void dispose() {
@@ -197,20 +198,56 @@ class _MyFormState extends State<MyForm> {
                     ),
                     const SizedBox(height: 25),
                   ],
-                )
-              
-                ,
+                ),
+
                 // agree to terms and condition
                 Row(
                   children: [
-
+                    Checkbox(
+                      value: _agreeToTerms,
+                      onChanged: (value) {
+                        setState(() {
+                          _agreeToTerms = value!;
+                        });
+                      },
+                    ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            _agreeToTerms = !_agreeToTerms;
+                          });
+                        },
+                        child: Text(
+                          'I agree to the terms and conditions',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: _agreeToTerms ? Colors.blue : Colors.black,
+                            decoration:
+                                _agreeToTerms ? TextDecoration.underline : null,
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
-                )
+                ),
+
+                // sign up button
+                const SizedBox(height: 24),
+                ElevatedButton(
+                  onPressed: () {
+                    // Perform action after agreeing to terms and conditions
+                    if (_agreeToTerms) {
+                      print('Agreement accepted');
+                    } else {
+                      print('Please agree to the terms and conditions');
+                    }
+                  },
+                  child: const Text('SIGN UP'),
+                ),
               ],
             ),
           )),
     );
   }
 }
-
-
