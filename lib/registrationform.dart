@@ -203,7 +203,7 @@ class _MyFormState extends State<MyForm> {
                 // agree to terms and condition
                 Row(
                   children: [
-                    
+
                   ],
                 )
               ],
@@ -212,3 +212,5 @@ class _MyFormState extends State<MyForm> {
     );
   }
 }
+
+
