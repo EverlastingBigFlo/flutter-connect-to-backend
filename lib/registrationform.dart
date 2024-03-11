@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 
 
@@ -31,6 +32,13 @@ class _MyFormState extends State<MyForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            const Center(
+              child: Row(
+                children: [
+                  Text('Welcome')
+                ],
+              ),
+            ),
          TextField(
               controller: firstname,
               decoration: InputDecoration(labelText: 'Username'),
