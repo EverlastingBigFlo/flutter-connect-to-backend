@@ -221,9 +221,21 @@ class _MyFormState extends State<MyForm> {
                         child: Row(
                           children: [
                             Text(
-                              'I agree to the terms and conditions',
+                              'I have read and agree to the',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 12,
+                                color:
+                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                decoration: _agreeToTerms
+                                    ? TextDecoration.underline
+                                    : null,
+                              ),
+                              
+                            ),
+                            Text(
+                              'Terms of conditions',
+                              style: TextStyle(
+                                fontSize: 12,
                                 color:
                                     _agreeToTerms ? Colors.blue : Colors.black,
                                 decoration: _agreeToTerms
@@ -231,8 +243,31 @@ class _MyFormState extends State<MyForm> {
                                     : null,
                               ),
                             ),
+                            Text(
+                              'and',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color:
+                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                decoration: _agreeToTerms
+                                    ? TextDecoration.underline
+                                    : null,
+                              ),
+                            ),
+                            Text(
+                              'Privacy policy',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color:
+                                    _agreeToTerms ? Colors.blue : Colors.blue,
+                                decoration: _agreeToTerms
+                                    ? TextDecoration.underline
+                                    : null,
+                              ),
+                            ),
                           ],
                         ),
+                      
                       ),
                     ),
                   ],
