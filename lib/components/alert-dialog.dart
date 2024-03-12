@@ -5,10 +5,7 @@ class DialogExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
+    return AlertDialog(
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context, 'NO'),
@@ -19,9 +16,7 @@ class DialogExample extends StatelessWidget {
               child: const Text('YES'),
             ),
           ],
-        ),
-      ),
-      child: const Text('Are you sure you want to proceed?'),
-    );
+        );
+      // child: const Text('Are you sure you want to proceed?'),
   }
 }
