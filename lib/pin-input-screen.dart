@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 
-class PinInputScreen extends StatelessWidget {
+class PinInputScreen extends StatefulWidget {
+  const PinInputScreen({super.key});
+
+  @override
+  State<PinInputScreen> createState() => _PinInputScreenState();
+}
+
+class _PinInputScreenState extends State<PinInputScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return PinInput();
+  }
+}
+
+class PinInput extends StatelessWidget {
   late TextEditingController? controllers;
   late FocusNode? focusnode;
   late FocusNode? nextFocusnode;
   bool? isLast = false;
   final VoidCallback? func;
 
-  PinInputScreen(
+  PinInput(
       {super.key,
       this.func,
       this.controllers,
