@@ -10,31 +10,40 @@ class MyForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  MyForm({super.key,});
+  MyForm(
+      {super.key,
+      this.firstnameController,
+      this.emailController,
+      this.phoneController,
+      this.passwordController,
+      this.confirmPasswordController});
 
   @override
   _MyFormState createState() => _MyFormState();
 }
 
 class _MyFormState extends State<MyForm> {
-  final TextEditingController firstnameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-
   bool _agreeToTerms = false;
 
   @override
-  void dispose() {
-    super.dispose();
-    firstnameController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
-    passwordController.dispose();
-    confirmPasswordController.dispose();
+  void initState() {
+    super.initState();
+    widget.firstnameController = TextEditingController();
+    widget.emailController = TextEditingController();
+    widget.phoneController = TextEditingController();
+    widget.passwordController = TextEditingController();
+    widget.confirmPasswordController = TextEditingController();
   }
+
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  //   firstnameController.dispose();
+  //   emailController.dispose();
+  //   phoneController.dispose();
+  //   passwordController.dispose();
+  //   confirmPasswordController.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +95,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
-                        controller: firstnameController,
+                        controller: widget.firstnameController,
                         decoration: InputDecoration(
                           hintText: 'First and Last Name',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -112,7 +121,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
-                        controller: emailController,
+                        controller: widget.emailController,
                         decoration: InputDecoration(
                           hintText: 'Email',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -138,7 +147,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
-                        controller: phoneController,
+                        controller: widget.phoneController,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -164,7 +173,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
-                        controller: passwordController,
+                        controller: widget.passwordController,
                         decoration: InputDecoration(
                           hintText: 'Password',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -190,7 +199,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
-                        controller: confirmPasswordController,
+                        controller: widget.confirmPasswordController,
                         decoration: InputDecoration(
                           hintText: 'Confirm Password',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
