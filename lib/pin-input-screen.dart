@@ -7,7 +7,13 @@ class PinInputScreen extends StatefulWidget {
   bool? isLast = false;
   final VoidCallback? func;
 
-   PinInputScreen({super.key, this.func, this.controllers, this.focusnode, this.nextFocusnode, this.isLast=false});
+  PinInputScreen(
+      {super.key,
+      this.func,
+      this.controllers,
+      this.focusnode,
+      this.nextFocusnode,
+      this.isLast = false});
 
   @override
   _PinInputScreenState createState() => _PinInputScreenState();
@@ -37,14 +43,14 @@ class _PinInputScreenState extends State<PinInputScreen> {
         body: SizedBox(
           width: 45,
           child: TextFormField(
+            controller: widget.controllers,
+            focusNode: widget.focusnode,
             maxLength: 1,
-
-onChanged: (value) =>{
-  if(value!='' && nextFocusnode!=null){
-    nextFocusnode!.requestFocus()
-  },
-},
-
+            onChanged: (value) => {
+              if (value != '' && nextFocusnode != null)
+                {nextFocusnode!.requestFocus()},
+              if (widget.isLast == true && value != '') {widget.func!()}
+            },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsetsDirectional.symmetric(
