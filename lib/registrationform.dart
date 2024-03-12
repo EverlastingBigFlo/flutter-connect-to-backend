@@ -280,7 +280,9 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-
+                const SizedBox(
+                  height: 10,
+                ),
                 // sign up button
                 const SizedBox(height: 10),
                 ElevatedButton(
@@ -308,11 +310,13 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-
+                const SizedBox(
+                  height: 10,
+                ),
                 // already have an account
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: const Row(
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
                     children: [
                       MyText(
                           color: Color(0xFF470037),
