@@ -1,27 +1,70 @@
+
 import 'package:flutter/material.dart';
 
-class DialogExample extends StatelessWidget {
-  const DialogExample({super.key});
+// ignore_for_file: must_be_immutable
+class MyButton extends StatelessWidget {
+  final String text;
+  VoidCallback onPressed;
+  MyButton({super.key, required this.text, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(
+      onPressed: onPressed,
+      color: const Color(0xFF8FE1D7),
+      child: Text(text),
+    );
+  }
+}
+
+
+class DialogBox extends StatelessWidget {
+  VoidCallback onSave;
+  VoidCallback onCancel;
+  final controller;
+  DialogBox(
+      {super.key,
+      required this.controller,
+      required this.onSave,
+      required this.onCancel});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       content: Container(
-        child: Row(
-          children: [],
+        height: 200,
+        width: 350,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            // get user input
+            TextField(
+              controller: controller,
+              decoration: const InputDecoration(
+                  hintText: "Add a new task",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.red,
+                    ),
+                  )),
+            ),
+
+            //cancel button and save button below
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                // save button
+                MyButton(text: 'Save', onPressed: onSave),
+                const SizedBox(
+                  width: 8,
+                ),
+                //cancel button
+                MyButton(text: 'Cancel', onPressed: onCancel)
+              ],
+            )
+          ],
         ),
       ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'NO'),
-              child: const Text('NO'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'YES'),
-              child: const Text('YES'),
-            ),
-          ],
-        );
-      // child: const Text('Are you sure you want to proceed?'),
+    );
   }
 }
