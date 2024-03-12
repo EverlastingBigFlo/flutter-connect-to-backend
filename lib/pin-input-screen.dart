@@ -68,10 +68,10 @@ class PinField extends StatelessWidget {
   final ValueChanged<String> onChanged;
 
   const PinField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
