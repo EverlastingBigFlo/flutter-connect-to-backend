@@ -51,7 +51,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
   }
 
   void submit() {
-    DialogBox().showDialogg(context);
+    DialogBox.showConfirmationDialog(context);
   }
 
   @override

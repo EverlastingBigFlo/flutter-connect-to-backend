@@ -5,8 +5,11 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const MyButton(
-      {super.key, Key? required, required this.text, required this.onPressed});
+  const MyButton({
+    Key? key,
+    required this.text,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +24,8 @@ class MyButton extends StatelessWidget {
   }
 }
 
-class DialogBox extends StatelessWidget {
-  const DialogBox({Key? key});
-
-  void showDialogg(BuildContext context) {
+class DialogBox {
+  static void showConfirmationDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -41,13 +42,6 @@ class DialogBox extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   text: 'Pin Confirmed',
                 ),
-                // Add a close button
-                MyButton(
-                  text: 'Close',
-                  onPressed: () {
-                    Navigator.pop(context); // Close the dialog
-                  },
-                ),
               ],
             ),
           ),
@@ -56,13 +50,7 @@ class DialogBox extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MyButton(
-      text: 'Show Dialog',
-      onPressed: () {
-        showDialogg(context);
-      },
-    );
+  static void dismissDialog(BuildContext context) {
+    Navigator.pop(context);
   }
 }
