@@ -22,7 +22,7 @@ class MyButton extends StatelessWidget {
 }
 
 class DialogBox extends StatelessWidget {
-  const DialogBox({super.key});
+  const DialogBox({Key? key});
 
   void showDialogg(BuildContext context) {
     showDialog(
@@ -37,28 +37,17 @@ class DialogBox extends StatelessWidget {
               children: [
                 const MyText(
                   color: Color(0xFF470037),
-                  fontSize: 1,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   text: 'Pin Confirmed',
                 ),
-
-                // Cancel and Save buttons
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     MyButton(
-                //       text: 'YES',
-                //       onPressed: onSave,
-                //       // Setting text color to white
-                //     ),
-                //     const SizedBox(width: 15),
-                //     MyButton(
-                //       text: 'NO',
-                //       onPressed: onCancel,
-                //       // Setting text color to white
-                //     ),
-                //   ],
-                // ),
+                // Add a close button
+                MyButton(
+                  text: 'Close',
+                  onPressed: () {
+                    Navigator.pop(context); // Close the dialog
+                  },
+                ),
               ],
             ),
           ),
