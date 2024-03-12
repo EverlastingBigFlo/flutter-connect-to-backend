@@ -305,9 +305,9 @@ class _MyFormState extends State<MyForm> {
                     if (_agreeToTerms) {
                       String firstname = widget.firstnameController!.text;
                       String email = widget.emailController!.text;
-                      int phone =
-                          int.tryParse(widget.phoneController!.text) ?? 0;
-                      // int phone = widget.phoneController!.text;
+                      // int phone =
+                      // int.tryParse(widget.phoneController!.text) ?? 0;
+                      String phone = widget.phoneController!.text;
                       String password = widget.passwordController!.text;
                       String confirmPassword =
                           widget.confirmPasswordController!.text;
