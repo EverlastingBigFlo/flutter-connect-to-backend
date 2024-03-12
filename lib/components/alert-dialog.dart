@@ -37,7 +37,7 @@ class DialogBox extends StatelessWidget {
               children: [
                 const MyText(
                   color: Color(0xFF470037),
-                  fontSize: 15,
+                  fontSize: 1,
                   fontWeight: FontWeight.bold,
                   text: 'Pin Confirmed',
                 ),
