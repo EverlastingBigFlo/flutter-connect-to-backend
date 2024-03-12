@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PinInputScreen extends StatefulWidget {
+  late TextEditingController? controllers;
+  late FocusNode? focusnode;
+  late FocusNode? nextFocusnode;
+  bool? isLast = false;
+  final VoidCallback? func;
+
+   PinInputScreen({super.key, this.func, this.controllers, this.focusnode, this.nextFocusnode, this.isLast=false});
+
   @override
   _PinInputScreenState createState() => _PinInputScreenState();
 }
