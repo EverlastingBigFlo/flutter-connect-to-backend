@@ -6,6 +6,11 @@ class DialogExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      content: Container(
+        child: Row(
+          children: [],
+        ),
+      ),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context, 'NO'),
