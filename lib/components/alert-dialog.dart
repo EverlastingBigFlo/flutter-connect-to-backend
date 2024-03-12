@@ -27,7 +27,7 @@ class DialogBox extends StatelessWidget {
     required this.onCancel,
   });
 
-  void _showDialog(BuildContext context) {
+  void showDialogg(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -67,7 +67,7 @@ class DialogBox extends StatelessWidget {
     return MyButton(
       text: 'Show Dialog',
       onPressed: () {
-        _showDialog(context);
+        showDialogg(context);
       },
     );
   }

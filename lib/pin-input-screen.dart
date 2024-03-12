@@ -1,3 +1,4 @@
+import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
@@ -49,7 +50,17 @@ class _PinInputScreenState extends State<PinInputScreen> {
     super.dispose();
   }
 
-  void submit() {}
+void submit() {
+    DialogBox(
+      onSave: () {
+        Navigator.pop(context);
+      },
+      onCancel: () {
+        Navigator.pop(context);
+      },
+    ).showDialogg(context); 
+  }
+
 
   @override
   Widget build(BuildContext context) {
