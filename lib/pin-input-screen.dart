@@ -34,6 +34,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     focusnode1.requestFocus();
   }
 
+  @override
   void dispose() {
     controller1.dispose();
     controller2.dispose();
@@ -46,6 +47,11 @@ class _PinInputScreenState extends State<PinInputScreen> {
     focusnode4.dispose();
 
     super.dispose();
+  }
+
+  void submit() {
+    AlertDialog alert = AlertDialog();
+// alert.AlertDialog(context);
   }
 
   @override
