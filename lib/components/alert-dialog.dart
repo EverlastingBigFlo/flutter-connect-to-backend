@@ -5,7 +5,7 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const MyButton({super.key, required this.text, required this.onPressed});
+  const MyButton({Key? key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class DialogBox extends StatelessWidget {
   final VoidCallback onCancel;
 
   const DialogBox({
-    super.key,
+    Key? key,
     required this.onSave,
     required this.onCancel,
   });
