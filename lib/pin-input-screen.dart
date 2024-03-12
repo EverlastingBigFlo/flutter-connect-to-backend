@@ -2,10 +2,19 @@ import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
 class PinInputScreen extends StatefulWidget {
-  const PinInputScreen({super.key});
+  PinInputScreen({super.key});
 
   @override
   State<PinInputScreen> createState() => _PinInputScreenState();
+  late TextEditingController controller1;
+  late TextEditingController controller2;
+  late TextEditingController controller3;
+  late TextEditingController controller4;
+
+  late FocusNode focusnode1;
+  late FocusNode focusnode2;
+  late FocusNode focusnode3;
+  late FocusNode focusnode4;
 }
 
 class _PinInputScreenState extends State<PinInputScreen> {
