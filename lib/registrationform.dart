@@ -230,14 +230,14 @@ class _MyFormState extends State<MyForm> {
                                     ? TextDecoration.underline
                                     : null,
                               ),
-                              
                             ),
+                            SizedBox(width: 4),
                             Text(
                               'Terms of conditions',
                               style: TextStyle(
                                 fontSize: 12,
                                 color:
-                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                    _agreeToTerms ? Colors.blue : const Color.fromARGB(255, 4, 50, 89),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -267,7 +267,6 @@ class _MyFormState extends State<MyForm> {
                             ),
                           ],
                         ),
-                      
                       ),
                     ),
                   ],
