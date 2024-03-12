@@ -30,6 +30,17 @@ class _PinInputScreenState extends State<PinInputScreen> {
           width: 45,
           child: TextFormField(
             maxLength: 1,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+                contentPadding: const EdgeInsetsDirectional.symmetric(
+                  vertical: 10,
+                  horizontal: 10,
+                ),
+                filled: true,
+                border:
+                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                fillColor: Colors.blueGrey,
+                counter: const SizedBox.shrink()),
           ),
         ));
   }
