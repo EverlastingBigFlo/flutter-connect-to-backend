@@ -238,12 +238,13 @@ class _MyFormState extends State<MyForm> {
                                 fontSize: 12,
                                 color: _agreeToTerms
                                     ? Colors.blue
-                                    : const Color.fromARGB(255, 4, 50, 89),
+                                    : const Color.fromARGB(255, 7, 84, 151),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
                               ),
                             ),
+                            SizedBox(width: 4),
                             Text(
                               'and',
                               style: TextStyle(
@@ -255,25 +256,23 @@ class _MyFormState extends State<MyForm> {
                                     : null,
                               ),
                             ),
-                            Text(
-                              'Privacy policy',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: _agreeToTerms
-                                    ? Colors.blue
-                                    : Color.fromARGB(255, 7, 84, 151),
-                                decoration: _agreeToTerms
-                                    ? TextDecoration.underline
-                                    : null,
-                              ),
-                            ),
+                            SizedBox(width: 4),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-
+                Text(
+                  'Privacy policy',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: _agreeToTerms
+                        ? Colors.blue
+                        : Color.fromARGB(255, 7, 84, 151),
+                    decoration: _agreeToTerms ? TextDecoration.underline : null,
+                  ),
+                ),
                 // sign up button
                 const SizedBox(height: 10),
                 ElevatedButton(
