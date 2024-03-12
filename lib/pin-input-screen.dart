@@ -2,51 +2,78 @@ import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
 class PinInputScreen extends StatefulWidget {
-  PinInputScreen({super.key});
+  PinInputScreen({Key? key}) : super(key: key);
 
   @override
   State<PinInputScreen> createState() => _PinInputScreenState();
-  late TextEditingController controller1;
-  late TextEditingController controller2;
-  late TextEditingController controller3;
-  late TextEditingController controller4;
 
-  late FocusNode focusnode1;
-  late FocusNode focusnode2;
-  late FocusNode focusnode3;
-  late FocusNode focusnode4;
+  late TextEditingController controller1 = TextEditingController();
+  late TextEditingController controller2 = TextEditingController();
+  late TextEditingController controller3 = TextEditingController();
+  late TextEditingController controller4 = TextEditingController();
+
+  late FocusNode focusnode1 = FocusNode();
+  late FocusNode focusnode2 = FocusNode();
+  late FocusNode focusnode3 = FocusNode();
+  late FocusNode focusnode4 = FocusNode();
 }
 
 class _PinInputScreenState extends State<PinInputScreen> {
+  @override
+  void initState() {
+    super.initState();
+    widget.focusnode1.requestFocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Center(
-            child: MyText(
-          color: Color(0xFF470037),
-          fontSize: 1.2,
-          fontWeight: FontWeight.bold,
-          text: 'PIN',
-        )),
+          child: MyText(
+            color: Color(0xFF470037),
+            fontSize: 1.2,
+            fontWeight: FontWeight.bold,
+            text: 'PIN',
+          ),
+        ),
       ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            PinInput(),
+            PinInput(
+              controllers: widget.controller1,
+              focusnode: widget.focusnode1,
+              nextFocusnode: widget.focusnode2,
+            ),
             const SizedBox(
               width: 30,
             ),
-            PinInput(),
+            PinInput(
+              controllers: widget.controller2,
+              focusnode: widget.focusnode2,
+              nextFocusnode: widget.focusnode3,
+            ),
             const SizedBox(
               width: 30,
             ),
-            PinInput(),
+            PinInput(
+              controllers: widget.controller3,
+              focusnode: widget.focusnode3,
+              nextFocusnode: widget.focusnode4,
+            ),
             const SizedBox(
               width: 30,
             ),
-            PinInput(),
+            PinInput(
+              controllers: widget.controller4,
+              focusnode: widget.focusnode4,
+              isLast: true,
+              func: () {
+                // Your callback function logic here
+              },
+            ),
           ],
         ),
       ),
