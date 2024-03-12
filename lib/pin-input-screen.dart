@@ -14,10 +14,24 @@ class _PinInputScreenState extends State<PinInputScreen> {
       appBar: AppBar(
         title: Center(child: Text('PIN Input')),
       ),
-      body: Row(
-        children: [
-          PinInput(),
-        ],
+      body: Center(
+        child: Row(
+          children: [
+            PinInput(),
+            const SizedBox(
+              width: 8,
+            ),
+            PinInput(),
+            const SizedBox(
+              width: 8,
+            ),
+            PinInput(),
+            const SizedBox(
+              width: 8,
+            ),
+            PinInput(),
+          ],
+        ),
       ),
     );
   }
@@ -41,8 +55,7 @@ class PinInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SizedBox(
+    return SizedBox(
       width: 45,
       child: TextFormField(
         controller: controllers,
@@ -64,6 +77,6 @@ class PinInput extends StatelessWidget {
             fillColor: Colors.blueGrey,
             counter: const SizedBox.shrink()),
       ),
-    ));
+    );
   }
 }
