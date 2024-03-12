@@ -25,6 +25,20 @@ class _PinInputScreenState extends State<PinInputScreen> {
     widget.focusnode1.requestFocus();
   }
 
+  void dispose() {
+    widget.controller1.dispose();
+    widget.controller2.dispose();
+    widget.controller3.dispose();
+    widget.controller4.dispose();
+
+    widget.focusnode1.dispose();
+    widget.focusnode2.dispose();
+    widget.focusnode3.dispose();
+    widget.focusnode4.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,9 +84,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
               controllers: widget.controller4,
               focusnode: widget.focusnode4,
               isLast: true,
-              func: () {
-                // Your callback function logic here
-              },
+              func: () {},
             ),
           ],
         ),
