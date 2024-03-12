@@ -265,14 +265,14 @@ class _MyFormState extends State<MyForm> {
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                  padding: const EdgeInsets.only(left: 50),
                   child: Text(
                     'Privacy policy',
                     style: TextStyle(
                       fontSize: 12,
                       color: _agreeToTerms
                           ? Colors.blue
-                          : Color.fromARGB(255, 7, 84, 151),
+                          : const Color.fromARGB(255, 7, 84, 151),
                       decoration:
                           _agreeToTerms ? TextDecoration.underline : null,
                     ),
