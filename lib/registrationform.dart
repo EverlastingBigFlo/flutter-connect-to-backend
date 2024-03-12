@@ -303,7 +303,7 @@ class _MyFormState extends State<MyForm> {
                 ElevatedButton(
                   onPressed: () {
                     if (_agreeToTerms) {
-                      String firstname = widget.firstnameController!.text;
+                      String fullname = widget.firstnameController!.text;
                       String email = widget.emailController!.text;
                       // int phone =
                       // int.tryParse(widget.phoneController!.text) ?? 0;
@@ -312,7 +312,7 @@ class _MyFormState extends State<MyForm> {
                       String confirmPassword =
                           widget.confirmPasswordController!.text;
 
-                      print('Firstname: $firstname');
+                      print('Fullname: $fullname');
                       print('Email: $email');
                       print('Phone: $phone');
                       print('Password: $password');

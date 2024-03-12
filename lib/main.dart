@@ -1,4 +1,5 @@
 // import 'package:connectingtobackend/otp.dart';
+import 'package:connectingtobackend/pin-input-screen.dart';
 import 'package:connectingtobackend/registrationform.dart';
 import 'package:flutter/material.dart';
 
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        // '/': (context) => PinInputScreen(),
-        '/': (context) => MyForm(),
+        '/': (context) => PinInputScreen(),
+        // '/': (context) => MyForm(),
       },
     );
   }
