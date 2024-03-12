@@ -314,7 +314,7 @@ class _MyFormState extends State<MyForm> {
                   height: 10,
                 ),
                 // already have an account
-                const Padding(
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: Row(
                     children: [
@@ -323,6 +323,9 @@ class _MyFormState extends State<MyForm> {
                           fontSize: 1.0,
                           fontWeight: FontWeight.normal,
                           text: 'Already have an Account?'),
+                      // InkWell(
+                      //   onTap: () => {},
+                      // )
                     ],
                   ),
                 )
