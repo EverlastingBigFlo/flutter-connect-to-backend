@@ -2,11 +2,13 @@ import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
 class PinInputScreen extends StatefulWidget {
-  PinInputScreen({Key? key}) : super(key: key);
+  const PinInputScreen({super.key});
 
   @override
   State<PinInputScreen> createState() => _PinInputScreenState();
+}
 
+class _PinInputScreenState extends State<PinInputScreen> {
   late TextEditingController controller1;
   late TextEditingController controller2;
   late TextEditingController controller3;
@@ -16,35 +18,32 @@ class PinInputScreen extends StatefulWidget {
   late FocusNode focusnode2;
   late FocusNode focusnode3;
   late FocusNode focusnode4;
-}
-
-class _PinInputScreenState extends State<PinInputScreen> {
   @override
   void initState() {
     super.initState();
-    widget.controller1 = TextEditingController();
-    widget.controller2 = TextEditingController();
-    widget.controller3 = TextEditingController();
-    widget.controller4 = TextEditingController();
+    controller1 = TextEditingController();
+    controller2 = TextEditingController();
+    controller3 = TextEditingController();
+    controller4 = TextEditingController();
 
-    widget.focusnode1 = FocusNode();
-    widget.focusnode2 = FocusNode();
-    widget.focusnode3 = FocusNode();
-    widget.focusnode4 = FocusNode();
+    focusnode1 = FocusNode();
+    focusnode2 = FocusNode();
+    focusnode3 = FocusNode();
+    focusnode4 = FocusNode();
 
-    widget.focusnode1.requestFocus();
+    focusnode1.requestFocus();
   }
 
   void dispose() {
-    widget.controller1.dispose();
-    widget.controller2.dispose();
-    widget.controller3.dispose();
-    widget.controller4.dispose();
+    controller1.dispose();
+    controller2.dispose();
+    controller3.dispose();
+    controller4.dispose();
 
-    widget.focusnode1.dispose();
-    widget.focusnode2.dispose();
-    widget.focusnode3.dispose();
-    widget.focusnode4.dispose();
+    focusnode1.dispose();
+    focusnode2.dispose();
+    focusnode3.dispose();
+    focusnode4.dispose();
 
     super.dispose();
   }
@@ -67,32 +66,32 @@ class _PinInputScreenState extends State<PinInputScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinInput(
-              controllers: widget.controller1,
-              focusnode: widget.focusnode1,
-              nextFocusnode: widget.focusnode2,
+              controllers: controller1,
+              focusnode: focusnode1,
+              nextFocusnode: focusnode2,
             ),
             const SizedBox(
               width: 30,
             ),
             PinInput(
-              controllers: widget.controller2,
-              focusnode: widget.focusnode2,
-              nextFocusnode: widget.focusnode3,
+              controllers: controller2,
+              focusnode: focusnode2,
+              nextFocusnode: focusnode3,
             ),
             const SizedBox(
               width: 30,
             ),
             PinInput(
-              controllers: widget.controller3,
-              focusnode: widget.focusnode3,
-              nextFocusnode: widget.focusnode4,
+              controllers: controller3,
+              focusnode: focusnode3,
+              nextFocusnode: focusnode4,
             ),
             const SizedBox(
               width: 30,
             ),
             PinInput(
-              controllers: widget.controller4,
-              focusnode: widget.focusnode4,
+              controllers: controller4,
+              focusnode: focusnode4,
               isLast: true,
               func: () {},
             ),
