@@ -243,7 +243,7 @@ class _MyFormState extends State<MyForm> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF600852)),
+                      backgroundColor: const Color(0xFF600852)),
                   child: const Text('SIGN UP'),
                 ),
               ],
