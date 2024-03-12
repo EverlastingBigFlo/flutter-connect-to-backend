@@ -13,17 +13,17 @@ class DialogExample extends StatelessWidget {
           content: const Text('AlertDialog description'),
           actions: <Widget>[
             TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
+              onPressed: () => Navigator.pop(context, 'NO'),
+              child: const Text('NO'),
             ),
             TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
+              onPressed: () => Navigator.pop(context, 'YES'),
+              child: const Text('YES'),
             ),
           ],
         ),
       ),
-      child: const Text('Show Dialog'),
+      child: const Text('Are you sure you want to proceed?'),
     );
   }
 }
