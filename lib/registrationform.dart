@@ -10,7 +10,7 @@ class MyForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  MyForm({super.key, thia});
+  MyForm({super.key,});
 
   @override
   _MyFormState createState() => _MyFormState();
