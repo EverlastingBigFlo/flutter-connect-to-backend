@@ -1,3 +1,4 @@
+import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
 class PinInputScreen extends StatefulWidget {
@@ -12,7 +13,13 @@ class _PinInputScreenState extends State<PinInputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('PIN Input')),
+        title: const Center(
+            child: MyText(
+          color: Color(0xFF470037),
+          fontSize: 1.2,
+          fontWeight: FontWeight.bold,
+          text: 'PIN',
+        )),
       ),
       body: Center(
         child: Row(
@@ -75,7 +82,7 @@ class PinInput extends StatelessWidget {
             ),
             filled: true,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-            fillColor: Colors.blueGrey,
+            fillColor: const Color(0xFF470037),
             counter: const SizedBox.shrink()),
       ),
     );
