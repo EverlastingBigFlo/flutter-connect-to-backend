@@ -16,18 +16,19 @@ class _PinInputScreenState extends State<PinInputScreen> {
       ),
       body: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             PinInput(),
             const SizedBox(
-              width: 8,
+              width: 30,
             ),
             PinInput(),
             const SizedBox(
-              width: 8,
+              width: 30,
             ),
             PinInput(),
             const SizedBox(
-              width: 8,
+              width: 30,
             ),
             PinInput(),
           ],
