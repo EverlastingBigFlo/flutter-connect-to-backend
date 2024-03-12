@@ -82,7 +82,7 @@ class PinField extends StatelessWidget {
         textAlign: TextAlign.center,
         keyboardType: TextInputType.number,
         maxLength: 1,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           counterText: '',
           hintText: '*',
         ),
