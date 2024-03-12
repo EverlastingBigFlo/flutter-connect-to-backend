@@ -50,17 +50,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
     super.dispose();
   }
 
-void submit() {
-    DialogBox(
-      onSave: () {
-        Navigator.pop(context);
-      },
-      onCancel: () {
-        Navigator.pop(context);
-      },
-    ).showDialogg(context); 
+  void submit() {
+    DialogBox().showDialogg(context);
   }
-
 
   @override
   Widget build(BuildContext context) {

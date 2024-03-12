@@ -5,7 +5,8 @@ class MyButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const MyButton({Key? key, required this.text, required this.onPressed});
+  const MyButton(
+      {super.key, Key? required, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +22,7 @@ class MyButton extends StatelessWidget {
 }
 
 class DialogBox extends StatelessWidget {
-  final VoidCallback onSave;
-  final VoidCallback onCancel;
-
-  const DialogBox({
-    Key? key,
-    required this.onSave,
-    required this.onCancel,
-  });
+  const DialogBox({super.key});
 
   void showDialogg(BuildContext context) {
     showDialog(
@@ -43,28 +37,28 @@ class DialogBox extends StatelessWidget {
               children: [
                 const MyText(
                   color: Color(0xFF470037),
-                  fontSize: 15,
+                  fontSize: 1,
                   fontWeight: FontWeight.bold,
-                  text: 'Are you sure you want to proceed?',
+                  text: 'Pin Confirmed',
                 ),
 
                 // Cancel and Save buttons
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MyButton(
-                      text: 'YES',
-                      onPressed: onSave,
-                      // Setting text color to white
-                    ),
-                    const SizedBox(width: 15),
-                    MyButton(
-                      text: 'NO',
-                      onPressed: onCancel,
-                      // Setting text color to white
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     MyButton(
+                //       text: 'YES',
+                //       onPressed: onSave,
+                //       // Setting text color to white
+                //     ),
+                //     const SizedBox(width: 15),
+                //     MyButton(
+                //       text: 'NO',
+                //       onPressed: onCancel,
+                //       // Setting text color to white
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
