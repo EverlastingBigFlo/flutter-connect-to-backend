@@ -15,7 +15,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('PIN Input'),
+        title: Center(child: Text('PIN Input')),
       ),
       body: Center(
         child: Padding(
