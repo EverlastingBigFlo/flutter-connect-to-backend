@@ -67,7 +67,7 @@ class _MyFormState extends State<MyForm> {
                 // textfield area
                 Column(
                   children: [
-                    const SizedBox(height: 35),
+                    const SizedBox(height: 25),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
