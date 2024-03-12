@@ -7,21 +7,31 @@ class PinInputScreen extends StatefulWidget {
   @override
   State<PinInputScreen> createState() => _PinInputScreenState();
 
-  late TextEditingController controller1 = TextEditingController();
-  late TextEditingController controller2 = TextEditingController();
-  late TextEditingController controller3 = TextEditingController();
-  late TextEditingController controller4 = TextEditingController();
+  late TextEditingController controller1;
+  late TextEditingController controller2;
+  late TextEditingController controller3;
+  late TextEditingController controller4;
 
-  late FocusNode focusnode1 = FocusNode();
-  late FocusNode focusnode2 = FocusNode();
-  late FocusNode focusnode3 = FocusNode();
-  late FocusNode focusnode4 = FocusNode();
+  late FocusNode focusnode1;
+  late FocusNode focusnode2;
+  late FocusNode focusnode3;
+  late FocusNode focusnode4;
 }
 
 class _PinInputScreenState extends State<PinInputScreen> {
   @override
   void initState() {
     super.initState();
+    widget.controller1 = TextEditingController();
+    widget.controller2 = TextEditingController();
+    widget.controller3 = TextEditingController();
+    widget.controller4 = TextEditingController();
+
+    widget.focusnode1 = FocusNode();
+    widget.focusnode2 = FocusNode();
+    widget.focusnode3 = FocusNode();
+    widget.focusnode4 = FocusNode();
+
     widget.focusnode1.requestFocus();
   }
 
