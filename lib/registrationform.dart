@@ -67,7 +67,7 @@ class _MyFormState extends State<MyForm> {
                 // textfield area
                 Column(
                   children: [
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -93,7 +93,7 @@ class _MyFormState extends State<MyForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -119,7 +119,7 @@ class _MyFormState extends State<MyForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -145,7 +145,7 @@ class _MyFormState extends State<MyForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -171,7 +171,7 @@ class _MyFormState extends State<MyForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -197,7 +197,7 @@ class _MyFormState extends State<MyForm> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 25),
+                    const SizedBox(height: 20),
                   ],
                 ),
 
