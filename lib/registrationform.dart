@@ -236,8 +236,9 @@ class _MyFormState extends State<MyForm> {
                               'Terms of conditions',
                               style: TextStyle(
                                 fontSize: 12,
-                                color:
-                                    _agreeToTerms ? Colors.blue : const Color.fromARGB(255, 4, 50, 89),
+                                color: _agreeToTerms
+                                    ? Colors.blue
+                                    : const Color.fromARGB(255, 4, 50, 89),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -258,8 +259,9 @@ class _MyFormState extends State<MyForm> {
                               'Privacy policy',
                               style: TextStyle(
                                 fontSize: 12,
-                                color:
-                                    _agreeToTerms ? Colors.blue : Colors.blue,
+                                color: _agreeToTerms
+                                    ? Colors.blue
+                                    : Color.fromARGB(255, 7, 84, 151),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
