@@ -12,7 +12,10 @@ class MyButton extends StatelessWidget {
     return MaterialButton(
       onPressed: onPressed,
       color: const Color(0xFF470037),
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(color: Colors.white),
+      ),
     );
   }
 }
@@ -40,7 +43,7 @@ class DialogBox extends StatelessWidget {
               children: [
                 const MyText(
                   color: Color(0xFF470037),
-                  fontSize: 1,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold,
                   text: 'Are you sure you want to proceed?',
                 ),
@@ -49,9 +52,17 @@ class DialogBox extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    MyButton(text: 'YES', onPressed: onSave),
+                    MyButton(
+                      text: 'YES',
+                      onPressed: onSave,
+                      // Setting text color to white
+                    ),
                     const SizedBox(width: 15),
-                    MyButton(text: 'NO', onPressed: onCancel),
+                    MyButton(
+                      text: 'NO',
+                      onPressed: onCancel,
+                      // Setting text color to white
+                    ),
                   ],
                 ),
               ],
