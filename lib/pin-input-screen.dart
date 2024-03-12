@@ -49,35 +49,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     super.dispose();
   }
 
-  void submit() {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Confirmation'),
-          content: Text('Are you sure you want to proceed?'),
-          actions: [
-            // Save button
-            TextButton(
-              onPressed: () {
-                // Handle save action here
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text('YES'),
-            ),
-            // Cancel button
-            TextButton(
-              onPressed: () {
-                // Handle cancel action here
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: Text('NO'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  void submit() {}
 
   @override
   Widget build(BuildContext context) {
@@ -138,14 +110,14 @@ class PinInput extends StatelessWidget {
   late TextEditingController? controllers;
   late FocusNode? focusnode;
   late FocusNode? nextFocusnode;
-  bool? isLast = false;
+  late bool? isLast = false;
   final VoidCallback? func;
 
   PinInput(
       {super.key,
       this.func,
-      this.controllers,
-      this.focusnode,
+      required this.controllers,
+      required this.focusnode,
       this.nextFocusnode,
       this.isLast = false});
 
