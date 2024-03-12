@@ -315,17 +315,25 @@ class _MyFormState extends State<MyForm> {
                 ),
                 // already have an account
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 65),
                   child: Row(
                     children: [
-                      MyText(
+                      const MyText(
                           color: Color(0xFF470037),
                           fontSize: 1.0,
                           fontWeight: FontWeight.normal,
                           text: 'Already have an Account?'),
-                      // InkWell(
-                      //   onTap: () => {},
-                      // )
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: const Text('Sign In',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF470037))),
+                      )
                     ],
                   ),
                 )
