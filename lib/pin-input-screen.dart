@@ -99,7 +99,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
               controllers: controller4,
               focusnode: focusnode4,
               isLast: true,
-              func: () {},
+              func: submit,
             ),
           ],
         ),
