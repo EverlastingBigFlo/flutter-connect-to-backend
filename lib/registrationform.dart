@@ -233,7 +233,7 @@ class _MyFormState extends State<MyForm> {
                 ),
 
                 // sign up button
-                const SizedBox(height: 24),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     if (_agreeToTerms) {
@@ -244,7 +244,14 @@ class _MyFormState extends State<MyForm> {
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852)),
-                  child: const Text('SIGN UP'),
+                  child: const Text(
+                    'SIGN UP',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
               ],
             ),

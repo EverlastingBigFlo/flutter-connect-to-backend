@@ -6,10 +6,15 @@ class MyText extends StatelessWidget {
   final double fontSize;
   final FontWeight fontWeight;
 
-  const MyText({super.key, required this.color, required this.fontSize, required this.fontWeight, required this.text});
+  const MyText(
+      {super.key,
+      required this.color,
+      required this.fontSize,
+      required this.fontWeight,
+      required this.text});
 
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Text(
       text,
       style: TextStyle(color: Color(0xFF470037)),
