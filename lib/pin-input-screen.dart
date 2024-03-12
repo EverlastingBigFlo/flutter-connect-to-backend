@@ -10,10 +10,20 @@ class PinInputScreen extends StatefulWidget {
 class _PinInputScreenState extends State<PinInputScreen> {
   @override
   Widget build(BuildContext context) {
-    return PinInput();
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text('PIN Input')),
+      ),
+      body: Row(
+        children: [
+          PinInput(),
+        ],
+      ),
+    );
   }
 }
 
+// the pininpus logic
 class PinInput extends StatelessWidget {
   late TextEditingController? controllers;
   late FocusNode? focusnode;
@@ -32,32 +42,28 @@ class PinInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(child: Text('PIN Input')),
-        ),
         body: SizedBox(
-          width: 45,
-          child: TextFormField(
-            controller: controllers,
-            focusNode: focusnode,
-            maxLength: 1,
-            onChanged: (value) => {
-              if (value != '' && nextFocusnode != null)
-                {nextFocusnode!.requestFocus()},
-              if (isLast == true && value != '') {func!()}
-            },
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-                contentPadding: const EdgeInsetsDirectional.symmetric(
-                  vertical: 10,
-                  horizontal: 10,
-                ),
-                filled: true,
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-                fillColor: Colors.blueGrey,
-                counter: const SizedBox.shrink()),
-          ),
-        ));
+      width: 45,
+      child: TextFormField(
+        controller: controllers,
+        focusNode: focusnode,
+        maxLength: 1,
+        onChanged: (value) => {
+          if (value != '' && nextFocusnode != null)
+            {nextFocusnode!.requestFocus()},
+          if (isLast == true && value != '') {func!()}
+        },
+        keyboardType: TextInputType.number,
+        decoration: InputDecoration(
+            contentPadding: const EdgeInsetsDirectional.symmetric(
+              vertical: 10,
+              horizontal: 10,
+            ),
+            filled: true,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+            fillColor: Colors.blueGrey,
+            counter: const SizedBox.shrink()),
+      ),
+    ));
   }
 }
