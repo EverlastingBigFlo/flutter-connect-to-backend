@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class PinInputScreen extends StatefulWidget {
+class PinInputScreen extends StatelessWidget {
   late TextEditingController? controllers;
   late FocusNode? focusnode;
   late FocusNode? nextFocusnode;
@@ -16,25 +16,6 @@ class PinInputScreen extends StatefulWidget {
       this.isLast = false});
 
   @override
-  _PinInputScreenState createState() => _PinInputScreenState();
-}
-
-class _PinInputScreenState extends State<PinInputScreen> {
-  late FocusNode nextFocusnode;
-
-  @override
-  void initState() {
-    super.initState();
-    nextFocusnode = FocusNode();
-  }
-
-  @override
-  void dispose() {
-    nextFocusnode.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
@@ -43,13 +24,13 @@ class _PinInputScreenState extends State<PinInputScreen> {
         body: SizedBox(
           width: 45,
           child: TextFormField(
-            controller: widget.controllers,
-            focusNode: widget.focusnode,
+            controller: controllers,
+            focusNode: focusnode,
             maxLength: 1,
             onChanged: (value) => {
               if (value != '' && nextFocusnode != null)
                 {nextFocusnode!.requestFocus()},
-              if (widget.isLast == true && value != '') {widget.func!()}
+              if (isLast == true && value != '') {func!()}
             },
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
