@@ -52,6 +52,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
   void submit() {
     DialogBox.showConfirmationDialog(context);
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      DialogBox.dismissDialog(context);
+    });
   }
 
   @override

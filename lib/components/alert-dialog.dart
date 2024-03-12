@@ -18,7 +18,7 @@ class MyButton extends StatelessWidget {
       color: const Color(0xFF470037),
       child: Text(
         text,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
@@ -33,14 +33,14 @@ class DialogBox {
           content: Container(
             height: 200,
             width: 350,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const MyText(
+                MyText(
                   color: Color(0xFF470037),
                   fontSize: 1,
                   fontWeight: FontWeight.bold,
-                  text: 'Pin Confirmed',
+                  text: 'Loading.....',
                 ),
               ],
             ),
