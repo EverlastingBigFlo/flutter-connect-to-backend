@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
-  
-  const MyForm({super.key});
+  TextEditingController? firstnameController;
+  TextEditingController? emailController;
+  TextEditingController? phoneController;
+  TextEditingController? passwordController;
+  TextEditingController? confirmPasswordController;
+  MyForm({super.key});
 
   @override
   _MyFormState createState() => _MyFormState();
