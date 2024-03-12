@@ -35,15 +35,15 @@ class _MyFormState extends State<MyForm> {
     widget.confirmPasswordController = TextEditingController();
   }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   firstnameController.dispose();
-  //   emailController.dispose();
-  //   phoneController.dispose();
-  //   passwordController.dispose();
-  //   confirmPasswordController.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    widget.firstnameController!.dispose();
+    widget.emailController!.dispose();
+    widget.phoneController!.dispose();
+    widget.passwordController!.dispose();
+    widget.confirmPasswordController!.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +147,7 @@ class _MyFormState extends State<MyForm> {
                         ],
                       ),
                       child: TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
                         controller: widget.phoneController,
                         decoration: InputDecoration(
                           hintText: 'Phone Number',
@@ -302,7 +303,20 @@ class _MyFormState extends State<MyForm> {
                 ElevatedButton(
                   onPressed: () {
                     if (_agreeToTerms) {
-                      print('Agreement accepted');
+                      String firstname = widget.firstnameController!.text;
+                      String email = widget.emailController!.text;
+                      int phone =
+                          int.tryParse(widget.phoneController!.text) ?? 0;
+                      // int phone = widget.phoneController!.text;
+                      String password = widget.passwordController!.text;
+                      String confirmPassword =
+                          widget.confirmPasswordController!.text;
+
+                      print('Firstname: $firstname');
+                      print('Email: $email');
+                      print('Phone: $phone');
+                      print('Password: $password');
+                      print('Confirm Password: $confirmPassword');
                     } else {
                       print('Please agree to the terms and conditions');
                     }
