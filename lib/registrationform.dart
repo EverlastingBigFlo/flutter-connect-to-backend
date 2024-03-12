@@ -226,14 +226,15 @@ class _MyFormState extends State<MyForm> {
                               'I have read and agree to the',
                               style: TextStyle(
                                 fontSize: 12,
-                                color:
-                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                color: _agreeToTerms
+                                    ? Colors.blue
+                                    : const Color(0xFF470037),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
                               ),
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
                               'Terms of conditions',
                               style: TextStyle(
@@ -246,13 +247,14 @@ class _MyFormState extends State<MyForm> {
                                     : null,
                               ),
                             ),
-                            SizedBox(width: 4),
+                            const SizedBox(width: 4),
                             Text(
                               'and',
                               style: TextStyle(
                                 fontSize: 12,
-                                color:
-                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                color: _agreeToTerms
+                                    ? Colors.blue
+                                    : const Color(0xFF470037),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -306,13 +308,20 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-              
-              // already have an account
-              Row(
-                children: [
-                  
-                ],
-              )
+
+                // already have an account
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: const Row(
+                    children: [
+                      MyText(
+                          color: Color(0xFF470037),
+                          fontSize: 1.0,
+                          fontWeight: FontWeight.normal,
+                          text: 'Already have an Account?'),
+                    ],
+                  ),
+                )
               ],
             ),
           )),
