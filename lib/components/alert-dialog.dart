@@ -1,4 +1,4 @@
-
+import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 
 // ignore_for_file: must_be_immutable
@@ -16,7 +16,6 @@ class MyButton extends StatelessWidget {
     );
   }
 }
-
 
 class DialogBox extends StatelessWidget {
   VoidCallback onSave;
@@ -37,29 +36,23 @@ class DialogBox extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            // get user input
-            TextField(
-              controller: controller,
-              decoration: const InputDecoration(
-                  hintText: "Add a new task",
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.red,
-                    ),
-                  )),
-            ),
+            const MyText(
+                color: Color(0xFF470037),
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                text: '"Are you sure you want to proceed?"'),
 
             //cancel button and save button below
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // save button
-                MyButton(text: 'Save', onPressed: onSave),
+                MyButton(text: 'YES', onPressed: onSave),
                 const SizedBox(
                   width: 8,
                 ),
                 //cancel button
-                MyButton(text: 'Cancel', onPressed: onCancel)
+                MyButton(text: 'NO', onPressed: onCancel)
               ],
             )
           ],
