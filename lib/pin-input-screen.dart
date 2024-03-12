@@ -38,6 +38,13 @@ class _PinInputScreenState extends State<PinInputScreen> {
           width: 45,
           child: TextFormField(
             maxLength: 1,
+
+onChanged: (value) =>{
+  if(value!='' && nextFocusnode!=null){
+    nextFocusnode!.requestFocus()
+  },
+},
+
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
                 contentPadding: const EdgeInsetsDirectional.symmetric(
