@@ -2,6 +2,7 @@
 
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -218,6 +219,7 @@ class _MyFormState extends State<MyForm> {
                             _agreeToTerms = !_agreeToTerms;
                           });
                         },
+                        // agreement text
                         child: Row(
                           children: [
                             Text(
@@ -256,23 +258,27 @@ class _MyFormState extends State<MyForm> {
                                     : null,
                               ),
                             ),
-                            SizedBox(width: 4),
                           ],
                         ),
                       ),
                     ),
                   ],
                 ),
-                Text(
-                  'Privacy policy',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: _agreeToTerms
-                        ? Colors.blue
-                        : Color.fromARGB(255, 7, 84, 151),
-                    decoration: _agreeToTerms ? TextDecoration.underline : null,
+                Padding(
+                  padding: EdgeInsets.fromLTRB(50, 0, 0, 0),
+                  child: Text(
+                    'Privacy policy',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: _agreeToTerms
+                          ? Colors.blue
+                          : Color.fromARGB(255, 7, 84, 151),
+                      decoration:
+                          _agreeToTerms ? TextDecoration.underline : null,
+                    ),
                   ),
                 ),
+
                 // sign up button
                 const SizedBox(height: 10),
                 ElevatedButton(
