@@ -218,14 +218,20 @@ class _MyFormState extends State<MyForm> {
                             _agreeToTerms = !_agreeToTerms;
                           });
                         },
-                        child: Text(
-                          'I agree to the terms and conditions',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: _agreeToTerms ? Colors.blue : Colors.black,
-                            decoration:
-                                _agreeToTerms ? TextDecoration.underline : null,
-                          ),
+                        child: Row(
+                          children: [
+                            Text(
+                              'I agree to the terms and conditions',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color:
+                                    _agreeToTerms ? Colors.blue : Colors.black,
+                                decoration: _agreeToTerms
+                                    ? TextDecoration.underline
+                                    : null,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
