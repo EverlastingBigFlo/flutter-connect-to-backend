@@ -243,8 +243,13 @@ class _MyFormState extends State<MyForm> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF600852),
-                      fixedSize: Size(double.infinity, 60)),
+                    backgroundColor: const Color(0xFF600852),
+                    fixedSize: const Size(double.infinity, 60),
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(8), // Set border radius
+                    ),
+                  ),
                   child: const Text(
                     'SIGN UP',
                     style: TextStyle(
