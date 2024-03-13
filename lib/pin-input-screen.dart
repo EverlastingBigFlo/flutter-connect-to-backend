@@ -54,16 +54,16 @@ class _PinInputScreenState extends State<PinInputScreen> {
     super.dispose();
   }
 
-  void submit() {
+  void submit() async {
     DialogBox.showConfirmationDialog(context);
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      DialogBox.dismissDialog(context);
-    });
+    // Future.delayed(const Duration(milliseconds: 3000), () {
+    //   DialogBox.dismissDialog(context);
+    // });
 
-    void getHttp() async {
-      final response = await dio.get('https://10.0.2.2/api/hello');
-      print(response);
-    }
+    final response = await dio.get('https://10.0.2.2/api/hello');
+    print(response);
+
+    DialogBox.dismissDialog(context);
   }
 
   @override
