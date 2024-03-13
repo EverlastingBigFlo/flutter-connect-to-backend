@@ -1,6 +1,8 @@
 import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
+    import 'package:dio/dio.dart';
+
 
 class PinInputScreen extends StatefulWidget {
   const PinInputScreen({super.key});
@@ -55,6 +57,14 @@ class _PinInputScreenState extends State<PinInputScreen> {
     Future.delayed(const Duration(milliseconds: 3000), () {
       DialogBox.dismissDialog(context);
     });
+
+
+final dio = Dio();
+
+void getHttp() async {
+  final response = await dio.get('https://dart.dev');
+  print(response);
+}
   }
 
   @override
