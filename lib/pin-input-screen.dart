@@ -1,8 +1,7 @@
 import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
-    import 'package:dio/dio.dart';
-
+import 'package:dio/dio.dart';
 
 class PinInputScreen extends StatefulWidget {
   const PinInputScreen({super.key});
@@ -21,6 +20,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
   late FocusNode focusnode2;
   late FocusNode focusnode3;
   late FocusNode focusnode4;
+// declare dio
+  final dio = Dio();
+
   @override
   void initState() {
     super.initState();
@@ -58,13 +60,10 @@ class _PinInputScreenState extends State<PinInputScreen> {
       DialogBox.dismissDialog(context);
     });
 
-
-final dio = Dio();
-
-void getHttp() async {
-  final response = await dio.get('https://dart.dev');
-  print(response);
-}
+    void getHttp() async {
+      final response = await dio.get('https://dart.dev');
+      print(response);
+    }
   }
 
   @override
