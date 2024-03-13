@@ -61,7 +61,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     });
 
     void getHttp() async {
-      final response = await dio.get('https://dart.dev');
+      final response = await dio.get('https://10.0.2.2/api/hello');
       print(response);
     }
   }
