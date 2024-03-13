@@ -60,7 +60,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     //   DialogBox.dismissDialog(context);
     // });
 
-    final response = await dio.get('https://10.0.2.2:8000/api/hello');
+    final response = await dio.get('http://10.0.2.2:8000/api/hello');
     print(response);
 
     DialogBox.dismissDialog(context);
