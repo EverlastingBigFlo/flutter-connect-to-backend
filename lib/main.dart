@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
-        // '/': (context) => PinInputScreen(),
-        // '/': (context) => DatePicker(),
+        'pininput': (context) => PinInputScreen(),
         '/': (context) => MyForm(),
       },
     );
