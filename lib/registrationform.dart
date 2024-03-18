@@ -24,6 +24,7 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   bool _agreeToTerms = false;
+   bool _passwordVisible = false;
 
   @override
   void initState() {
