@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DatePicker extends StatelessWidget {
   const DatePicker({super.key});
 
@@ -19,7 +18,6 @@ class DatePicker extends StatelessWidget {
 
 class MyForm extends StatefulWidget {
   @override
-  // ignore: library_private_types_in_public_api
   _MyFormState createState() => _MyFormState();
 }
 
@@ -50,18 +48,26 @@ class _MyFormState extends State<MyForm> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Selected Date:',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              '${selectedDate.toLocal()}'.split(' ')[0],
-              style: TextStyle(fontSize: 24),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _selectDate(context),
-              child: Text('Select Date'),
+            InkWell(
+              onTap: () => _selectDate(context),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      '${selectedDate.toLocal()}'.split(' ')[0],
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(Icons.calendar_today),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
