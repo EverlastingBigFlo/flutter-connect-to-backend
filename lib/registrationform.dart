@@ -180,7 +180,8 @@ class _MyFormState extends State<MyForm> {
                             controller: widget.passwordController,
                             decoration: InputDecoration(
                               hintText: 'Password',
-                              hintStyle: const TextStyle(color: Color(0xFF470037)),
+                              hintStyle:
+                                  const TextStyle(color: Color(0xFF470037)),
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
@@ -204,18 +205,31 @@ class _MyFormState extends State<MyForm> {
                           ),
                         ],
                       ),
-                      child: TextField(
-                        controller: widget.confirmPasswordController,
-                        obscureText: _passwordVisible,
-                        decoration: InputDecoration(
-                          hintText: 'Confirm Password',
-                          hintStyle: const TextStyle(color: Color(0xFF470037)),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                      child: Row(
+                        children: [
+                          TextField(
+                            controller: widget.confirmPasswordController,
+                            obscureText: _passwordVisible,
+                            decoration: InputDecoration(
+                              hintText: 'Confirm Password',
+                              hintStyle:
+                                  const TextStyle(color: Color(0xFF470037)),
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
                           ),
-                        ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(height: 20),
