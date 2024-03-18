@@ -9,18 +9,21 @@ class DatePicker extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyForm(),
+      home: const MyForm(),
     );
   }
 }
 
 class MyForm extends StatefulWidget {
+  const MyForm({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MyFormState createState() => _MyFormState();
 }
 
 class _MyFormState extends State<MyForm> {
-  TextEditingController _dateController = TextEditingController();
+  final TextEditingController _dateController = TextEditingController();
 
   @override
   void dispose() {
