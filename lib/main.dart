@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => PinInputScreen(),
-        '/': (context) => DatePicker(),
-        // '/': (context) => MyForm(),
+        // '/': (context) => DatePicker(),
+        '/': (context) => MyForm(),
       },
     );
   }
