@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 class DatePicker extends StatelessWidget {
   const DatePicker({super.key});
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Date of Birth Selection',
@@ -22,50 +20,31 @@ class MyForm extends StatefulWidget {
 }
 
 class _MyFormState extends State<MyForm> {
-  DateTime selectedDate = DateTime.now();
+  TextEditingController _dateController = TextEditingController();
 
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-      });
-    }
+  @override
+  void dispose() {
+    _dateController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Date of Birth Selection'),
+        title: Text('Date of Birth Selection'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            InkWell(
-              onTap: () => _selectDate(context),
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '${selectedDate.toLocal()}'.split(' ')[0],
-                      style: TextStyle(fontSize: 18),
-                    ),
-                    SizedBox(width: 8),
-                    Icon(Icons.calendar_today),
-                  ],
+            TextField(
+              controller: _dateController,
+              decoration: InputDecoration(
+                labelText: 'Date of Birth',
+                suffixIcon: InkWell(
+                  onTap: () => _selectDate(context),
+                  child: Icon(Icons.calendar_today),
                 ),
               ),
             ),
@@ -73,5 +52,19 @@ class _MyFormState extends State<MyForm> {
         ),
       ),
     );
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      setState(() {
+        _dateController.text = '${picked.toLocal()}'.split(' ')[0];
+      });
+    }
   }
 }
