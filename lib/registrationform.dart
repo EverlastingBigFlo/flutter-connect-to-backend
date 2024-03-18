@@ -1,5 +1,8 @@
+// ignore_for_file: library_private_types_in_public_api, avoid_print
+
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
   TextEditingController? firstnameController;
@@ -7,14 +10,13 @@ class MyForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  MyForm({
-    super.key,
-    this.firstnameController,
-    this.emailController,
-    this.phoneController,
-    this.passwordController,
-    this.confirmPasswordController,
-  });
+  MyForm(
+      {super.key,
+      this.firstnameController,
+      this.emailController,
+      this.phoneController,
+      this.passwordController,
+      this.confirmPasswordController});
 
   @override
   _MyFormState createState() => _MyFormState();
@@ -58,28 +60,22 @@ class _MyFormState extends State<MyForm> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     // intro section
-                    Text(
-                      'Welcome',
-                      style: TextStyle(
+                    MyText(
                         color: Color(0xFF470037),
-                        fontSize: 25,
+                        fontSize: 2.5,
                         fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                        text: 'Welcome')
                   ],
                 ),
                 const SizedBox(height: 10),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Sign up to get start with your first task',
-                      style: TextStyle(
+                    MyText(
                         color: Color(0xFF470037),
-                        fontSize: 15,
+                        fontSize: 1,
                         fontWeight: FontWeight.normal,
-                      ),
-                    ),
+                        text: 'Sign up to get start with your first task'),
                   ],
                 ),
 
@@ -99,11 +95,11 @@ class _MyFormState extends State<MyForm> {
                           ),
                         ],
                       ),
-                      child: TextFormField(
+                      child: TextField(
                         controller: widget.firstnameController,
                         decoration: InputDecoration(
                           hintText: 'First and Last Name',
-                          hintStyle: TextStyle(color: Color(0xFF470037)),
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
@@ -113,9 +109,6 @@ class _MyFormState extends State<MyForm> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    // Add email, phone, and other text fields here...
-
-                    // Password field
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -128,38 +121,104 @@ class _MyFormState extends State<MyForm> {
                           ),
                         ],
                       ),
-                      child: TextFormField(
-                        controller: widget.passwordController,
-                        obscureText: !_passwordVisible,
+                      child: TextField(
+                        controller: widget.emailController,
                         decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle: TextStyle(color: Color(0xFF470037)),
+                          hintText: 'Email',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                _passwordVisible = !_passwordVisible;
-                              });
-                            },
-                            icon: Icon(
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                            ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.09),
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
+                        controller: widget.phoneController,
+                        decoration: InputDecoration(
+                          hintText: 'Phone Number',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
-                    // Add confirm password and other text fields here...
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.09),
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        controller: widget.passwordController,
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.09),
+                            spreadRadius: 5,
+                            blurRadius: 10,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        controller: widget.confirmPasswordController,
+                        obscureText: _passwordVisible,
+                        decoration: InputDecoration(
+                          hintText: 'Confirm Password',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
                   ],
                 ),
 
-                // Agree to terms and condition
+                // agree to terms and condition
                 Row(
                   children: [
                     Checkbox(
@@ -177,6 +236,7 @@ class _MyFormState extends State<MyForm> {
                             _agreeToTerms = !_agreeToTerms;
                           });
                         },
+                        // agreement text
                         child: Row(
                           children: [
                             Text(
@@ -185,7 +245,7 @@ class _MyFormState extends State<MyForm> {
                                 fontSize: 12,
                                 color: _agreeToTerms
                                     ? Colors.blue
-                                    : Color(0xFF470037),
+                                    : const Color(0xFF470037),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -198,7 +258,7 @@ class _MyFormState extends State<MyForm> {
                                 fontSize: 12,
                                 color: _agreeToTerms
                                     ? Colors.blue
-                                    : Color.fromARGB(255, 7, 84, 151),
+                                    : const Color.fromARGB(255, 7, 84, 151),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -211,7 +271,7 @@ class _MyFormState extends State<MyForm> {
                                 fontSize: 12,
                                 color: _agreeToTerms
                                     ? Colors.blue
-                                    : Color(0xFF470037),
+                                    : const Color(0xFF470037),
                                 decoration: _agreeToTerms
                                     ? TextDecoration.underline
                                     : null,
@@ -231,21 +291,24 @@ class _MyFormState extends State<MyForm> {
                       fontSize: 12,
                       color: _agreeToTerms
                           ? Colors.blue
-                          : Color.fromARGB(255, 7, 84, 151),
+                          : const Color.fromARGB(255, 7, 84, 151),
                       decoration:
                           _agreeToTerms ? TextDecoration.underline : null,
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
-
-                // Sign up button
+                const SizedBox(
+                  height: 10,
+                ),
+                // sign up button
                 const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     if (_agreeToTerms) {
                       String fullname = widget.firstnameController!.text;
                       String email = widget.emailController!.text;
+                      // int phone =
+                      // int.tryParse(widget.phoneController!.text) ?? 0;
                       String phone = widget.phoneController!.text;
                       String password = widget.passwordController!.text;
                       String confirmPassword =
@@ -261,13 +324,14 @@ class _MyFormState extends State<MyForm> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF600852),
-                    fixedSize: Size(double.infinity, 60),
+                    backgroundColor: const Color(0xFF600852),
+                    fixedSize: const Size(double.infinity, 60),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius:
+                          BorderRadius.circular(8), // Set border radius
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'SIGN UP',
                     style: TextStyle(
                       color: Colors.white,
@@ -276,7 +340,9 @@ class _MyFormState extends State<MyForm> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(
+                  height: 10,
+                ),
                 // already have an account
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 65),
