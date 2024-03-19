@@ -290,13 +290,25 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   )),
 
-              const SizedBox(height: 12.0),
+              const SizedBox(height: 20.0),
               Row(
                 children: [
                   Expanded(
-                    child: TextFormField(
-                      decoration:
-                          const InputDecoration(labelText: 'Date of Birth'),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.09),
+                              spreadRadius: 5,
+                              blurRadius: 10,
+                              offset: const Offset(0, 5),
+                            )
+                          ]),
+                      child: TextFormField(
+                        decoration:
+                            const InputDecoration(labelText: 'Date of Birth'),
+                      ),
                     ),
                   ),
                   IconButton(
