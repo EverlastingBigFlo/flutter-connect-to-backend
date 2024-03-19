@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
 import 'components/my-text.dart';
@@ -363,7 +364,12 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           widget.genderController!.text = value!;
                         });
                       },
-                      decoration: const InputDecoration(labelText: 'Gender'),
+                      decoration: InputDecoration(
+                          labelText: 'Gender',
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0))),
                     ),
                   ],
                 ),
