@@ -50,6 +50,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       text: 'Sign up to get start with your first task'),
                 ],
               ),
+              
+                // textfield area
+
               TextFormField(
                 decoration: const InputDecoration(labelText: 'First Name'),
               ),
