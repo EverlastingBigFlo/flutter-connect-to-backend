@@ -257,39 +257,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
                   )),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.09),
-                          spreadRadius: 5,
-                          blurRadius: 10,
-                          offset: const Offset(0, 5),
-                        )
-                      ]),
-                  child: TextFormField(
-                    controller: widget.confirmPasswordController,
-                    decoration: InputDecoration(
-                      hintText: 'Confirm Password',
-                      hintStyle: const TextStyle(color: Color(0xFF470037)),
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0)),
-                      suffixIcon: IconButton(
-                        icon: Icon(_isObscured
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: _togglePasswordVisibility,
-                      ),
-                    ),
-                  )),
 
-// date of birth section
               const SizedBox(height: 12.0),
               Row(
                 children: [
@@ -323,154 +291,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 },
                 decoration: const InputDecoration(labelText: 'Gender'),
               ),
-
-              // agree to terms and condition
-              Row(
-                children: [
-                  Checkbox(
-                    value: _agreeToTerms,
-                    onChanged: (value) {
-                      setState(() {
-                        _agreeToTerms = value!;
-                      });
-                    },
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _agreeToTerms = !_agreeToTerms;
-                        });
-                      },
-                      // agreement text
-                      child: Row(
-                        children: [
-                          Text(
-                            'I have read and agree to the',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: _agreeToTerms
-                                  ? Colors.blue
-                                  : const Color(0xFF470037),
-                              decoration: _agreeToTerms
-                                  ? TextDecoration.underline
-                                  : null,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            'Terms of conditions',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: _agreeToTerms
-                                  ? Colors.blue
-                                  : const Color.fromARGB(255, 7, 84, 151),
-                              decoration: _agreeToTerms
-                                  ? TextDecoration.underline
-                                  : null,
-                            ),
-                          ),
-                          const SizedBox(width: 4),
-                          Text(
-                            'and',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: _agreeToTerms
-                                  ? Colors.blue
-                                  : const Color(0xFF470037),
-                              decoration: _agreeToTerms
-                                  ? TextDecoration.underline
-                                  : null,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 50),
-                child: Text(
-                  'Privacy policy',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: _agreeToTerms
-                        ? Colors.blue
-                        : const Color.fromARGB(255, 7, 84, 151),
-                    decoration: _agreeToTerms ? TextDecoration.underline : null,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              // sign up button
-              const SizedBox(height: 10),
+              const SizedBox(height: 12.0),
               ElevatedButton(
                 onPressed: () {
-                  if (_agreeToTerms) {
-                    String fullname = widget.firstnameController!.text;
-                    String email = widget.emailController!.text;
-                    // int phone =
-                    // int.tryParse(widget.phoneController!.text) ?? 0;
-                    String phone = widget.phoneController!.text;
-                    String password = widget.passwordController!.text;
-                    String confirmPassword =
-                        widget.confirmPasswordController!.text;
-
-                    print('Fullname: $fullname');
-                    print('Email: $email');
-                    print('Phone: $phone');
-                    print('Password: $password');
-                    print('Confirm Password: $confirmPassword');
-                  } else {
-                    print('Please agree to the terms and conditions');
-                  }
+                  // Handle registration logic
                 },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF600852),
-                  fixedSize: const Size(double.infinity, 60),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8), // Set border radius
-                  ),
-                ),
-                child: const Text(
-                  'SIGN UP',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
+                child: const Text('Register'),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              // already have an account
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 65),
-                child: Row(
-                  children: [
-                    const MyText(
-                        color: Color(0xFF470037),
-                        fontSize: 1.0,
-                        fontWeight: FontWeight.normal,
-                        text: 'Already have an Account?'),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: const Text('Sign In',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF470037))),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
