@@ -199,15 +199,30 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ),
 
 // password section
-              const SizedBox(height: 12.0),
-              TextFormField(
-                obscureText: _isObscured,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                        _isObscured ? Icons.visibility : Icons.visibility_off),
-                    onPressed: _togglePasswordVisibility,
+
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.09),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: const Offset(0, 5),
+                      )
+                    ]),
+                child: TextFormField(
+                  obscureText: _isObscured,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    suffixIcon: IconButton(
+                      icon: Icon(_isObscured
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onPressed: _togglePasswordVisibility,
+                    ),
                   ),
                 ),
               ),
