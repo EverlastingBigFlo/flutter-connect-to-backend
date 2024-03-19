@@ -346,22 +346,26 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   ],
                 ),
-                child: DropdownButtonFormField<String>(
-                  value: widget.genderController!.text.isEmpty
-                      ? null
-                      : widget.genderController!.text,
-                  items: ['Male', 'Female', 'Other']
-                      .map((gender) => DropdownMenuItem(
-                            value: gender,
-                            child: Text(gender),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      widget.genderController!.text = value!;
-                    });
-                  },
-                  decoration: const InputDecoration(labelText: 'Gender'),
+                child: Column(
+                  children: [
+                    DropdownButtonFormField<String>(
+                      value: widget.genderController!.text.isEmpty
+                          ? null
+                          : widget.genderController!.text,
+                      items: ['Male', 'Female', 'Other']
+                          .map((gender) => DropdownMenuItem(
+                                value: gender,
+                                child: Text(gender),
+                              ))
+                          .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          widget.genderController!.text = value!;
+                        });
+                      },
+                      decoration: const InputDecoration(labelText: 'Gender'),
+                    ),
+                  ],
                 ),
               ),
 
