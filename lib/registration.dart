@@ -291,20 +291,20 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   )),
 
               const SizedBox(height: 20.0),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.09),
-                              spreadRadius: 5,
-                              blurRadius: 10,
-                              offset: const Offset(0, 5),
-                            )
-                          ]),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.09),
+                        spreadRadius: 5,
+                        blurRadius: 10,
+                        offset: const Offset(0, 5),
+                      )
+                    ]),
+                child: Row(
+                  children: [
+                    Expanded(
                       child: TextFormField(
                         decoration: InputDecoration(
                           hintText: 'Date of Birth',
@@ -317,14 +317,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.calendar_today),
-                    onPressed: () {
-                      // Show date picker or custom date selection widget
-                    },
-                  ),
-                ],
+                    IconButton(
+                      icon: const Icon(Icons.calendar_today),
+                      onPressed: () {
+                        // Show date picker or custom date selection widget
+                      },
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 20.0),
               DropdownButtonFormField<String>(
