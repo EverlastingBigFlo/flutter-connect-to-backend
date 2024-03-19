@@ -55,30 +55,7 @@ class _MyFormState extends State<MyForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 35),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // intro section
-                    MyText(
-                        color: Color(0xFF470037),
-                        fontSize: 2.5,
-                        fontWeight: FontWeight.bold,
-                        text: 'Welcome')
-                  ],
-                ),
-                const SizedBox(height: 10),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    MyText(
-                        color: Color(0xFF470037),
-                        fontSize: 1,
-                        fontWeight: FontWeight.normal,
-                        text: 'Sign up to get start with your first task'),
-                  ],
-                ),
-
+      
                 // textfield area
                 Column(
                   children: [

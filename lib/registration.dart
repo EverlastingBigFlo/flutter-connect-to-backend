@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/my-text.dart';
+
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({super.key});
 
@@ -25,6 +27,29 @@ class _RegistrationFormState extends State<RegistrationForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const SizedBox(height: 35),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // intro section
+                  MyText(
+                      color: Color(0xFF470037),
+                      fontSize: 2.5,
+                      fontWeight: FontWeight.bold,
+                      text: 'Welcome')
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyText(
+                      color: Color(0xFF470037),
+                      fontSize: 1,
+                      fontWeight: FontWeight.normal,
+                      text: 'Sign up to get start with your first task'),
+                ],
+              ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'First Name'),
               ),
