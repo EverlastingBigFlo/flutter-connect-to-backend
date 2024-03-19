@@ -175,34 +175,36 @@ class _MyFormState extends State<MyForm> {
                           ),
                         ],
                       ),
-                      child: Row(
-                        children: [
-                          TextField(
-                            controller: widget.passwordController,
-                            obscureText: !_passwordVisible,
-                            decoration: InputDecoration(
-                              hintText: 'Password',
-                              hintStyle: TextStyle(color: Color(0xFF470037)),
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                      child: Expanded(
+                        child: Row(
+                          children: [
+                            TextField(
+                              controller: widget.passwordController,
+                              obscureText: !_passwordVisible,
+                              decoration: InputDecoration(
+                                hintText: 'Password',
+                                hintStyle: TextStyle(color: Color(0xFF470037)),
+                                filled: true,
+                                fillColor: Colors.white,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                _passwordVisible = !_passwordVisible;
-                              });
-                            },
-                            icon: Icon(
-                              _passwordVisible
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                            ),
-                          )
-                        ],
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _passwordVisible = !_passwordVisible;
+                                });
+                              },
+                              icon: Icon(
+                                _passwordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(height: 20),
