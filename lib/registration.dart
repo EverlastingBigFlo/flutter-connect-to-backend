@@ -144,6 +144,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ),
               ),
+
               const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
@@ -185,6 +186,33 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ],
                 ),
                 child: TextFormField(
+                  controller: widget.emailController,
+                  decoration: InputDecoration(
+                    hintText: 'Email',
+                    hintStyle: const TextStyle(color: Color(0xFF470037)),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.09),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: TextFormField(
                   keyboardType: const TextInputType.numberWithOptions(),
                   controller: widget.phoneController,
                   decoration: InputDecoration(
@@ -199,35 +227,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.09),
-                      spreadRadius: 5,
-                      blurRadius: 10,
-                      offset: const Offset(0, 5),
-                    ),
-                  ],
-                ),
-                child: TextFormField(
-                  controller: widget.emailController,
-                  decoration: InputDecoration(
-                    hintText: 'Email',
-                    hintStyle: const TextStyle(color: Color(0xFF470037)),
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                  ),
-                ),
-              ),
-
 // password section
-
-              const SizedBox(height: 20),
 
               Container(
                 decoration: BoxDecoration(
