@@ -241,6 +241,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         )
                       ]),
                   child: TextFormField(
+                    obscureText: _isObscured,
                     controller: widget.passwordController,
                     decoration: InputDecoration(
                       hintText: 'Password',
