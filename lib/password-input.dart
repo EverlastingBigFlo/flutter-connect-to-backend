@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RegistrationForm extends StatefulWidget {
+  const RegistrationForm({super.key});
+
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
 }
@@ -17,7 +19,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Registration Form')),
+      appBar: AppBar(title: const Text('Registration Form')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -25,55 +27,58 @@ class _RegistrationFormState extends State<RegistrationForm> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
-                decoration: InputDecoration(labelText: 'First Name'),
+                decoration: const InputDecoration(labelText: 'First Name'),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Last Name'),
+                decoration: const InputDecoration(labelText: 'Last Name'),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
-                decoration: InputDecoration(labelText: 'Username'),
+                decoration: const InputDecoration(labelText: 'Username'),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 obscureText: _isObscured,
                 decoration: InputDecoration(
                   labelText: 'Password',
                   suffixIcon: IconButton(
-                    icon: Icon(_isObscured ? Icons.visibility : Icons.visibility_off),
+                    icon: Icon(
+                        _isObscured ? Icons.visibility : Icons.visibility_off),
                     onPressed: _togglePasswordVisibility,
                   ),
                 ),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               TextFormField(
                 obscureText: _isObscured,
                 decoration: InputDecoration(
                   labelText: 'Confirm Password',
                   suffixIcon: IconButton(
-                    icon: Icon(_isObscured ? Icons.visibility : Icons.visibility_off),
+                    icon: Icon(
+                        _isObscured ? Icons.visibility : Icons.visibility_off),
                     onPressed: _togglePasswordVisibility,
                   ),
                 ),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               Row(
                 children: [
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Date of Birth'),
+                      decoration:
+                          const InputDecoration(labelText: 'Date of Birth'),
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.calendar_today),
+                    icon: const Icon(Icons.calendar_today),
                     onPressed: () {
                       // Show date picker or custom date selection widget
                     },
                   ),
                 ],
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               DropdownButtonFormField<String>(
                 value: 'Male',
                 items: ['Male', 'Female', 'Other']
@@ -87,14 +92,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     // Update selected gender
                   });
                 },
-                decoration: InputDecoration(labelText: 'Gender'),
+                decoration: const InputDecoration(labelText: 'Gender'),
               ),
-              SizedBox(height: 12.0),
+              const SizedBox(height: 12.0),
               ElevatedButton(
                 onPressed: () {
                   // Handle registration logic
                 },
-                child: Text('Register'),
+                child: const Text('Register'),
               ),
             ],
           ),
