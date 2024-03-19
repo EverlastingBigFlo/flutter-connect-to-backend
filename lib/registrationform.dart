@@ -54,12 +54,9 @@ class _MyFormState extends State<MyForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-      
                 // textfield area
-                Column(
-                  children: [
-
-                  ],
+                const Column(
+                  children: [],
                 ),
 
                 // agree to terms and condition
