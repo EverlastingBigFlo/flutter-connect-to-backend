@@ -59,33 +59,7 @@ class _MyFormState extends State<MyForm> {
                 Column(
                   children: [
             
-                    const SizedBox(height: 20),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.09),
-                            spreadRadius: 5,
-                            blurRadius: 10,
-                            offset: const Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: TextField(
-                        keyboardType: TextInputType.numberWithOptions(),
-                        controller: widget.phoneController,
-                        decoration: InputDecoration(
-                          hintText: 'Phone Number',
-                          hintStyle: const TextStyle(color: Color(0xFF470037)),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
-                    ),
+
                     const SizedBox(height: 20),
                     Container(
                       decoration: BoxDecoration(
