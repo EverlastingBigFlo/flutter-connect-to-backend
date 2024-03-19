@@ -56,9 +56,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
   void submit() async {
     DialogBox.showConfirmationDialog(context);
-    // Future.delayed(const Duration(milliseconds: 3000), () {
-    //   DialogBox.dismissDialog(context);
-    // });
+    Future.delayed(const Duration(milliseconds: 3000), () {
+      DialogBox.dismissDialog(context);
+    });
 
     final response = await dio.get('http://10.0.2.2:8000/api/hello');
     print(response);
