@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'components/my-text.dart';
 
 class RegistrationForm extends StatefulWidget {
-  const RegistrationForm({super.key});
+  TextEditingController? firstnameController;
+  TextEditingController? emailController;
+  TextEditingController? phoneController;
+  TextEditingController? passwordController;
+  TextEditingController? confirmPasswordController;
+  RegistrationForm(
+      {super.key,
+      this.firstnameController,
+      this.emailController,
+      this.phoneController,
+      this.passwordController,
+      this.confirmPasswordController});
 
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
@@ -50,12 +61,35 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       text: 'Sign up to get start with your first task'),
                 ],
               ),
-              
-                // textfield area
 
-              TextFormField(
-                decoration: const InputDecoration(labelText: 'First Name'),
+              // textfield area
+              const SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.09),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  controller: widget.firstnameController,
+                  decoration: InputDecoration(
+                    hintText: 'First and Last Name',
+                    hintStyle: const TextStyle(color: Color(0xFF470037)),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
               ),
+
               const SizedBox(height: 12.0),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Last Name'),
