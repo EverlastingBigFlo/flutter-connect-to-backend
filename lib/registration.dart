@@ -484,9 +484,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       DialogBox.dismissDialog(context);
                     });
 
-                   
+                    // final response =
+                    //     await dio.get('http://10.0.2.2:8000/api/hello');
 
-                    // DialogBox.dismissDialog(context);
+                    // // DialogBox.dismissDialog(context);
                     // print(response);
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
