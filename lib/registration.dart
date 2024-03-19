@@ -343,7 +343,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     .toList(),
                 onChanged: (value) {
                   setState(() {
-                    // Update selected gender
+                    widget.genderController!.text = value!;
                   });
                 },
                 decoration: const InputDecoration(labelText: 'Gender'),
