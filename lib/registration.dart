@@ -290,44 +290,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   )),
 
-              const SizedBox(height: 20.0),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.09),
-                      // spreadRadius: 5,
-                      blurRadius: 10,
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Date of Birth',
-                          hintStyle: const TextStyle(color: Color(0xFF470037)),
-                          filled: true,
-                          fillColor: Colors.white,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                        ),
-                      ),
+              const SizedBox(height: 12.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      decoration:
+                          const InputDecoration(labelText: 'Date of Birth'),
                     ),
-                    IconButton(
-                      icon: const Icon(Icons.calendar_today),
-                      onPressed: () {
-                        // Show date picker or custom date selection widget
-                      },
-                    ),
-                  ],
-                ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.calendar_today),
+                    onPressed: () {
+                      // Show date picker or custom date selection widget
+                    },
+                  ),
+                ],
               ),
-
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 12.0),
               DropdownButtonFormField<String>(
                 value: 'Male',
                 items: ['Male', 'Female', 'Other']
