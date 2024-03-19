@@ -410,16 +410,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ElevatedButton(
                 onPressed: () {
                   if (_agreeToTerms) {
-                    String fullname = widget.firstnameController!.text;
+                    String firstname = widget.firstnameController!.text;
+                    String lastname = widget.lastNameController!.text;
                     String email = widget.emailController!.text;
-                    // int phone =
-                    // int.tryParse(widget.phoneController!.text) ?? 0;
                     String phone = widget.phoneController!.text;
                     String password = widget.passwordController!.text;
                     String confirmPassword =
                         widget.confirmPasswordController!.text;
 
-                    print('Fullname: $fullname');
+                    print('Firstname: $firstname');
+                    print('Lastname: $lastname');
                     print('Email: $email');
                     print('Phone: $phone');
                     print('Password: $password');
