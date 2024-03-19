@@ -1,8 +1,9 @@
+import 'package:connectingtobackend/service/shared-preference.dart';
 import 'package:dio/dio.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
+
 final dio = Dio();
 
-// CustomSharedPreference pref=CustomSharedPreference();
+CustomSharedPreference pref = CustomSharedPreference();
 
 Dio axios() {
   // Set default configs
@@ -20,8 +21,8 @@ Dio axios() {
         // If you want to reject the request with a error message,
         // you can reject with a `DioException` using `handler.reject(dioError)`.
 
-        // final token = pref.getString('token')?? '';
-        // options.headers['Authorization'] = 'Bearer $token';
+        final token = pref.getString('token') ?? '';
+        options.headers['Authorization'] = 'Bearer $token';
         return handler.next(options);
       },
       onResponse: (Response response, ResponseInterceptorHandler handler) {
