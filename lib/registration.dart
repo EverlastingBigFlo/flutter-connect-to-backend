@@ -306,8 +306,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             )
                           ]),
                       child: TextFormField(
-                        decoration:
-                            const InputDecoration(labelText: 'Date of Birth'),
+                        decoration: InputDecoration(
+                          hintText: 'Date of Birth',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -319,7 +326,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ],
               ),
-              const SizedBox(height: 12.0),
+              const SizedBox(height: 20.0),
               DropdownButtonFormField<String>(
                 value: 'Male',
                 items: ['Male', 'Female', 'Other']
