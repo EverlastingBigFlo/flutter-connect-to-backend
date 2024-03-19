@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'components/my-text.dart';
 
@@ -319,8 +320,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         lastDate: DateTime.now(),
                       );
                       if (dob != null) {
+                        String formattedDate =
+                            DateFormat('yyyy-MM-dd').format(dob);
                         setState(() {
-                          widget.dateOfBirthController!.text = dob.toString();
+                          widget.dateOfBirthController!.text = formattedDate;
                         });
                       }
                     },
