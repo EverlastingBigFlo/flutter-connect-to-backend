@@ -321,7 +321,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       );
                       if (dob != null) {
                         String formattedDate =
-                            DateFormat('yyyy-MM-dd').format(dob);
+                            DateFormat('dd-MM-yyyy').format(dob);
                         setState(() {
                           widget.dateOfBirthController!.text = formattedDate;
                         });
