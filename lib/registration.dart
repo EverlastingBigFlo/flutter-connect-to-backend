@@ -245,6 +245,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   controller: widget.passwordController,
                   decoration: InputDecoration(
                     labelText: 'Password',
+                    hintStyle: const TextStyle(color: Color(0xFF470037)),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
                     suffixIcon: IconButton(
                       icon: Icon(_isObscured
                           ? Icons.visibility
