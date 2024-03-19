@@ -306,8 +306,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   Expanded(
                     child: TextFormField(
                       controller: widget.dateOfBirthController,
-                      decoration:
-                          const InputDecoration(labelText: 'Date of Birth'),
+                      decoration: const InputDecoration(
+                          labelText: 'Date of Birth', hintText: 'dd-mm-yyyy'),
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                   IconButton(
