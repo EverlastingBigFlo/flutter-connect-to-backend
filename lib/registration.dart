@@ -484,8 +484,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       DialogBox.dismissDialog(context);
                     });
 
-                 
+                   
 
+                    // DialogBox.dismissDialog(context);
                     // print(response);
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
