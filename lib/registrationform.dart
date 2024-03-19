@@ -23,7 +23,7 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   bool _agreeToTerms = false;
-  final bool _passwordVisible = false;
+  bool _passwordVisible = false;
 
   @override
   void initState() {
@@ -162,7 +162,7 @@ class _MyFormState extends State<MyForm> {
                     ),
                     const SizedBox(height: 20),
 
-                    // password section 
+                    // password section
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -181,7 +181,8 @@ class _MyFormState extends State<MyForm> {
                             controller: widget.passwordController,
                             decoration: InputDecoration(
                               hintText: 'Password',
-                              hintStyle: const TextStyle(color: Color(0xFF470037)),
+                              hintStyle:
+                                  const TextStyle(color: Color(0xFF470037)),
                               filled: true,
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
@@ -189,6 +190,18 @@ class _MyFormState extends State<MyForm> {
                               ),
                             ),
                           ),
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _passwordVisible = !_passwordVisible;
+                              });
+                            },
+                            icon: Icon(
+                              _passwordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                            ),
+                          )
                         ],
                       ),
                     ),
