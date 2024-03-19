@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -27,6 +28,9 @@ class RegistrationForm extends StatefulWidget {
     this.dateOfBirthController,
     this.genderController,
   });
+
+  // declare dio
+  final dio = Dio();
 
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
@@ -462,7 +466,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               // sign up button
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (_agreeToTerms) {
                     String firstname = widget.firstnameController!.text;
                     String lastname = widget.lastNameController!.text;
@@ -480,10 +484,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       DialogBox.dismissDialog(context);
                     });
 
-                    // final response = await dio.get('http://10.0.2.2:8000/api/hello');
+                    final response =
+                        await widget.dio.get('http://10.0.2.2:8000/api/hello');
 
                     // DialogBox.dismissDialog(context);
-
+                    print(response);
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
                     print('Username: $username');
