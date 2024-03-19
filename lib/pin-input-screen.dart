@@ -55,9 +55,17 @@ class _PinInputScreenState extends State<PinInputScreen> {
   }
 
   void submit() async {
+    String pin1 = controller1.text;
+    String pin2 = controller2.text;
+    String pin3 = controller3.text;
+    String pin4 = controller4.text;
+
     DialogBox.showConfirmationDialog(context);
     Future.delayed(const Duration(milliseconds: 3000), () {
       DialogBox.dismissDialog(context);
+
+    print('PIN Input: $pin1$pin2$pin3$pin4');
+
     });
 
     // final response = await dio.get('http://10.0.2.2:8000/api/hello');
