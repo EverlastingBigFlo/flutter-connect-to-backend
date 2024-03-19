@@ -5,6 +5,7 @@ import 'components/my-text.dart';
 class RegistrationForm extends StatefulWidget {
   TextEditingController? firstnameController;
   TextEditingController? lastNameController;
+  TextEditingController? userNameController;
   TextEditingController? emailController;
   TextEditingController? phoneController;
   TextEditingController? passwordController;
@@ -13,6 +14,7 @@ class RegistrationForm extends StatefulWidget {
       {super.key,
       this.firstnameController,
       this.lastNameController,
+      this.userNameController,
       this.emailController,
       this.phoneController,
       this.passwordController,
@@ -31,6 +33,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
     super.initState();
     widget.firstnameController = TextEditingController();
     widget.lastNameController = TextEditingController();
+    widget.userNameController = TextEditingController();
     widget.emailController = TextEditingController();
     widget.phoneController = TextEditingController();
     widget.passwordController = TextEditingController();
@@ -41,6 +44,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
   void dispose() {
     super.dispose();
     widget.firstnameController!.dispose();
+    widget.lastNameController!.dispose();
+    widget.userNameController!.dispose();
     widget.emailController!.dispose();
     widget.phoneController!.dispose();
     widget.passwordController!.dispose();
@@ -139,9 +144,35 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.09),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: TextField(
+                  controller: widget.userNameController,
+                  decoration: InputDecoration(
+                    hintText: 'Username',
+                    hintStyle: const TextStyle(color: Color(0xFF470037)),
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ),
 
               TextFormField(
-                decoration: const InputDecoration(labelText: 'Username'),
+                decoration: const InputDecoration(labelText: ''),
               ),
               const SizedBox(height: 12.0),
               TextFormField(
