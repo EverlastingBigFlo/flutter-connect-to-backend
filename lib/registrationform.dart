@@ -10,13 +10,18 @@ class MyForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  MyForm(
-      {super.key,
-      this.firstnameController,
-      this.emailController,
-      this.phoneController,
-      this.passwordController,
-      this.confirmPasswordController});
+  TextEditingController? dateOfBirthController;
+  TextEditingController? genderController;
+  MyForm({
+    super.key,
+    this.firstnameController,
+    this.emailController,
+    this.phoneController,
+    this.passwordController,
+    this.confirmPasswordController,
+    this.dateOfBirthController,
+    this.genderController,
+  });
 
   @override
   _MyFormState createState() => _MyFormState();
@@ -30,9 +35,11 @@ class _MyFormState extends State<MyForm> {
     super.initState();
     widget.firstnameController = TextEditingController();
     widget.emailController = TextEditingController();
+    widget.emailController = TextEditingController();
     widget.phoneController = TextEditingController();
     widget.passwordController = TextEditingController();
     widget.confirmPasswordController = TextEditingController();
+  
   }
 
   @override
@@ -43,6 +50,7 @@ class _MyFormState extends State<MyForm> {
     widget.phoneController!.dispose();
     widget.passwordController!.dispose();
     widget.confirmPasswordController!.dispose();
+  
   }
 
   @override

@@ -10,15 +10,20 @@ class RegistrationForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  RegistrationForm(
-      {super.key,
-      this.firstnameController,
-      this.lastNameController,
-      this.userNameController,
-      this.emailController,
-      this.phoneController,
-      this.passwordController,
-      this.confirmPasswordController});
+  TextEditingController? dateOfBirthController;
+  TextEditingController? genderController;
+  RegistrationForm({
+    super.key,
+    this.firstnameController,
+    this.lastNameController,
+    this.userNameController,
+    this.emailController,
+    this.phoneController,
+    this.passwordController,
+    this.confirmPasswordController,
+    this.dateOfBirthController,
+    this.genderController,
+  });
 
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
@@ -38,6 +43,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
     widget.phoneController = TextEditingController();
     widget.passwordController = TextEditingController();
     widget.confirmPasswordController = TextEditingController();
+    widget.dateOfBirthController = TextEditingController();
+    widget.genderController = TextEditingController();
   }
 
   @override
@@ -50,6 +57,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
     widget.phoneController!.dispose();
     widget.passwordController!.dispose();
     widget.confirmPasswordController!.dispose();
+    widget.dateOfBirthController!.dispose();
+    widget.genderController!.dispose();
   }
 
   void _togglePasswordVisibility() {
@@ -419,6 +428,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     String password = widget.passwordController!.text;
                     String confirmPassword =
                         widget.confirmPasswordController!.text;
+                    String DOB = widget.dateOfBirthController!.text;
+                    String gender = widget.genderController!.text;
 
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
@@ -427,6 +438,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     print('Phone: $phone');
                     print('Password: $password');
                     print('Confirm Password: $confirmPassword');
+                    print('Date of Birth: $DOB');
+                    print('Gender: $gender');
                   } else {
                     print('Please agree to the terms and conditions');
                   }
