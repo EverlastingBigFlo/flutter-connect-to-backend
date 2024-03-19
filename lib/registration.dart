@@ -310,8 +310,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.calendar_today),
-                    onPressed: () {
-                      // Show date picker or custom date selection widget
+                    onPressed: () async {
+                      DateTime? dob = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1960),
+                        lastDate: DateTime.now(),
+                      );
                     },
                   ),
                 ],
