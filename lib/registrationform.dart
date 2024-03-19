@@ -161,6 +161,8 @@ class _MyFormState extends State<MyForm> {
                       ),
                     ),
                     const SizedBox(height: 20),
+
+                    // password section 
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
