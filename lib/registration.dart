@@ -197,9 +197,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ),
               ),
-              TextFormField(
-                decoration: const InputDecoration(labelText: ''),
-              ),
+
+// password section
               const SizedBox(height: 12.0),
               TextFormField(
                 obscureText: _isObscured,
