@@ -8,7 +8,7 @@ class RegistrationForm extends StatefulWidget {
   TextEditingController? phoneController;
   TextEditingController? passwordController;
   TextEditingController? confirmPasswordController;
-  RegistrationForm(
+ RegistrationForm(
       {super.key,
       this.firstnameController,
       this.emailController,
@@ -22,6 +22,28 @@ class RegistrationForm extends StatefulWidget {
 
 class _RegistrationFormState extends State<RegistrationForm> {
   bool _isObscured = true;
+    bool _agreeToTerms = false;
+
+  @override
+  void initState() {
+    super.initState();
+    widget.firstnameController = TextEditingController();
+    widget.emailController = TextEditingController();
+    widget.phoneController = TextEditingController();
+    widget.passwordController = TextEditingController();
+    widget.confirmPasswordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    widget.firstnameController!.dispose();
+    widget.emailController!.dispose();
+    widget.phoneController!.dispose();
+    widget.passwordController!.dispose();
+    widget.confirmPasswordController!.dispose();
+  }
+
 
   void _togglePasswordVisibility() {
     setState(() {
