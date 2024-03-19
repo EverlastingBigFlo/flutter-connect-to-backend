@@ -2,7 +2,6 @@
 
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
   TextEditingController? firstnameController;
@@ -24,7 +23,7 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   bool _agreeToTerms = false;
-  bool _passwordVisible = false;
+  final bool _passwordVisible = false;
 
   @override
   void initState() {
