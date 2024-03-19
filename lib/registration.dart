@@ -334,7 +334,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
               const SizedBox(height: 12.0),
               DropdownButtonFormField<String>(
-                value: 'Male',
+                value: widget.genderController!.text,
                 items: ['Male', 'Female', 'Other']
                     .map((gender) => DropdownMenuItem(
                           value: gender,
