@@ -304,6 +304,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 children: [
                   Expanded(
                     child: TextFormField(
+                      controller: widget.dateOfBirthController,
                       decoration:
                           const InputDecoration(labelText: 'Date of Birth'),
                     ),
@@ -317,10 +318,16 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         firstDate: DateTime(1960),
                         lastDate: DateTime.now(),
                       );
+                      if (dob != null) {
+                        setState(() {
+                          widget.dateOfBirthController!.text = dob.toString();
+                        });
+                      }
                     },
                   ),
                 ],
               ),
+
               const SizedBox(height: 12.0),
               DropdownButtonFormField<String>(
                 value: 'Male',
