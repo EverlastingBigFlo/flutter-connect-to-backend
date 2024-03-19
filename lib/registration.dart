@@ -350,6 +350,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 },
                 decoration: const InputDecoration(labelText: 'Gender'),
               ),
+
               const SizedBox(height: 12.0),
 
               // agree to terms and condition
