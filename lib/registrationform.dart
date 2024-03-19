@@ -2,6 +2,7 @@
 
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
   TextEditingController? firstnameController;
@@ -23,7 +24,7 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   bool _agreeToTerms = false;
-  bool _passwordVisible = false;
+  // bool _passwordVisible = false;
 
   @override
   void initState() {
@@ -161,8 +162,6 @@ class _MyFormState extends State<MyForm> {
                       ),
                     ),
                     const SizedBox(height: 20),
-
-                    // password section
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -175,35 +174,16 @@ class _MyFormState extends State<MyForm> {
                           ),
                         ],
                       ),
-                      child: Expanded(
-                        child: Row(
-                          children: [
-                            TextField(
-                              controller: widget.passwordController,
-                              obscureText: !_passwordVisible,
-                              decoration: InputDecoration(
-                                hintText: 'Password',
-                                hintStyle: TextStyle(color: Color(0xFF470037)),
-                                filled: true,
-                                fillColor: Colors.white,
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              },
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                              ),
-                            )
-                          ],
+                      child: TextField(
+                        controller: widget.passwordController,
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          hintStyle: const TextStyle(color: Color(0xFF470037)),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                       ),
                     ),
@@ -222,7 +202,7 @@ class _MyFormState extends State<MyForm> {
                       ),
                       child: TextField(
                         controller: widget.confirmPasswordController,
-                        obscureText: _passwordVisible,
+                        // obscureText: _passwordVisible,
                         decoration: InputDecoration(
                           hintText: 'Confirm Password',
                           hintStyle: const TextStyle(color: Color(0xFF470037)),
