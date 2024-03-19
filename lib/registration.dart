@@ -302,50 +302,35 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   )),
 
               const SizedBox(height: 12.0),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.09),
-                      spreadRadius: 5,
-                      blurRadius: 10,
-                      offset: const Offset(0, 5),
+              Row(
+                children: [
+                  Expanded(
+                    child: TextFormField(
+                      controller: widget.dateOfBirthController,
+                      decoration: const InputDecoration(
+                          labelText: 'Date of Birth', hintText: 'dd-mm-yyyy'),
+                      keyboardType: TextInputType.number,
                     ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFormField(
-                        controller: widget.dateOfBirthController,
-                        decoration: const InputDecoration(
-                          labelText: 'Date of Birth',
-                          hintText: 'dd-mm-yyyy',
-                        ),
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.calendar_today),
-                      onPressed: () async {
-                        DateTime? dob = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(1960),
-                          lastDate: DateTime.now(),
-                        );
-                        if (dob != null) {
-                          String formattedDate =
-                              DateFormat('dd-MM-yyyy').format(dob);
-                          setState(() {
-                            widget.dateOfBirthController!.text = formattedDate;
-                          });
-                        }
-                      },
-                    ),
-                  ],
-                ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.calendar_today),
+                    onPressed: () async {
+                      DateTime? dob = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1960),
+                        lastDate: DateTime.now(),
+                      );
+                      if (dob != null) {
+                        String formattedDate =
+                            DateFormat('dd-MM-yyyy').format(dob);
+                        setState(() {
+                          widget.dateOfBirthController!.text = formattedDate;
+                        });
+                      }
+                    },
+                  ),
+                ],
               ),
 
               const SizedBox(height: 20.0),
