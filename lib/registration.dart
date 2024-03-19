@@ -259,6 +259,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   )),
               const SizedBox(height: 20),
+              // confirm password
               Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -412,6 +413,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   if (_agreeToTerms) {
                     String firstname = widget.firstnameController!.text;
                     String lastname = widget.lastNameController!.text;
+                    String username = widget.userNameController!.text;
                     String email = widget.emailController!.text;
                     String phone = widget.phoneController!.text;
                     String password = widget.passwordController!.text;
@@ -420,6 +422,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
+                    print('Username: $username');
                     print('Email: $email');
                     print('Phone: $phone');
                     print('Password: $password');
