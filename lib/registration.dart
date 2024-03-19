@@ -258,6 +258,36 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                     ),
                   )),
+              const SizedBox(height: 20),
+              Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.09),
+                          spreadRadius: 5,
+                          blurRadius: 10,
+                          offset: const Offset(0, 5),
+                        )
+                      ]),
+                  child: TextFormField(
+                    obscureText: _isObscured,
+                    controller: widget.confirmPasswordController,
+                    decoration: InputDecoration(
+                      hintText: 'Confirm Password',
+                      hintStyle: const TextStyle(color: Color(0xFF470037)),
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      suffixIcon: IconButton(
+                        icon: Icon(_isObscured
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: _togglePasswordVisibility,
+                      ),
+                    ),
+                  )),
 
               const SizedBox(height: 12.0),
               Row(
