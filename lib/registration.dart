@@ -29,9 +29,6 @@ class RegistrationForm extends StatefulWidget {
     this.genderController,
   });
 
-  // declare dio
-  final dio = Dio();
-
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
 }
@@ -39,6 +36,9 @@ class RegistrationForm extends StatefulWidget {
 class _RegistrationFormState extends State<RegistrationForm> {
   bool _isObscured = true;
   bool _agreeToTerms = false;
+
+  // declare dio
+  final dio = Dio();
 
   @override
   void initState() {
@@ -485,10 +485,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     });
 
                     final response =
-                        await widget.dio.get('http://10.0.2.2:8000/api/hello');
+                        await dio.get('http://10.0.2.2:8000/api/hello');
 
                     // DialogBox.dismissDialog(context);
-                    print(response);
+                    // print(response);
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
                     print('Username: $username');
