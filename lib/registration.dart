@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
+import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
 
 class RegistrationForm extends StatefulWidget {
@@ -473,6 +474,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         widget.confirmPasswordController!.text;
                     String DOB = widget.dateOfBirthController!.text;
                     String gender = widget.genderController!.text;
+
+                    DialogBox.showConfirmationDialog(context);
+                    Future.delayed(const Duration(milliseconds: 3000), () {
+                      DialogBox.dismissDialog(context);
+                    });
+
+                    // final response = await dio.get('http://10.0.2.2:8000/api/hello');
+
+                    // DialogBox.dismissDialog(context);
 
                     print('Firstname: $firstname');
                     print('Lastname: $lastname');
