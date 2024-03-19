@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import 'components/my-text.dart';
@@ -310,11 +309,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       decoration: const InputDecoration(
                           labelText: 'Date of Birth', hintText: 'dd-mm-yyyy'),
                       keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(10),
-                        // DateTextInputFormatter(),
-                      ],
                     ),
                   ),
                   IconButton(
