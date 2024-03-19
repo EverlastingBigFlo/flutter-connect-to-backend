@@ -332,23 +332,37 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ],
               ),
 
-              const SizedBox(height: 12.0),
-              DropdownButtonFormField<String>(
-                value: widget.genderController!.text.isEmpty
-                    ? null
-                    : widget.genderController!.text,
-                items: ['Male', 'Female', 'Other']
-                    .map((gender) => DropdownMenuItem(
-                          value: gender,
-                          child: Text(gender),
-                        ))
-                    .toList(),
-                onChanged: (value) {
-                  setState(() {
-                    widget.genderController!.text = value!;
-                  });
-                },
-                decoration: const InputDecoration(labelText: 'Gender'),
+              const SizedBox(height: 20.0),
+
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.09),
+                      spreadRadius: 5,
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                ),
+                child: DropdownButtonFormField<String>(
+                  value: widget.genderController!.text.isEmpty
+                      ? null
+                      : widget.genderController!.text,
+                  items: ['Male', 'Female', 'Other']
+                      .map((gender) => DropdownMenuItem(
+                            value: gender,
+                            child: Text(gender),
+                          ))
+                      .toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      widget.genderController!.text = value!;
+                    });
+                  },
+                  decoration: const InputDecoration(labelText: 'Gender'),
+                ),
               ),
 
               const SizedBox(height: 12.0),
