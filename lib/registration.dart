@@ -324,10 +324,13 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         keyboardType: TextInputType.number,
                         readOnly: true,
                         prefix: const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          padding: EdgeInsets.symmetric(horizontal: 15.0),
                           child: Text(
                             'Date of Birth',
-                            style: TextStyle(color: Color(0xFF470037)),
+                            style: TextStyle(
+                                color: Color(0xFF470037),
+                                fontSize: 16,
+                                fontWeight: FontWeight.normal),
                           ),
                         ),
                         suffix: GestureDetector(
