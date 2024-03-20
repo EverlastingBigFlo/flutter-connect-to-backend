@@ -574,6 +574,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ElevatedButton(
                   onPressed: () async {
                     if (_agreeToTerms) {
+                      print('Please agree to the terms and conditions');
+                      return;
+                    } else {
                       AlertInfo alert = AlertInfo();
                       if (emailController!.text == '' ||
                           passwordController!.text == '' ||
@@ -613,7 +616,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       });
                       submit(ref);
 
-                      print('Firstname: first_name');
+                      print('Firstname: ${data['first_name']}');
+                      print('Lastname: ${data['last_name']}');
                       // print('Lastname: $data[last]');
                       // print('Username: $data[username]');
                       // print('Email: $data[email]');
@@ -623,8 +627,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       // print('Gender: $data[gender]');
                       // print('Device id: $data[device_id]');
                       // print('Device model: $data[device_model]');
-
-                      print('Please agree to the terms and conditions');
                     }
                   },
                   style: ElevatedButton.styleFrom(
