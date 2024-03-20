@@ -9,7 +9,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
 import 'alerts/alert_loading.dart';
-import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
 import 'models/user_model.dart';
 import 'service/shared_preference.dart';
@@ -43,10 +42,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
   TextEditingController? dateOfBirthController;
   TextEditingController? genderController;
 
+  late Map? formData;
+  bool submitted = false;
   AlertInfo alertInfo = AlertInfo();
   AlertLoading alertLoading = AlertLoading();
   CustomSharedPreference pref = CustomSharedPreference();
-  late Map? formData;
 
 // create function submit here
   void submit(ref) async {
