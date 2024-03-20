@@ -607,7 +607,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       data['device_id'] = deviceinfo['id'];
                       data['device_model'] = deviceinfo['model'];
                       ref.read(signUpProvider.notifier).state = data;
-                      // print(data);
+                      print(data);
                       setState(() {
                         formData = data;
                       });
@@ -623,15 +623,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       print('Gender: $data[gender]');
                       print('Device id: $data[device_id]');
                       print('Device model: $data[device_model]');
-                      // print('Lastname: $lastname');
-                      // print('Username: $username');
-                      // print('Email: $email');
-                      // print('Phone: $phone');
-                      // print('Password: $password');
-                      // print('Confirm Password: $confirmPassword');
-                      // print('Date of Birth: $DOB');
-                      // print('Gender: $gender');
-                    } else {
+
                       print('Please agree to the terms and conditions');
                     }
                   },
