@@ -318,8 +318,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Colors.white,
-                          border:
-                              Border.all(color: CupertinoColors.inactiveGray),
+                          border: Border.all(color: const Color(0xFF470037)),
                         ),
                         placeholder: 'dd-mm-yyyy',
                         keyboardType: TextInputType.number,
