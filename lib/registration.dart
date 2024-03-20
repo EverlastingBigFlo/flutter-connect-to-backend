@@ -1,8 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
@@ -308,38 +306,24 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       keyboardType: TextInputType.number,
                     ),
                   ),
-                  Container(
-  padding: EdgeInsets.all(8.0),
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(8.0),
-    border: Border.all(color: Colors.grey),
-  ),
-  child: CupertinoDatePicker(
-    mode: CupertinoDatePickerMode.date,
-    initialDateTime: DateTime.now(),
-    onDateTimeChanged: (DateTime newDateTime) {
-    },
-  ),
-),
-
-                  // IconButton(
-                  //   icon: const Icon(Icons.calendar_today),
-                  //   onPressed: () async {
-                  //     DateTime? dob = await showDatePicker(
-                  //       context: context,
-                  //       initialDate: DateTime.now(),
-                  //       firstDate: DateTime(1960),
-                  //       lastDate: DateTime.now(),
-                  //     );
-                  //     if (dob != null) {
-                  //       String formattedDate =
-                  //           DateFormat('dd-MM-yyyy').format(dob);
-                  //       setState(() {
-                  //         dateOfBirthController!.text = formattedDate;
-                  //       });
-                  //     }
-                  //   },
-                  // ),
+                  IconButton(
+                    icon: const Icon(Icons.calendar_today),
+                    onPressed: () async {
+                      DateTime? dob = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1960),
+                        lastDate: DateTime.now(),
+                      );
+                      if (dob != null) {
+                        String formattedDate =
+                            DateFormat('dd-MM-yyyy').format(dob);
+                        setState(() {
+                          dateOfBirthController!.text = formattedDate;
+                        });
+                      }
+                    },
+                  ),
                 ],
               ),
 
