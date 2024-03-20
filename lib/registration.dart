@@ -1,6 +1,7 @@
 import 'package:connectingtobackend/alerts/alert_info.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
+import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -573,26 +574,49 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ElevatedButton(
                   onPressed: () async {
                     if (_agreeToTerms) {
-                      String firstname = firstnameController!.text;
-                      String lastname = lastNameController!.text;
-                      String username = userNameController!.text;
-                      String email = emailController!.text;
-                      String phone = phoneController!.text;
-                      String password = passwordController!.text;
-                      String confirmPassword = confirmPasswordController!.text;
-                      String DOB = dateOfBirthController!.text;
-                      String gender = genderController!.text;
+                      AlertInfo alert = AlertInfo();
+                      if (emailController!.text == '' ||
+                          passwordController!.text == '' ||
+                          confirmPasswordController!.text == '' ||
+                          phoneController!.text == '' ||
+                          userNameController!.text == '') {
+                        alert.message = "Fill all required fields";
+                        alert.showAlertDialog(context);
+                        return;
+                      }
+                      if (confirmPasswordController!.text !=
+                          passwordController!.text) {
+                        alert.message = "Passwords not match";
+                        alert.showAlertDialog(context);
+                        return;
+                      }
+                      Utilities device = Utilities();
+                      var deviceinfo = await device.devicePlatform;
+                      Map data = ref.watch(signUpProvider.notifier).state;
+                      data['email'] = emailController!.text;
+                      data['phone'] = phoneController!.text;
+                      data['password'] = passwordController!.text;
+                      data['username'] = userNameController!.text;
+                      data['password_confirmation'] =
+                          confirmPasswordController!.text;
+                      data['device_id'] = deviceinfo['id'];
+                      data['device_model'] = deviceinfo['model'];
+                      ref.read(signUpProvider.notifier).state = data;
+                      // print(data);
+                      setState(() {
+                        formData = data;
+                      });
+                      submit(ref);
 
-
-                      print('Firstname: $firstname');
-                      print('Lastname: $lastname');
-                      print('Username: $username');
-                      print('Email: $email');
-                      print('Phone: $phone');
-                      print('Password: $password');
-                      print('Confirm Password: $confirmPassword');
-                      print('Date of Birth: $DOB');
-                      print('Gender: $gender');
+                      // print('Firstname: $firstname');
+                      // print('Lastname: $lastname');
+                      // print('Username: $username');
+                      // print('Email: $email');
+                      // print('Phone: $phone');
+                      // print('Password: $password');
+                      // print('Confirm Password: $confirmPassword');
+                      // print('Date of Birth: $DOB');
+                      // print('Gender: $gender');
                     } else {
                       print('Please agree to the terms and conditions');
                     }
