@@ -2,9 +2,10 @@
 import 'package:connectingtobackend/registration.dart';
 import 'package:connectingtobackend/pin-input-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => MyForm(),
-        '/': (context) => RegistrationForm(),
+        '/': (context) => const RegistrationForm(),
         'pininput': (context) => const PinInputScreen(),
       },
     );
