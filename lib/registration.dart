@@ -1,3 +1,4 @@
+import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -70,12 +71,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Consumer(
-          builder: (context, ref, _) {
-              var date = ref.watch(dobProvider);
-              date_of_birth!.text = date.toString();
-              gender!.text = ref.watch(genderProvider);
-          child: SingleChildScrollView(
+        child: Consumer(builder: (context, ref, _) {
+          return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -102,7 +99,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         text: 'Sign up to get start with your first task'),
                   ],
                 ),
-          
+
                 // TextFormField area
                 const SizedBox(height: 20),
                 Container(
@@ -156,7 +153,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   ),
                 ),
-          
+
                 const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
@@ -183,7 +180,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ),
                   ),
                 ),
-          
+
                 const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(
@@ -211,7 +208,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ),
                 const SizedBox(height: 20),
-          
+
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -239,8 +236,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                 ),
                 const SizedBox(height: 20),
-          // password section
-          
+                // password section
+
                 Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -301,10 +298,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         ),
                       ),
                     )),
-          
+
                 const SizedBox(height: 20.0),
-          
-          // date picker section
+
+                // date picker section
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -355,7 +352,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                       initialDateTime: DateTime.now(),
                                       minimumDate: DateTime(1960),
                                       maximumDate: DateTime.now(),
-                                      onDateTimeChanged: (DateTime newDateTime) {
+                                      onDateTimeChanged:
+                                          (DateTime newDateTime) {
                                         String formattedDate =
                                             DateFormat('dd-MM-yyyy')
                                                 .format(newDateTime);
@@ -391,7 +389,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                       String formattedDate =
                                           DateFormat('dd-MM-yyyy')
                                               .format(newDateTime);
-                                      dateOfBirthController!.text = formattedDate;
+                                      dateOfBirthController!.text =
+                                          formattedDate;
                                     },
                                   ),
                                 );
@@ -403,9 +402,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ],
                   ),
                 ),
-          
+
                 const SizedBox(height: 20.0),
-          
+
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -445,9 +444,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     ],
                   ),
                 ),
-          
+
                 const SizedBox(height: 12.0),
-          
+
                 // agree to terms and condition
                 Row(
                   children: [
@@ -522,7 +521,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       color: _agreeToTerms
                           ? Colors.blue
                           : const Color.fromARGB(255, 7, 84, 151),
-                      decoration: _agreeToTerms ? TextDecoration.underline : null,
+                      decoration:
+                          _agreeToTerms ? TextDecoration.underline : null,
                     ),
                   ),
                 ),
@@ -543,15 +543,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       String confirmPassword = confirmPasswordController!.text;
                       String DOB = dateOfBirthController!.text;
                       String gender = genderController!.text;
-          
+
                       DialogBox.showConfirmationDialog(context);
                       Future.delayed(const Duration(milliseconds: 3000), () {
                         DialogBox.dismissDialog(context);
                       });
-          
+
                       // final response =
                       //     await dio.get('http://10.0.2.2:8000/api/hello');
-          
+
                       // // DialogBox.dismissDialog(context);
                       // print(response);
                       print('Firstname: $firstname');
@@ -571,7 +571,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     backgroundColor: const Color(0xFF600852),
                     fixedSize: const Size(double.infinity, 60),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8), // Set border radius
+                      borderRadius:
+                          BorderRadius.circular(8), // Set border radius
                     ),
                   ),
                   child: const Text(
@@ -612,8 +613,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 )
               ],
             ),
-          ),
-        ),
+          );
+        }),
       ),
     );
   }
