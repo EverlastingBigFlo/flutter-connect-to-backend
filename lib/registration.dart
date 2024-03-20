@@ -363,6 +363,29 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             ),
                           ),
                         ),
+                        onTap: () {
+                          showCupertinoModalPopup<void>(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return Container(
+                                height: 200.0,
+                                color: CupertinoColors.white,
+                                child: CupertinoDatePicker(
+                                  mode: CupertinoDatePickerMode.date,
+                                  initialDateTime: DateTime.now(),
+                                  minimumDate: DateTime(1960),
+                                  maximumDate: DateTime.now(),
+                                  onDateTimeChanged: (DateTime newDateTime) {
+                                    String formattedDate =
+                                        DateFormat('dd-MM-yyyy')
+                                            .format(newDateTime);
+                                    dateOfBirthController!.text = formattedDate;
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
                       ),
                     ),
                   ],
