@@ -7,26 +7,8 @@ import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
 
 class RegistrationForm extends StatefulWidget {
-  TextEditingController? firstnameController;
-  TextEditingController? lastNameController;
-  TextEditingController? userNameController;
-  TextEditingController? emailController;
-  TextEditingController? phoneController;
-  TextEditingController? passwordController;
-  TextEditingController? confirmPasswordController;
-  TextEditingController? dateOfBirthController;
-  TextEditingController? genderController;
   RegistrationForm({
     super.key,
-    this.firstnameController,
-    this.lastNameController,
-    this.userNameController,
-    this.emailController,
-    this.phoneController,
-    this.passwordController,
-    this.confirmPasswordController,
-    this.dateOfBirthController,
-    this.genderController,
   });
 
   @override
@@ -36,36 +18,44 @@ class RegistrationForm extends StatefulWidget {
 class _RegistrationFormState extends State<RegistrationForm> {
   bool _isObscured = true;
   bool _agreeToTerms = false;
+  TextEditingController? firstnameController;
+  TextEditingController? lastNameController;
+  TextEditingController? userNameController;
+  TextEditingController? emailController;
+  TextEditingController? phoneController;
+  TextEditingController? passwordController;
+  TextEditingController? confirmPasswordController;
+  TextEditingController? dateOfBirthController;
+  TextEditingController? genderController;
 
   // declare dio
-
 
   @override
   void initState() {
     super.initState();
-    widget.firstnameController = TextEditingController();
-    widget.lastNameController = TextEditingController();
-    widget.userNameController = TextEditingController();
-    widget.emailController = TextEditingController();
-    widget.phoneController = TextEditingController();
-    widget.passwordController = TextEditingController();
-    widget.confirmPasswordController = TextEditingController();
-    widget.dateOfBirthController = TextEditingController();
-    widget.genderController = TextEditingController();
+    firstnameController = TextEditingController();
+    lastNameController = TextEditingController();
+    userNameController = TextEditingController();
+    emailController = TextEditingController();
+    phoneController = TextEditingController();
+    passwordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    dateOfBirthController = TextEditingController();
+    genderController = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    widget.firstnameController!.dispose();
-    widget.lastNameController!.dispose();
-    widget.userNameController!.dispose();
-    widget.emailController!.dispose();
-    widget.phoneController!.dispose();
-    widget.passwordController!.dispose();
-    widget.confirmPasswordController!.dispose();
-    widget.dateOfBirthController!.dispose();
-    widget.genderController!.dispose();
+    firstnameController!.dispose();
+    lastNameController!.dispose();
+    userNameController!.dispose();
+    emailController!.dispose();
+    phoneController!.dispose();
+    passwordController!.dispose();
+    confirmPasswordController!.dispose();
+    dateOfBirthController!.dispose();
+    genderController!.dispose();
   }
 
   void _togglePasswordVisibility() {
@@ -122,7 +112,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ],
                 ),
                 child: TextFormField(
-                  controller: widget.firstnameController,
+                  controller: firstnameController,
                   decoration: InputDecoration(
                     hintText: 'First Name',
                     hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -148,7 +138,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ],
                 ),
                 child: TextFormField(
-                  controller: widget.lastNameController,
+                  controller: lastNameController,
                   decoration: InputDecoration(
                     hintText: 'Last Name',
                     hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -175,7 +165,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ],
                 ),
                 child: TextFormField(
-                  controller: widget.userNameController,
+                  controller: userNameController,
                   decoration: InputDecoration(
                     hintText: 'Username',
                     hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -202,7 +192,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ],
                 ),
                 child: TextFormField(
-                  controller: widget.emailController,
+                  controller: emailController,
                   decoration: InputDecoration(
                     hintText: 'Email',
                     hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -230,7 +220,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ),
                 child: TextFormField(
                   keyboardType: const TextInputType.numberWithOptions(),
-                  controller: widget.phoneController,
+                  controller: phoneController,
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
                     hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -258,7 +248,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ]),
                   child: TextFormField(
                     obscureText: _isObscured,
-                    controller: widget.passwordController,
+                    controller: passwordController,
                     decoration: InputDecoration(
                       hintText: 'Password',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -289,7 +279,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ]),
                   child: TextFormField(
                     obscureText: _isObscured,
-                    controller: widget.confirmPasswordController,
+                    controller: confirmPasswordController,
                     decoration: InputDecoration(
                       hintText: 'Confirm Password',
                       hintStyle: const TextStyle(color: Color(0xFF470037)),
@@ -311,7 +301,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 children: [
                   Expanded(
                     child: TextFormField(
-                      controller: widget.dateOfBirthController,
+                      controller: dateOfBirthController,
                       decoration: const InputDecoration(
                           labelText: 'Date of Birth', hintText: 'dd-mm-yyyy'),
                       keyboardType: TextInputType.number,
@@ -330,7 +320,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         String formattedDate =
                             DateFormat('dd-MM-yyyy').format(dob);
                         setState(() {
-                          widget.dateOfBirthController!.text = formattedDate;
+                          dateOfBirthController!.text = formattedDate;
                         });
                       }
                     },
@@ -355,9 +345,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 child: Column(
                   children: [
                     DropdownButtonFormField<String>(
-                      value: widget.genderController!.text.isEmpty
+                      value: genderController!.text.isEmpty
                           ? null
-                          : widget.genderController!.text,
+                          : genderController!.text,
                       items: ['Male', 'Female', 'Other']
                           .map((gender) => DropdownMenuItem(
                                 value: gender,
@@ -366,7 +356,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           .toList(),
                       onChanged: (value) {
                         setState(() {
-                          widget.genderController!.text = value!;
+                          genderController!.text = value!;
                         });
                       },
                       decoration: InputDecoration(
@@ -468,16 +458,15 @@ class _RegistrationFormState extends State<RegistrationForm> {
               ElevatedButton(
                 onPressed: () async {
                   if (_agreeToTerms) {
-                    String firstname = widget.firstnameController!.text;
-                    String lastname = widget.lastNameController!.text;
-                    String username = widget.userNameController!.text;
-                    String email = widget.emailController!.text;
-                    String phone = widget.phoneController!.text;
-                    String password = widget.passwordController!.text;
-                    String confirmPassword =
-                        widget.confirmPasswordController!.text;
-                    String DOB = widget.dateOfBirthController!.text;
-                    String gender = widget.genderController!.text;
+                    String firstname = firstnameController!.text;
+                    String lastname = lastNameController!.text;
+                    String username = userNameController!.text;
+                    String email = emailController!.text;
+                    String phone = phoneController!.text;
+                    String password = passwordController!.text;
+                    String confirmPassword = confirmPasswordController!.text;
+                    String DOB = dateOfBirthController!.text;
+                    String gender = genderController!.text;
 
                     DialogBox.showConfirmationDialog(context);
                     Future.delayed(const Duration(milliseconds: 3000), () {
