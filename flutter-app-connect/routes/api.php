@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('hello', function () {
-    return response()->json(['message'=>'welcome to PHP/LARAVEL APi for Flutter']);
+Route::prefix('/auth')->group(function(){
+    Route::post('register',[AuthController::class,'register']);
+
 });
