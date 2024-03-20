@@ -2,26 +2,11 @@
 
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 // import 'package:flutter/widgets.dart';
 
 class MyForm extends StatefulWidget {
-  TextEditingController? firstnameController;
-  TextEditingController? emailController;
-  TextEditingController? phoneController;
-  TextEditingController? passwordController;
-  TextEditingController? confirmPasswordController;
-  TextEditingController? dateOfBirthController;
-  TextEditingController? genderController;
-  MyForm({
-    Key? key,
-    this.firstnameController,
-    this.emailController,
-    this.phoneController,
-    this.passwordController,
-    this.confirmPasswordController,
-    this.dateOfBirthController,
-    this.genderController,
-  }) : super(key: key);
+  MyForm({Key? key}) : super(key: key);
 
   @override
   _MyFormState createState() => _MyFormState();
@@ -29,29 +14,36 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   bool _agreeToTerms = false;
+  TextEditingController? firstnameController;
+  TextEditingController? emailController;
+  TextEditingController? phoneController;
+  TextEditingController? passwordController;
+  TextEditingController? confirmPasswordController;
+  TextEditingController? dateOfBirthController;
+  TextEditingController? genderController;
 
   @override
   void initState() {
     super.initState();
-    widget.firstnameController = TextEditingController();
-    widget.emailController = TextEditingController();
-    widget.phoneController = TextEditingController();
-    widget.passwordController = TextEditingController();
-    widget.confirmPasswordController = TextEditingController();
-    widget.dateOfBirthController = TextEditingController();
-    widget.genderController = TextEditingController();
+    firstnameController = TextEditingController();
+    emailController = TextEditingController();
+    phoneController = TextEditingController();
+    passwordController = TextEditingController();
+    confirmPasswordController = TextEditingController();
+    dateOfBirthController = TextEditingController();
+    genderController = TextEditingController();
   }
 
   @override
   void dispose() {
     super.dispose();
-    widget.firstnameController!.dispose();
-    widget.emailController!.dispose();
-    widget.phoneController!.dispose();
-    widget.passwordController!.dispose();
-    widget.confirmPasswordController!.dispose();
-    widget.dateOfBirthController!.dispose();
-    widget.genderController!.dispose();
+    firstnameController!.dispose();
+    emailController!.dispose();
+    phoneController!.dispose();
+    passwordController!.dispose();
+    confirmPasswordController!.dispose();
+    dateOfBirthController!.dispose();
+    genderController!.dispose();
   }
 
   @override
@@ -155,12 +147,11 @@ class _MyFormState extends State<MyForm> {
                 ElevatedButton(
                   onPressed: () {
                     if (_agreeToTerms) {
-                      String fullname = widget.firstnameController!.text;
-                      String email = widget.emailController!.text;
-                      String phone = widget.phoneController!.text;
-                      String password = widget.passwordController!.text;
-                      String confirmPassword =
-                          widget.confirmPasswordController!.text;
+                      String fullname = firstnameController!.text;
+                      String email = emailController!.text;
+                      String phone = phoneController!.text;
+                      String password = passwordController!.text;
+                      String confirmPassword = confirmPasswordController!.text;
 
                       print('Fullname: $fullname');
                       print('Email: $email');
