@@ -583,15 +583,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       String DOB = dateOfBirthController!.text;
                       String gender = genderController!.text;
 
-                      Future.delayed(const Duration(milliseconds: 3000), () {
-                        DialogBox.dismissDialog(context);
-                      });
 
-                      // final response =
-                      //     await dio.get('http://10.0.2.2:8000/api/hello');
-
-                      // // DialogBox.dismissDialog(context);
-                      // print(response);
                       print('Firstname: $firstname');
                       print('Lastname: $lastname');
                       print('Username: $username');
