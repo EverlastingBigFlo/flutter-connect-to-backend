@@ -7,7 +7,7 @@ import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
 
 class RegistrationForm extends StatefulWidget {
-  RegistrationForm({
+  const RegistrationForm({
     super.key,
   });
 
