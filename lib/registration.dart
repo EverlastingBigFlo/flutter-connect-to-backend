@@ -603,7 +603,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           confirmPasswordController!.text;
                       data['date_of_birth'] = dateOfBirthController!.text;
                       data['gender'] = genderController!.text;
-                      data['password'] = passwordController!.text;
                       data['device_id'] = deviceinfo['id'];
                       data['device_model'] = deviceinfo['model'];
                       ref.read(signUpProvider.notifier).state = data;
@@ -613,7 +612,14 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       });
                       submit(ref);
 
+                      print('Firstname: $data[first_name]');
+                      print('Lastname: $data[last]');
+                      print('Username: $data[username]');
                       print('Email: $data[email]');
+                      print('Password: $data[password]');
+                      print('Password Con: $data[password_confirmation]');
+                      print('Date of birth: $data[password_confirmation]');
+
                       // print('Lastname: $lastname');
                       // print('Username: $username');
                       // print('Email: $email');
