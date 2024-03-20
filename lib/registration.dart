@@ -618,8 +618,10 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       print('Email: $data[email]');
                       print('Password: $data[password]');
                       print('Password Con: $data[password_confirmation]');
-                      print('Date of birth: $data[password_confirmation]');
-
+                      print('Date of birth: $data[date_of_birth]');
+                      print('Gender: $data[gender]');
+                      print('Device id: $data[device_id]');
+                      print('Device model: $data[device_model]');
                       // print('Lastname: $lastname');
                       // print('Username: $username');
                       // print('Email: $email');
