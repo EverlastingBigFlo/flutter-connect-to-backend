@@ -616,7 +616,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       print('Firstname: ${data['first_name']}');
                       print('Lastname: ${data['last_name']}');
                       print('Username: ${data['username']}');
-                      print('Email: $data[email]');
+                      print('Email: ${data['email']}');
                       print('Password: ${data['password']}');
                       print('Password Con: ${data['password_confirmation']}');
                       print('Date of birth: ${data['date_of_birth']}');
