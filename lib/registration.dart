@@ -574,9 +574,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 ElevatedButton(
                   onPressed: () async {
                     if (_agreeToTerms) {
-                      print('Please agree to the terms and conditions');
-                      return;
-                    } else {
                       AlertInfo alert = AlertInfo();
                       if (emailController!.text == '' ||
                           passwordController!.text == '' ||
@@ -627,6 +624,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       // print('Gender: $data[gender]');
                       // print('Device id: $data[device_id]');
                       // print('Device model: $data[device_model]');
+                    } else {
+                      print('Please agree to the terms and conditions');
+                      return;
                     }
                   },
                   style: ElevatedButton.styleFrom(
