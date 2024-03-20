@@ -298,6 +298,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
 
               const SizedBox(height: 20.0),
 
+// date picker section
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
