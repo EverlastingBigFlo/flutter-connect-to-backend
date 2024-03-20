@@ -593,12 +593,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       Utilities device = Utilities();
                       var deviceinfo = await device.devicePlatform;
                       Map data = ref.watch(signUpProvider.notifier).state;
+                      data['first_name'] = firstnameController!.text;
+                      data['last_name'] = lastNameController!.text;
                       data['username'] = userNameController!.text;
                       data['email'] = emailController!.text;
                       data['phone'] = phoneController!.text;
                       data['password'] = passwordController!.text;
                       data['password_confirmation'] =
                           confirmPasswordController!.text;
+                      data['date_of_birth'] = dateOfBirthController!.text;
+                      data['gender'] = genderController!.text;
+                      data['password'] = passwordController!.text;
                       data['device_id'] = deviceinfo['id'];
                       data['device_model'] = deviceinfo['model'];
                       ref.read(signUpProvider.notifier).state = data;
