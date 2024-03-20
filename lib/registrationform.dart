@@ -39,6 +39,8 @@ class _MyFormState extends State<MyForm> {
     widget.phoneController = TextEditingController();
     widget.passwordController = TextEditingController();
     widget.confirmPasswordController = TextEditingController();
+    widget.dateOfBirthController = TextEditingController();
+    widget.genderController = TextEditingController();
   }
 
   @override
@@ -49,6 +51,8 @@ class _MyFormState extends State<MyForm> {
     widget.phoneController!.dispose();
     widget.passwordController!.dispose();
     widget.confirmPasswordController!.dispose();
+    widget.dateOfBirthController!.dispose();
+    widget.genderController!.dispose();
   }
 
   @override
