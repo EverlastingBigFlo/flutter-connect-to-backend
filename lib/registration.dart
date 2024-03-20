@@ -339,6 +339,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 25.0),
                                   height: 200.0,
                                   color: CupertinoColors.white,
                                   child: CupertinoDatePicker(
