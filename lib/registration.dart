@@ -609,21 +609,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ref.read(signUpProvider.notifier).state = data;
                       print(data);
                       setState(() {
-                        formData = data;
+                        // formData = data;
                       });
                       submit(ref);
 
-                      print('Firstname: $data[first_name]');
-                      print('Lastname: $data[last]');
-                      print('Username: $data[username]');
-                      print('Email: $data[email]');
-                      print('Password: $data[password]');
-                      print('Password Con: $data[password_confirmation]');
-                      print('Date of birth: $data[date_of_birth]');
-                      print('Gender: $data[gender]');
-                      print('Device id: $data[device_id]');
-                      print('Device model: $data[device_model]');
-
+                      print('Firstname: first_name');
                       print('Please agree to the terms and conditions');
                     }
                   },
