@@ -297,6 +297,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   )),
 
               const SizedBox(height: 20.0),
+              
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -341,8 +342,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                             .format(newDateTime);
                                     dateOfBirthController!.text = formattedDate;
                                   },
-                                  
+
                                 ),
+                                
                               );
                             },
                           );
