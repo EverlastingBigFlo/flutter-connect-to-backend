@@ -613,7 +613,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       });
                       submit(ref);
 
-                      print('Firstname: $data[email]');
+                      print('Email: $data[email]');
                       // print('Lastname: $lastname');
                       // print('Username: $username');
                       // print('Email: $email');
