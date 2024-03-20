@@ -297,7 +297,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   )),
 
               const SizedBox(height: 20.0),
-              
+
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -315,11 +315,11 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     Expanded(
                       child: CupertinoTextField(
                         controller: dateOfBirthController,
-                        decoration: const BoxDecoration(
-                          border: Border(
-                            bottom:
-                                BorderSide(color: CupertinoColors.inactiveGray),
-                          ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Colors.white,
+                          border:
+                              Border.all(color: CupertinoColors.inactiveGray),
                         ),
                         placeholder: 'dd-mm-yyyy',
                         keyboardType: TextInputType.number,
@@ -342,9 +342,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                             .format(newDateTime);
                                     dateOfBirthController!.text = formattedDate;
                                   },
-
                                 ),
-                                
                               );
                             },
                           );
