@@ -14,7 +14,8 @@ Dio axios() {
 
   dio.interceptors.add(
     InterceptorsWrapper(
-      onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+      onRequest:
+          (RequestOptions options, RequestInterceptorHandler handler) async {
         // Do something before request is sent.
         // If you want to resolve the request with custom data,
         // you can resolve a `Response` using `handler.resolve(response)`.
@@ -23,6 +24,7 @@ Dio axios() {
 
         final token = pref.getString('token') ?? '';
         options.headers['Authorization'] = 'Bearer $token';
+
         return handler.next(options);
       },
       onResponse: (Response response, ResponseInterceptorHandler handler) {
