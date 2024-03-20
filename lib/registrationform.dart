@@ -13,7 +13,7 @@ class MyForm extends StatefulWidget {
   TextEditingController? dateOfBirthController;
   TextEditingController? genderController;
   MyForm({
-    super.key,
+    Key? key,
     this.firstnameController,
     this.emailController,
     this.phoneController,
@@ -21,7 +21,7 @@ class MyForm extends StatefulWidget {
     this.confirmPasswordController,
     this.dateOfBirthController,
     this.genderController,
-  });
+  }) : super(key: key);
 
   @override
   _MyFormState createState() => _MyFormState();
@@ -34,7 +34,6 @@ class _MyFormState extends State<MyForm> {
   void initState() {
     super.initState();
     widget.firstnameController ??= TextEditingController();
-    widget.emailController ??= TextEditingController();
     widget.emailController ??= TextEditingController();
     widget.phoneController ??= TextEditingController();
     widget.passwordController ??= TextEditingController();
