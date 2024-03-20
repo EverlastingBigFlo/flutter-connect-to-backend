@@ -33,13 +33,13 @@ class _MyFormState extends State<MyForm> {
   @override
   void initState() {
     super.initState();
-    widget.firstnameController ??= TextEditingController();
-    widget.emailController ??= TextEditingController();
-    widget.phoneController ??= TextEditingController();
-    widget.passwordController ??= TextEditingController();
-    widget.confirmPasswordController ??= TextEditingController();
-    widget.dateOfBirthController ??= TextEditingController();
-    widget.genderController ??= TextEditingController();
+    widget.firstnameController = TextEditingController();
+    widget.emailController = TextEditingController();
+    widget.phoneController = TextEditingController();
+    widget.passwordController = TextEditingController();
+    widget.confirmPasswordController = TextEditingController();
+    widget.dateOfBirthController = TextEditingController();
+    widget.genderController = TextEditingController();
   }
 
   @override
