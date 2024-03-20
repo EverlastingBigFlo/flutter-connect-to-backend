@@ -1,12 +1,17 @@
+import 'package:connectingtobackend/alerts/alert_info.dart';
+import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
+import 'alerts/alert_loading.dart';
 import 'components/alert-dialog.dart';
 import 'components/my-text.dart';
+import 'models/user_model.dart';
+import 'service/shared_preference.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({
@@ -18,6 +23,13 @@ class RegistrationForm extends StatefulWidget {
 }
 
 class _RegistrationFormState extends State<RegistrationForm> {
+  final List<String> Items = [
+    "Password must be number",
+    "Password must be 6 in length",
+    // "A special character  (@#^%)",
+    // "A number(1)",
+    // "8 characters minimum"
+  ];
   bool _isObscured = true;
   bool _agreeToTerms = false;
   TextEditingController? firstnameController;
@@ -30,7 +42,34 @@ class _RegistrationFormState extends State<RegistrationForm> {
   TextEditingController? dateOfBirthController;
   TextEditingController? genderController;
 
-  // declare dio
+  AlertInfo alertInfo = AlertInfo();
+  AlertLoading alertLoading = AlertLoading();
+  CustomSharedPreference pref = CustomSharedPreference();
+  late Map? formData;
+
+// create function submit here
+  void submit(ref) async {
+    AuthController axios = AuthController();
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
+    alertLoading.showAlertDialog(context);
+    final response = await axios.register(formData!);
+    alertLoading.closeDialog(context);
+
+    if (response['status'] == "error") {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+      return;
+    }
+    //  print(response);
+
+    ref.read(userProvider.notifier).state =
+        UserModel.fromJson(response['user']);
+    pref.setString('token', response['token']);
+    ref.read(goToProvider.notifier).state = "createPin";
+
+    Navigator.pushNamedAndRemoveUntil(
+        context, "verifyNumber", (route) => false);
+  }
 
   @override
   void initState() {
@@ -544,7 +583,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       String DOB = dateOfBirthController!.text;
                       String gender = genderController!.text;
 
-                      DialogBox.showConfirmationDialog(context);
                       Future.delayed(const Duration(milliseconds: 3000), () {
                         DialogBox.dismissDialog(context);
                       });
