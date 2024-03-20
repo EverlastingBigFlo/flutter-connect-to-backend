@@ -323,29 +323,46 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         placeholder: 'dd-mm-yyyy',
                         keyboardType: TextInputType.number,
                         readOnly: true,
-                        onTap: () {
-                          showCupertinoModalPopup<void>(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return Container(
-                                height: 200.0,
-                                color: CupertinoColors.white,
-                                child: CupertinoDatePicker(
-                                  mode: CupertinoDatePickerMode.date,
-                                  initialDateTime: DateTime.now(),
-                                  minimumDate: DateTime(1960),
-                                  maximumDate: DateTime.now(),
-                                  onDateTimeChanged: (DateTime newDateTime) {
-                                    String formattedDate =
-                                        DateFormat('dd-MM-yyyy')
-                                            .format(newDateTime);
-                                    dateOfBirthController!.text = formattedDate;
-                                  },
-                                ),
-                              );
-                            },
-                          );
-                        },
+                        prefix: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text(
+                            'Date of Birth',
+                            style: TextStyle(color: Color(0xFF470037)),
+                          ),
+                        ),
+                        suffix: GestureDetector(
+                          onTap: () {
+                            showCupertinoModalPopup<void>(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return Container(
+                                  height: 200.0,
+                                  color: CupertinoColors.white,
+                                  child: CupertinoDatePicker(
+                                    mode: CupertinoDatePickerMode.date,
+                                    initialDateTime: DateTime.now(),
+                                    minimumDate: DateTime(1960),
+                                    maximumDate: DateTime.now(),
+                                    onDateTimeChanged: (DateTime newDateTime) {
+                                      String formattedDate =
+                                          DateFormat('dd-MM-yyyy')
+                                              .format(newDateTime);
+                                      dateOfBirthController!.text =
+                                          formattedDate;
+                                    },
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              CupertinoIcons.calendar_today,
+                              color: Color(0xFF470037),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
