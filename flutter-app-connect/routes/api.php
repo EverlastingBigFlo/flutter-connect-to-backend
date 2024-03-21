@@ -1,7 +1,7 @@
 <?php
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\controllers\authController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::prefix('/auth')->group(function(){
-    Route::post('register',[AuthController::class,'register']);
+    Route::post('register',[authController::class,'register']);
 
 });

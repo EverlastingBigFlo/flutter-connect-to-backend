@@ -1,6 +1,5 @@
 // ignore_for_file: library_prefixes
 
-
 import 'package:connectingtobackend/service/dio.dart';
 import 'package:dio/dio.dart' as Dio;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,14 +30,13 @@ class AuthController {
   //   }
   // }
 
-   Future<Map> register(Map creds) async {
-    
+  Future<Map> register(Map creds) async {
     try {
       Dio.Response response = await axios().post('/auth/register', data: creds);
-        print(response);
+      print(response);
       // if (response.data['status'] != 'error') {
       //   // String token = response.data['token'];
-       
+
       // }
 
       return response.data;
@@ -46,8 +44,6 @@ class AuthController {
       return {'status': 'error', 'message': e.error};
     }
   }
-
- 
 
 //  Future<Map> checkOtp(Map creds) async {
 //     try {
@@ -59,8 +55,6 @@ class AuthController {
 //     }
 //   }
 
-
-
 // Future<Map> sendOtp(Map creds) async {
 //     try {
 //       Dio.Response response = await axios().post('/auth/sendotp', data: creds);
@@ -70,15 +64,14 @@ class AuthController {
 //     }
 //   }
 
-
 //   Future<Map> createTxPin(Map creds) async {
-    
+
 //     try {
 //       Dio.Response response = await axios().post('/account/createtxpin', data: creds);
 //         print(response);
 //       // if (response.data['status'] != 'error') {
 //       //   // String token = response.data['token'];
-       
+
 //       // }
 
 //       return response.data;
@@ -86,12 +79,4 @@ class AuthController {
 //       return {'status': 'error', 'message': e.error};
 //     }
 //   }
-
-
-
-
 }
-
- 
-
-
