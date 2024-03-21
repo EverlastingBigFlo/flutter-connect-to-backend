@@ -31,6 +31,7 @@ class AuthController {
   // }
 
   Future<Map> register(Map creds) async {
+    print(creds);
     try {
       Dio.Response response = await axios().post('/auth/register', data: creds);
       print(response);
