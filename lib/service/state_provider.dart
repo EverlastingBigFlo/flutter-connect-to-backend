@@ -3,14 +3,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/user_model.dart';
 
+StateProvider<String> dobProvider = StateProvider<String>((ref) => '');
+StateProvider<String> genderProvider = StateProvider<String>((ref) => '');
+StateProvider<Map> signUpProvider = StateProvider<Map>((ref) => {});
+StateProvider<Map> txPinProvider = StateProvider<Map>((ref) => {});
+StateProvider<String> goToProvider = StateProvider<String>((ref) => 'hhhh');
 
- StateProvider<String>  dobProvider = StateProvider<String>((ref) => '');
- StateProvider<String> genderProvider = StateProvider<String>((ref) => '');
- StateProvider<Map> signUpProvider=StateProvider<Map>((ref) => {});
- StateProvider<Map> txPinProvider=StateProvider<Map>((ref) => {});
- StateProvider<String> goToProvider = StateProvider<String>((ref) => 'hhhh');
-
- StateProvider<UserModel> userProvider=StateProvider<UserModel>((ref) {
+StateProvider<UserModel> userProvider = StateProvider<UserModel>((ref) {
   return UserModel(
     id: 0,
     firstName: '',
@@ -30,6 +29,6 @@ import '../models/user_model.dart';
     createdAt: DateTime.now(),
     updatedAt: DateTime.now(),
   );
- });
+});
 
 // Define more providers as needed
