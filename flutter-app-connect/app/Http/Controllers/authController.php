@@ -54,8 +54,8 @@ class authController extends Controller
 }
 
 
-public function sendOtp($userId)
-{
+// sendOtp($userId)
+public function sendOtp() {
     $this->rand = mt_rand(1000, 9999);
     $user = User::find($userId);
 
