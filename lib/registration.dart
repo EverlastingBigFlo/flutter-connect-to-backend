@@ -429,7 +429,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                     maximumDate: DateTime.now(),
                                     onDateTimeChanged: (DateTime newDateTime) {
                                       String formattedDate =
-                                          DateFormat('MM-dd-yyyy')
+                                          DateFormat('MM/dd/yyyy')
                                               .format(newDateTime);
                                       dateOfBirthController!.text =
                                           formattedDate;
