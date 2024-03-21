@@ -364,7 +364,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                             color: Colors.white,
                             border: Border.all(color: const Color(0xFF470037)),
                           ),
-                          placeholder: 'dd-mm-yyyy',
+                          placeholder: 'mm-dd-yyyy',
                           keyboardType: TextInputType.number,
                           readOnly: true,
                           prefix: const Padding(
