@@ -51,11 +51,9 @@ class authController extends Controller
         // return response()->json(['data' => 'Hello world', 'otp' => false, 'status' => 'ok', 'user' => $user, 'token' => $user->createToken($request->device_model)->plainTextToken]);
     }
 
-}
 
-
-// sendOtp($userId)
-public function sendOtp() {
+    public function sendOtp($userId)
+{
     $this->rand = mt_rand(1000, 9999);
     $user = User::find($userId);
 
@@ -77,3 +75,10 @@ public function sendOtp() {
     dispatch(new SendEmailJob($r, [$user->email]));
     return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
 }
+
+
+
+
+}
+
+
