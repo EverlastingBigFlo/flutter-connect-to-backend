@@ -31,10 +31,10 @@ class AuthController {
   // }
 
   Future<Map> register(Map creds) async {
-    print(creds);
+    print("------------$creds");
     try {
       Dio.Response response = await axios().post('/auth/register', data: creds);
-      print(response);
+      print(response.data);
       // if (response.data['status'] != 'error') {
       //   // String token = response.data['token'];
 
