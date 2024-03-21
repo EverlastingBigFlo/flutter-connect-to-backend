@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Jobs\SendEmailJob;
 use App\Mail\EmailAlert;
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class authController extends Controller
+
+use Illuminate\Http\Request;
+
+class AuthController extends Controller
 {
 
     public $rand;
@@ -87,5 +88,11 @@ class authController extends Controller
 
 
 }
+
+
+
+
+
+
 
 
