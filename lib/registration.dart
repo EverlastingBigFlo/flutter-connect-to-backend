@@ -69,7 +69,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
     ref.read(goToProvider.notifier).state = "createPin";
 
     Navigator.pushNamedAndRemoveUntil(
-        context, "verifyNumber", (route) => false);
+        context, "pininput", (route) => false);
   }
 
   @override
