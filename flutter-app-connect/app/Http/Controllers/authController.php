@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class authController extends Controller
 {
+
+    public $rand;
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [

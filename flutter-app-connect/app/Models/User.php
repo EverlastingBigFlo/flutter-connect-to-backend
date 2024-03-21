@@ -18,9 +18,33 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'middle_name',
+        'dob',
+        'balance',
+        'commission',
+        'tx_pin',
+        'username',
         'email',
+        'phone',
+        'country',
+        'state',
+        'local_gov',
+        'address',
+        'bvn',
+        'nin',
+        'status',
+        'isAggregator',
+        'role',
+        'gender',
+        'image',
+        'device_model',
+        'device_id',
+        'email_verified_at',
+        'bvn_verified_at',
         'password',
+        // You don't need to include remember_token and timestamps as they are automatically handled by Eloquent.
     ];
 
     /**
@@ -31,6 +55,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'nin',
+        'bvn','tx_pin'
     ];
 
     /**
@@ -40,6 +66,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'bvn_verified_at'=>'date',
         'password' => 'hashed',
     ];
 }
