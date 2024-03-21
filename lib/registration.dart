@@ -55,7 +55,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
     alertLoading.showAlertDialog(context);
     final response = await axios.register(formData!);
     alertLoading.closeDialog(context);
-    print(response);
+    // print(response);
 
     if (response['status'] == "error") {
       alertInfo.message = response['message'];
