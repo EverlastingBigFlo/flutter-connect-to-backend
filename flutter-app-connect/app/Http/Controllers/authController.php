@@ -72,7 +72,7 @@ class AuthController extends Controller
     $r = new EmailAlert ([
         'name' => $user->first_name,
         'subject' => 'Email Verification',
-        'view' => 'alert',
+        'view' => 'alerts',
         'message' => 'The OTP to verify your email address on ' . env('APP_NAME') . ' is <b>' . $this->rand . '</b>',
     ]);
     Otp::updateOrCreate(
