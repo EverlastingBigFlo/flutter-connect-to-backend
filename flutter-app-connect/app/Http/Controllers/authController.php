@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendEmailJob;
+use App\Mail\EmailAlert;
+use App\Models\Otp;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class authController extends Controller
 {
@@ -60,7 +67,7 @@ class authController extends Controller
     if (!$user->id) {
         return false;
     }
-    $r = new EmailAlert([
+    $r = new EmailAlert ([
         'name' => $user->first_name,
         'subject' => 'Email Verification',
         'view' => 'alert',
@@ -72,7 +79,7 @@ class authController extends Controller
             'code' => $this->rand,
         ],
     );
-    dispatch(new SendEmailJob($r, [$user->email]));
+    dispatch(new SendEmailJob ($r, [$user->email]));
     return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
 }
 
