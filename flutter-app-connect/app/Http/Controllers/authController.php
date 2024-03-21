@@ -49,3 +49,28 @@ class authController extends Controller
     }
 
 }
+
+
+public function sendOtp($userId)
+{
+    $this->rand = mt_rand(1000, 9999);
+    $user = User::find($userId);
+
+    if (!$user->id) {
+        return false;
+    }
+    $r = new EmailAlert([
+        'name' => $user->first_name,
+        'subject' => 'Email Verification',
+        'view' => 'alert',
+        'message' => 'The OTP to verify your email address on ' . env('APP_NAME') . ' is <b>' . $this->rand . '</b>',
+    ]);
+    Otp::updateOrCreate(
+        ['user_id' => $user->id],
+        [
+            'code' => $this->rand,
+        ],
+    );
+    dispatch(new SendEmailJob($r, [$user->email]));
+    return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
+}
