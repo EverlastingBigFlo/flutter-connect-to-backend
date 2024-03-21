@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\SendEmailJob;
+use App\Jobs\SendEmail;
 use App\Mail\EmailAlert;
 use App\Models\Otp;
 use App\Models\User;
@@ -81,7 +81,7 @@ class AuthController extends Controller
             'code' => $this->rand,
         ],
     );
-    dispatch(new SendEmailJob ($r, [$user->email]));
+    dispatch(new SendEmail($r, [$user->email]));
     return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
 }
 
