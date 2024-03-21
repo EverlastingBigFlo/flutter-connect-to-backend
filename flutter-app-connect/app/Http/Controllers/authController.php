@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Jobs\SendEmailJob;
 use App\Mail\EmailAlert;
 use App\Models\Otp;
