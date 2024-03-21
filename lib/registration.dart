@@ -395,7 +395,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                                       onDateTimeChanged:
                                           (DateTime newDateTime) {
                                         String formattedDate =
-                                            DateFormat('MM-MM-yyyy')
+                                            DateFormat('MM-dd-yyyy')
                                                 .format(newDateTime);
                                         dateOfBirthController!.text =
                                             formattedDate;
