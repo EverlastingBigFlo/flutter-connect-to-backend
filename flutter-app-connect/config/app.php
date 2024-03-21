@@ -43,6 +43,8 @@ return [
     */
 
     'debug' => (bool) env('APP_DEBUG', false),
+    // 'MAIL_FROM_ADDRESS'=>  env('MAIL_FROM_ADDRESS',''),
+
 
     /*
     |--------------------------------------------------------------------------
