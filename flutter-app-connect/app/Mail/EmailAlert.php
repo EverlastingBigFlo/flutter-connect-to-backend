@@ -32,6 +32,11 @@ class EmailAlert extends Mailable
             from: new Address(env('MAIL_FROM_ADDRESS'), config('app.name')),
             subject: $this->data['subject'],
         );
+
+        // return new Envelope(
+        //     from: new Address('anjorin199@gmail.com', 'Samuel Laravel'),
+        //     subject: 'We are testing email',
+        // );
     }
 
     /**
