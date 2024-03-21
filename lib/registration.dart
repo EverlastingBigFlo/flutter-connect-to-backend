@@ -290,6 +290,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           )
                         ]),
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       obscureText: _isObscured,
                       controller: passwordController,
                       decoration: InputDecoration(
@@ -321,6 +322,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                           )
                         ]),
                     child: TextFormField(
+                      keyboardType: TextInputType.number,
                       obscureText: _isObscured,
                       controller: confirmPasswordController,
                       decoration: InputDecoration(
