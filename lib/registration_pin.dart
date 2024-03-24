@@ -78,38 +78,47 @@ class _PinInputScreenState extends State<PinInputScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Column(
             children: [
-              PinInput(
-                controllers: controller1,
-                focusnode: focusnode1,
-                nextFocusnode: focusnode2,
+              const Icon(
+                Icons.phone_android_rounded,
+                size: 60,
+                color: Color(0xFF470037),
               ),
-              const SizedBox(
-                width: 30,
-              ),
-              PinInput(
-                controllers: controller2,
-                focusnode: focusnode2,
-                nextFocusnode: focusnode3,
-              ),
-              const SizedBox(
-                width: 30,
-              ),
-              PinInput(
-                controllers: controller3,
-                focusnode: focusnode3,
-                nextFocusnode: focusnode4,
-              ),
-              const SizedBox(
-                width: 30,
-              ),
-              PinInput(
-                controllers: controller4,
-                focusnode: focusnode4,
-                isLast: true,
-                func: submit,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  PinInput(
+                    controllers: controller1,
+                    focusnode: focusnode1,
+                    nextFocusnode: focusnode2,
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  PinInput(
+                    controllers: controller2,
+                    focusnode: focusnode2,
+                    nextFocusnode: focusnode3,
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  PinInput(
+                    controllers: controller3,
+                    focusnode: focusnode3,
+                    nextFocusnode: focusnode4,
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  PinInput(
+                    controllers: controller4,
+                    focusnode: focusnode4,
+                    isLast: true,
+                    func: submit,
+                  ),
+                ],
               ),
             ],
           ),
