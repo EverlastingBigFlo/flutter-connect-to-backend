@@ -239,17 +239,15 @@ class PinInput extends StatelessWidget {
         },
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
+          hintStyle: TextStyle(color: Colors.white),
           contentPadding: const EdgeInsetsDirectional.symmetric(
             vertical: 10,
             horizontal: 10,
           ),
           filled: true,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-          fillColor: const Color(0xFF470037),
+          // fillColor: const Color(0xFF470037),
           counter: const SizedBox.shrink(),
-          hintStyle: const TextStyle(
-            color: Colors.white,
-          ),
         ),
       ),
     );
