@@ -127,9 +127,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                           color: Colors.black,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
+                      const SizedBox(height: 10),
                       Text(
                         "Enter the 4-digit code sent to ${utilities.hidePhoneNumber(user.phone)} and ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
                         textAlign: TextAlign.center,
