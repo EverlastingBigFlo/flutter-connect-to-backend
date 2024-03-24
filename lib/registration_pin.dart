@@ -64,8 +64,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     Future.delayed(const Duration(milliseconds: 3000), () {
       DialogBox.dismissDialog(context);
 
-    print('PIN Input: $pin1$pin2$pin3$pin4');
-
+      print('PIN Input: $pin1$pin2$pin3$pin4');
     });
 
     // final response = await dio.get('http://10.0.2.2:8000/api/hello');
@@ -76,51 +75,44 @@ class _PinInputScreenState extends State<PinInputScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: MyText(
-            color: Color(0xFF470037),
-            fontSize: 1.2,
-            fontWeight: FontWeight.bold,
-            text: 'PIN',
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              PinInput(
+                controllers: controller1,
+                focusnode: focusnode1,
+                nextFocusnode: focusnode2,
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              PinInput(
+                controllers: controller2,
+                focusnode: focusnode2,
+                nextFocusnode: focusnode3,
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              PinInput(
+                controllers: controller3,
+                focusnode: focusnode3,
+                nextFocusnode: focusnode4,
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              PinInput(
+                controllers: controller4,
+                focusnode: focusnode4,
+                isLast: true,
+                func: submit,
+              ),
+            ],
           ),
-        ),
-      ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PinInput(
-              controllers: controller1,
-              focusnode: focusnode1,
-              nextFocusnode: focusnode2,
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            PinInput(
-              controllers: controller2,
-              focusnode: focusnode2,
-              nextFocusnode: focusnode3,
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            PinInput(
-              controllers: controller3,
-              focusnode: focusnode3,
-              nextFocusnode: focusnode4,
-            ),
-            const SizedBox(
-              width: 30,
-            ),
-            PinInput(
-              controllers: controller4,
-              focusnode: focusnode4,
-              isLast: true,
-              func: submit,
-            ),
-          ],
         ),
       ),
     );
