@@ -140,6 +140,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
                       ),
                     ],
                   ),
+                     const SizedBox(
+                  height: 70
+                ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -175,6 +178,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                       ),
                     ],
                   ),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
