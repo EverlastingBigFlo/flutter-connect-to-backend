@@ -246,7 +246,7 @@ class PinInput extends StatelessWidget {
           ),
           filled: true,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-          fillColor: const Color(0xFF470037),
+          // fillColor: const Color(0xFF470037),
           counter: const SizedBox.shrink(),
         ),
       ),
