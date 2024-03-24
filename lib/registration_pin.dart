@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
@@ -24,7 +26,8 @@ class _PinInputScreenState extends State<PinInputScreen> {
   late FocusNode focusnode2;
   late FocusNode focusnode3;
   late FocusNode focusnode4;
-
+  bool isButtonEnabled = true;
+  int remainingSeconds = 0;
   var user;
   var email;
 
@@ -71,10 +74,26 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
       print('PIN Input: $pin1$pin2$pin3$pin4');
     });
+  }
 
-    // final response = await dio.get('http://10.0.2.2:8000/api/hello');
+  void sendAgain() async {
+    setState(() {
+      isButtonEnabled = false;
+      remainingSeconds = 50;
+    });
 
-    // DialogBox.dismissDialog(context);
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        remainingSeconds--;
+      });
+
+      if (remainingSeconds == 0) {
+        timer.cancel();
+        setState(() {
+          isButtonEnabled = true;
+        });
+      }
+    });
   }
 
   @override
@@ -152,6 +171,32 @@ class _PinInputScreenState extends State<PinInputScreen> {
                         focusnode: focusnode4,
                         isLast: true,
                         func: submit,
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Didn't receive the code? ",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey.shade900),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      TextButton(
+                        onPressed: isButtonEnabled ? sendAgain : null,
+                        child: Text(
+                          isButtonEnabled
+                              ? 'Send again'
+                              : 'Send again in $remainingSeconds seconds',
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF470037)),
+                        ),
                       ),
                     ],
                   ),
