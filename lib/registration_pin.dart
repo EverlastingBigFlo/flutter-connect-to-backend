@@ -108,6 +108,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
               email = ref.watch(signUpProvider)['email'];
 
               return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(
                     Icons.phone_android_rounded,
