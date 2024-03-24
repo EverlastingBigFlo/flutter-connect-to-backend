@@ -1,7 +1,8 @@
 import 'package:connectingtobackend/components/alert-dialog.dart';
-import 'package:connectingtobackend/components/my-text.dart';
+import 'package:connectingtobackend/service/state_provider.dart';
+import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PinInputScreen extends StatefulWidget {
   const PinInputScreen({super.key});
@@ -15,13 +16,17 @@ class _PinInputScreenState extends State<PinInputScreen> {
   late TextEditingController controller2;
   late TextEditingController controller3;
   late TextEditingController controller4;
+  var goTo;
+
+  Utilities utilities = Utilities();
 
   late FocusNode focusnode1;
   late FocusNode focusnode2;
   late FocusNode focusnode3;
   late FocusNode focusnode4;
-// declare dio
-  final dio = Dio();
+
+  var user;
+  var email;
 
   @override
   void initState() {
@@ -77,53 +82,82 @@ class _PinInputScreenState extends State<PinInputScreen> {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-          child: Column(
-            children: [
-              const Icon(
-                Icons.phone_android_rounded,
-                size: 60,
-                color: Color(0xFF470037),
-              ),
-              const SizedBox(height: 40),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
+            child: Consumer(builder: (context, ref, _) {
+              goTo = ref.watch(goToProvider);
+              user = ref.watch(userProvider);
+              email = ref.watch(signUpProvider)['email'];
+
+              return Column(
                 children: [
-                  PinInput(
-                    controllers: controller1,
-                    focusnode: focusnode1,
-                    nextFocusnode: focusnode2,
+                  const Icon(
+                    Icons.phone_android_rounded,
+                    size: 60,
+                    color: Color(0xFF470037),
                   ),
-                  const SizedBox(
-                    width: 30,
+                  const SizedBox(height: 40),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Verify Phone number",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        "Enter the 4-digit code sent to ${utilities.hidePhoneNumber(user.phone)} and ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            fontSize: 15,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
                   ),
-                  PinInput(
-                    controllers: controller2,
-                    focusnode: focusnode2,
-                    nextFocusnode: focusnode3,
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  PinInput(
-                    controllers: controller3,
-                    focusnode: focusnode3,
-                    nextFocusnode: focusnode4,
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  PinInput(
-                    controllers: controller4,
-                    focusnode: focusnode4,
-                    isLast: true,
-                    func: submit,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      PinInput(
+                        controllers: controller1,
+                        focusnode: focusnode1,
+                        nextFocusnode: focusnode2,
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      PinInput(
+                        controllers: controller2,
+                        focusnode: focusnode2,
+                        nextFocusnode: focusnode3,
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      PinInput(
+                        controllers: controller3,
+                        focusnode: focusnode3,
+                        nextFocusnode: focusnode4,
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      PinInput(
+                        controllers: controller4,
+                        focusnode: focusnode4,
+                        isLast: true,
+                        func: submit,
+                      ),
+                    ],
                   ),
                 ],
-              ),
-            ],
-          ),
-        ),
+              );
+            })),
       ),
     );
   }
