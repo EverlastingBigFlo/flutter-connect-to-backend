@@ -85,6 +85,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                 size: 60,
                 color: Color(0xFF470037),
               ),
+              const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
