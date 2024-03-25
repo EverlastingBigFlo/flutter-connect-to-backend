@@ -63,7 +63,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
       alertInfo.showAlertDialog(context);
       return;
     }
-    //  print(response);
 
     ref.read(userProvider.notifier).state =
         UserModel.fromJson(response['user']);
