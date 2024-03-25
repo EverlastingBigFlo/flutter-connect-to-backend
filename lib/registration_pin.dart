@@ -112,6 +112,16 @@ class _PinInputScreenState extends State<PinInputScreen> {
         });
       }
     });
+
+    alertLoading.showAlertDialog(context);
+    final response = await AuthController().sendOtp({"email": email});
+    alertLoading.closeDialog(context);
+
+    // if (response['status']=='error') {
+    alertInfo.message = response['message'];
+    alertInfo.showAlertDialog(context);
+    //   return;
+    // }
   }
 
   @override

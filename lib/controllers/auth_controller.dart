@@ -56,14 +56,14 @@ class AuthController {
     }
   }
 
-// Future<Map> sendOtp(Map creds) async {
-//     try {
-//       Dio.Response response = await axios().post('/auth/sendotp', data: creds);
-//       return response.data;
-//     } on Dio.DioException catch (e) {
-//       return {'status': 'error', 'message': e.error};
-//     }
-//   }
+Future<Map> sendOtp(Map creds) async {
+    try {
+      Dio.Response response = await axios().post('/auth/sendotp', data: creds);
+      return response.data;
+    } on Dio.DioException catch (e) {
+      return {'status': 'error', 'message': e.error};
+    }
+  }
 
 //   Future<Map> createTxPin(Map creds) async {
 
