@@ -127,7 +127,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(
-                    Icons.mark_email_unread_rounded,
+                    Icons.phone_android_rounded,
                     size: 60,
                     color: Color(0xFF470037),
                   ),
@@ -136,7 +136,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Activate Account",
+                        "Verification",
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.w800,
@@ -145,7 +145,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "Enter the 4-digit code sent to ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
+                        "Enter the 4-digit code sent to ${utilities.hidePhoneNumber(user.phone)} and ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             fontSize: 15,
