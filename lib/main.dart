@@ -1,6 +1,7 @@
 // import 'package:connectingtobackend/otp.dart';
 import 'package:connectingtobackend/pages/authentications/registration.dart';
 import 'package:connectingtobackend/pages/authentications/registration_pin.dart';
+import 'package:connectingtobackend/pages/confirm_pin.dart';
 import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,8 +24,8 @@ class MyApp extends StatelessWidget {
         'pininput': (context) => const PinInputScreen(),
         // '/': (context) => const CreatePassword(),
         'setpin': (context) => const CreatePassword(),
-        // 'confirmPin': (context) => const CreatePassword(),
-        '/': (context) => const CreatePassword(),
+        // 'confirmPin': (context) => const ConfirmPin(),
+        '/': (context) => const ConfirmPin(),
       },
     );
   }
