@@ -1,6 +1,6 @@
 // import 'package:connectingtobackend/otp.dart';
-import 'package:connectingtobackend/registration.dart';
-import 'package:connectingtobackend/registration_pin.dart';
+import 'package:connectingtobackend/authentications/registration.dart';
+import 'package:connectingtobackend/authentications/registration_pin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
