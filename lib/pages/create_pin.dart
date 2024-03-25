@@ -70,84 +70,87 @@ class _CreatePasswordState extends State<CreatePassword> {
               padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
               child: Consumer(builder: (context, ref, _) {
                 refs = ref;
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Column(
-                      children: [
-                        Icon(
-                          Icons.lock_person,
-                          size: 60,
-                        ),
-                        SizedBox(
-                          height: 40,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Create Transaction pin",
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w800,
-                                color: Colors.black,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Set your private 4-digit PIN to secure your account. Never disclose this to anyone!",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 15,
+                return SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Column(
+                        children: [
+                          Icon(
+                            Icons.lock_person,
+                            size: 60,
+                            color: Color(0xFF470037),
+                          ),
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Create Transaction pin",
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w800,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            PasswordInputBox(
-                                textController: controller1,
-                                focusnode: focusnode1,
-                                nextfocusnode: focusnode2),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            PasswordInputBox(
-                                textController: controller2,
-                                focusnode: focusnode2,
-                                nextfocusnode: focusnode3),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            PasswordInputBox(
-                                textController: controller3,
-                                focusnode: focusnode3,
-                                nextfocusnode: focusnode4),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            PasswordInputBox(
-                              textController: controller4,
-                              focusnode: focusnode4,
-                              func: submit,
-                              isLast: true,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                "Set your private 4-digit PIN to secure your account. Never disclose this to anyone!",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              PasswordInputBox(
+                                  textController: controller1,
+                                  focusnode: focusnode1,
+                                  nextfocusnode: focusnode2),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              PasswordInputBox(
+                                  textController: controller2,
+                                  focusnode: focusnode2,
+                                  nextfocusnode: focusnode3),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              PasswordInputBox(
+                                  textController: controller3,
+                                  focusnode: focusnode3,
+                                  nextfocusnode: focusnode4),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              PasswordInputBox(
+                                textController: controller4,
+                                focusnode: focusnode4,
+                                func: submit,
+                                isLast: true,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 );
               })),
         ),
