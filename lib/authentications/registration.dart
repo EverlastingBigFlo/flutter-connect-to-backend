@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:connectingtobackend/authentications/alerts/alert_info.dart';
+import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import 'alerts/alert_loading.dart';
+import '../components/alerts/alert_loading.dart';
 import '../components/my-text.dart';
 import '../models/user_model.dart';
 import '../service/shared_preference.dart';
