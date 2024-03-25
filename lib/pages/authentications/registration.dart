@@ -69,8 +69,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
     pref.setString('token', response['token']);
     ref.read(goToProvider.notifier).state = "createPin";
 
-    // Navigator.pushNamed(context, "pininput");
-    // Navigator.pushNamedAndRemoveUntil(context, 'pininput', (route) => false);
     Navigator.pushNamed(context, 'pininput');
   }
 
