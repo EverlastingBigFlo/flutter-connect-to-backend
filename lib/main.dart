@@ -21,8 +21,10 @@ class MyApp extends StatelessWidget {
         // '/': (context) => MyForm(),
         // '/': (context) => const RegistrationForm(),
         'pininput': (context) => const PinInputScreen(),
+        // '/': (context) => const CreatePassword(),
+        'setpin': (context) => const CreatePassword(),
+        // 'confirmPin': (context) => const CreatePassword(),
         '/': (context) => const CreatePassword(),
-        // 'setpin': (context) => const CreatePassword(),
       },
     );
   }
