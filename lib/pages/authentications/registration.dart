@@ -609,7 +609,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       data['device_id'] = deviceinfo['id'];
                       data['device_model'] = deviceinfo['model'];
                       ref.read(signUpProvider.notifier).state = data;
-                      print(data);
+                      // print(data);
                       setState(() {
                         formData = data;
                       });
