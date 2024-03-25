@@ -46,15 +46,15 @@ class AuthController {
     }
   }
 
-//  Future<Map> checkOtp(Map creds) async {
-//     try {
-//       Dio.Response response = await axios().post('/auth/checkotp', data: creds);
+ Future<Map> checkOtp(Map creds) async {
+    try {
+      Dio.Response response = await axios().post('/auth/checkotp', data: creds);
 
-//       return response.data;
-//     } on Dio.DioException catch (e) {
-//       return {'status': 'error', 'message': e.error};
-//     }
-//   }
+      return response.data;
+    } on Dio.DioException catch (e) {
+      return {'status': 'error', 'message': e.error};
+    }
+  }
 
 // Future<Map> sendOtp(Map creds) async {
 //     try {

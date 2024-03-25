@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:connectingtobackend/alerts/alert_info.dart';
 import 'package:connectingtobackend/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/alert-dialog.dart';
+import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
   var user;
   var email;
 
-    AlertInfo alertInfo = AlertInfo();
+  AlertInfo alertInfo = AlertInfo();
   AlertLoading alertLoading = AlertLoading();
 
   @override
@@ -72,7 +73,15 @@ class _PinInputScreenState extends State<PinInputScreen> {
         controller2.text +
         controller3.text +
         controller4.text;
+    // display dialog box
     alertLoading.showAlertDialog(context);
+
+    // pass the email and otp into the response
+    final response =
+        await AuthController().checkOtp({"otp": otp, "email": email});
+
+    // close dialog box
+    alertLoading.closeDialog(context);
 
     // DialogBox.showConfirmationDialog(context);
     // Future.delayed(const Duration(milliseconds: 3000), () {
