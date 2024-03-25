@@ -90,6 +90,8 @@ class _PinInputScreenState extends State<PinInputScreen> {
       alertInfo.showAlertDialog(context);
       return;
     }
+
+    Navigator.pushNamedAndRemoveUntil(context, 'setpin', (route) => false);
   }
 
   void sendAgain() async {
