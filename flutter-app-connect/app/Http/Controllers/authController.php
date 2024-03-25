@@ -85,6 +85,10 @@ class AuthController extends Controller
     return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
 }
 
+public function checkOtp(Request $request){
+    $id = User::where('email', $request->email)->first()->id;
+    return $this->verifyOtp($id, $request->otp);
+}
 
 
 
