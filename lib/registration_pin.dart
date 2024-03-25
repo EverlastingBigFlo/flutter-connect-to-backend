@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:connectingtobackend/alerts/alert_info.dart';
 import 'package:connectingtobackend/alerts/alert_loading.dart';
-import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
