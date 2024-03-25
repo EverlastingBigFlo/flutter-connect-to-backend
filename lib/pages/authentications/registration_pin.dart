@@ -66,7 +66,6 @@ class _PinInputScreenState extends State<PinInputScreen> {
     focusnode2.dispose();
     focusnode3.dispose();
     focusnode4.dispose();
-
   }
 
   void submit() async {
@@ -91,7 +90,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
       return;
     }
 
-    Navigator.pushNamedAndRemoveUntil(context, 'setpin', (route) => false);
+    Navigator.pushNamedAndRemoveUntil(context, goTo, (route) => false);
     // Navigator.pushNamed(context, 'setpin');
   }
 
