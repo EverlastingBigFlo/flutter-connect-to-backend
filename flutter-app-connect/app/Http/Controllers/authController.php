@@ -9,15 +9,15 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
-
 use Illuminate\Http\Request;
+use App\Traits\utilities;
+
 
 class AuthController extends Controller
 {
 
+    use utilities;
     public $rand;
-
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -56,41 +56,49 @@ class AuthController extends Controller
 
         $this->sendOtp($user->id);
 
+
         return response()->json(['status' => 'ok', 'user' => $user, 'token' => $user->createToken($request->device_model)->plainTextToken]);
-        // return response()->json(['data' => 'Hello world', 'otp' => false, 'status' => 'ok', 'user' => $user, 'token' => $user->createToken($request->device_model)->plainTextToken]);
     }
 
-
-    public function sendOtp($userId)
-{
-    $this->rand = mt_rand(1000, 9999);
-    $user = User::find($userId);
-
-    if (!$user->id) {
-        return false;
-    }
-    $r = new EmailAlert ([
-        'name' => $user->first_name,
-        'subject' => 'Email Verification',
-        'view' => 'alerts',
-        'message' => 'The OTP to verify your email address on ' . env('APP_NAME') . ' is <b>' . $this->rand . '</b>',
-    ]);
-    Otp::updateOrCreate(
-        ['user_id' => $user->id],
-        [
-            'code' => $this->rand,
-        ],
-    );
-    dispatch(new SendEmail($r, [$user->email]));
-    return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
-}
 
 public function checkOtp(Request $request){
     $id = User::where('email', $request->email)->first()->id;
     return $this->verifyOtp($id, $request->otp);
 }
 
+public function verifyOtp($userId,$code)
+{
+    
+    $time = Otp::where('user_id', $userId)->first();
+    if (!$time) {
+        return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+    }
 
+    if (!Hash::check($code . '', $time->code)) {
+
+        return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+    }
+    $startTime = Carbon::parse($time->updated_at);
+    $finishTime = Carbon::parse(Carbon::now());
+    $totalDuration = $finishTime->diffInSeconds($startTime);
+    if ($totalDuration > 300) {
+
+        return response()->json(['status' => 'error', 'message' => 'OTP has expired']);
+    }
+    
+    Otp::updateOrCreate(['user_id' => $time->user_id], [
+        'code' => Hash::make($this->rand)
+
+    ]);
+        if (!$time->email_verified_at) {
+            $time->email_verified_at=now();
+            $time->save();
+        }
+  
+
+
+    return response()->json(['status' => 'ok', 'message' => 'OTP has been sent']);
+}
 
 }
 
