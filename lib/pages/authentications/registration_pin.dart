@@ -56,6 +56,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
   @override
   void dispose() {
+    super.dispose();
     controller1.dispose();
     controller2.dispose();
     controller3.dispose();
@@ -66,7 +67,6 @@ class _PinInputScreenState extends State<PinInputScreen> {
     focusnode3.dispose();
     focusnode4.dispose();
 
-    super.dispose();
   }
 
   void submit() async {
