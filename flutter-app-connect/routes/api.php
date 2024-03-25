@@ -21,5 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('/auth')->group(function(){
     Route::post('register',[AuthController::class,'register']);
+    Route::post('checkotp',[AuthController::class,'checkOtp']); 
+    Route::post('sendotp',[AuthController::class,'sendOtpNow']); 
+
 
 });
