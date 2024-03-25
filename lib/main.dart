@@ -19,8 +19,10 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => MyForm(),
         // '/': (context) => const RegistrationForm(),
-        // 'pininput': (context) => const PinInputScreen(),
+        'pininput': (context) => const PinInputScreen(),
         '/': (context) => const PinInputScreen(),
+        // '/': (context) => const PinInputScreen(),
+        'setpin': (context) => const PinInputScreen(),
       },
     );
   }
