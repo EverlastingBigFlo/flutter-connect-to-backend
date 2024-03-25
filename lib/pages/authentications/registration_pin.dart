@@ -198,8 +198,8 @@ class _PinInputScreenState extends State<PinInputScreen> {
                       PinInput(
                         controllers: controller4,
                         focusnode: focusnode4,
-                        isLast: true,
                         func: submit,
+                        isLast: true,
                       ),
                     ],
                   ),
