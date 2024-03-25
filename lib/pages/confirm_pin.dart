@@ -1,5 +1,6 @@
 import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/components/alerts/alert_loading.dart';
+import 'package:connectingtobackend/components/pin_inputs.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
@@ -100,6 +101,7 @@ class _ConfirmPinState extends State<ConfirmPin> {
                         Icon(
                           Icons.lock_person,
                           size: 60,
+                          color: Color(0xFF470037),
                         ),
                         SizedBox(
                           height: 40,
