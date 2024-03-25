@@ -33,4 +33,6 @@ trait utilities
     dispatch(new SendEmail($r, [$user->email]));
     return response()->json(['status' => 'ok', 'message' => 'OTP has been sent successfully.']);
 }
+
+
 }
