@@ -172,7 +172,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       PinInput(
-                        controllers: controller1,
+                        textControllers: controller1,
                         focusnode: focusnode1,
                         nextFocusnode: focusnode2,
                       ),
@@ -180,7 +180,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                         width: 30,
                       ),
                       PinInput(
-                        controllers: controller2,
+                        textControllers: controller2,
                         focusnode: focusnode2,
                         nextFocusnode: focusnode3,
                       ),
@@ -188,7 +188,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                         width: 30,
                       ),
                       PinInput(
-                        controllers: controller3,
+                        textControllers: controller3,
                         focusnode: focusnode3,
                         nextFocusnode: focusnode4,
                       ),
@@ -196,7 +196,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
                         width: 30,
                       ),
                       PinInput(
-                        controllers: controller4,
+                        textControllers: controller4,
                         focusnode: focusnode4,
                         func: submit,
                         isLast: true,
@@ -240,16 +240,16 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
 // the pininpus logic
 class PinInput extends StatelessWidget {
-  late TextEditingController? controllers;
+  late TextEditingController? textControllers;
   late FocusNode? focusnode;
   late FocusNode? nextFocusnode;
-  late bool? isLast = false;
+  late bool? isLast;
   final VoidCallback? func;
 
   PinInput(
       {super.key,
       this.func,
-      required this.controllers,
+      required this.textControllers,
       required this.focusnode,
       this.nextFocusnode,
       this.isLast = false});
@@ -259,7 +259,7 @@ class PinInput extends StatelessWidget {
     return SizedBox(
       width: 45,
       child: TextFormField(
-        controller: controllers,
+        controller: textControllers,
         focusNode: focusnode,
         maxLength: 1,
         onChanged: (value) => {
