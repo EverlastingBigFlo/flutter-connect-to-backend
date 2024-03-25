@@ -78,9 +78,9 @@ public function verifyOtp($userId,$code)
 
         return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
     }
-    $startTime = Carbon::parse($time->updated_at);
-    $finishTime = Carbon::parse(Carbon::now());
-    $totalDuration = $finishTime->diffInSeconds($startTime);
+        $startTime = Carbon::parse($time->updated_at);
+        $finishTime = Carbon::parse(Carbon::now());
+        $totalDuration = $finishTime->diffInSeconds($startTime);
     if ($totalDuration > 300) {
 
         return response()->json(['status' => 'error', 'message' => 'OTP has expired']);
