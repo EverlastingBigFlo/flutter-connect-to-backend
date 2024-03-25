@@ -10,10 +10,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../components/alerts/alert_loading.dart';
-import '../components/my-text.dart';
-import '../models/user_model.dart';
-import '../service/shared_preference.dart';
+import '../../components/alerts/alert_loading.dart';
+import '../../components/my-text.dart';
+import '../../models/user_model.dart';
+import '../../service/shared_preference.dart';
 
 class RegistrationForm extends StatefulWidget {
   const RegistrationForm({
