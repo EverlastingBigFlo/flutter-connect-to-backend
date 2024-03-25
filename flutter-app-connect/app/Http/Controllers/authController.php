@@ -63,6 +63,18 @@ public function checkOtp(Request $request){
     return $this->verifyOtp($id, $request->otp);
 }
 
+
+
+
+public function sendOtpNow(Request $request){
+       
+    $id = User::where('email', $request->email)->first()->id;
+    return $this->sendOtp($id);
+}
+
+
+
+
 public function verifyOtp($userId,$code)
 {
     
