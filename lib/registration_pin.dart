@@ -91,13 +91,6 @@ class _PinInputScreenState extends State<PinInputScreen> {
       alertInfo.showAlertDialog(context);
       return;
     }
-
-    // DialogBox.showConfirmationDialog(context);
-    // Future.delayed(const Duration(milliseconds: 3000), () {
-    //   DialogBox.dismissDialog(context);
-
-    //   print('PIN Input: $pin1$pin2$pin3$pin4');
-    // });
   }
 
   void sendAgain() async {
