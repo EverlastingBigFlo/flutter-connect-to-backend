@@ -35,4 +35,11 @@ trait utilities
 }
 
 
+
+public function sendEmail($data, array $emails)
+{
+
+    dispatch(new SendEmail($data, $emails));
+}
+
 }
