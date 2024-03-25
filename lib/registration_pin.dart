@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:connectingtobackend/alerts/alert_info.dart';
@@ -82,6 +84,13 @@ class _PinInputScreenState extends State<PinInputScreen> {
 
     // close dialog box
     alertLoading.closeDialog(context);
+
+    // check if there is an error in response
+    if (response['status'] == 'error') {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+      return;
+    }
 
     // DialogBox.showConfirmationDialog(context);
     // Future.delayed(const Duration(milliseconds: 3000), () {
