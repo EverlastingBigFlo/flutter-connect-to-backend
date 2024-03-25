@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:connectingtobackend/alerts/alert_info.dart';
+import 'package:connectingtobackend/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/alert-dialog.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
@@ -30,6 +32,9 @@ class _PinInputScreenState extends State<PinInputScreen> {
   int remainingSeconds = 0;
   var user;
   var email;
+
+    AlertInfo alertInfo = AlertInfo();
+  AlertLoading alertLoading = AlertLoading();
 
   @override
   void initState() {
@@ -63,17 +68,18 @@ class _PinInputScreenState extends State<PinInputScreen> {
   }
 
   void submit() async {
-    String pin1 = controller1.text;
-    String pin2 = controller2.text;
-    String pin3 = controller3.text;
-    String pin4 = controller4.text;
+    final otp = controller1.text +
+        controller2.text +
+        controller3.text +
+        controller4.text;
+    alertLoading.showAlertDialog(context);
 
-    DialogBox.showConfirmationDialog(context);
-    Future.delayed(const Duration(milliseconds: 3000), () {
-      DialogBox.dismissDialog(context);
+    // DialogBox.showConfirmationDialog(context);
+    // Future.delayed(const Duration(milliseconds: 3000), () {
+    //   DialogBox.dismissDialog(context);
 
-      print('PIN Input: $pin1$pin2$pin3$pin4');
-    });
+    //   print('PIN Input: $pin1$pin2$pin3$pin4');
+    // });
   }
 
   void sendAgain() async {
