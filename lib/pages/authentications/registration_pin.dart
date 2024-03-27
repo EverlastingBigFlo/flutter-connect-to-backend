@@ -10,14 +10,14 @@ import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class PinInputScreen extends StatefulWidget {
-  const PinInputScreen({super.key});
+class EmailPinVerification extends StatefulWidget {
+  const EmailPinVerification({super.key});
 
   @override
-  State<PinInputScreen> createState() => _PinInputScreenState();
+  State<EmailPinVerification> createState() => _EmailPinVerificationState();
 }
 
-class _PinInputScreenState extends State<PinInputScreen> {
+class _EmailPinVerificationState extends State<EmailPinVerification> {
   late TextEditingController controller1;
   late TextEditingController controller2;
   late TextEditingController controller3;
