@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -20,16 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::prefix('/auth')->group(function(){
-    Route::post('register',[AuthController::class,'register']);
-    Route::post('checkotp',[AuthController::class,'checkOtp']); 
-    Route::post('sendotp',[AuthController::class,'sendOtpNow']); 
-
-
+Route::prefix('/auth')->group(function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('checkotp', [AuthController::class, 'checkOtp']);
+    Route::post('sendotp', [AuthController::class, 'sendOtpNow']);
 });
 
 // proteced routes
-Route::middleware('auth:sanctum')->prefix('/account')->group(function(){
-    
-    Route::post('createtxpin',[UserController::class,'createTxPin']); 
+Route::middleware('auth:sanctum')->prefix('/account')->group(function () {
+
+    Route::post('createtxpin', [UserController::class, 'createTxPin']);
 });
