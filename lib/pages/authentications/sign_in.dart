@@ -1,3 +1,5 @@
+import 'package:connectingtobackend/components/alerts/alert_info.dart';
+import 'package:connectingtobackend/components/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,7 +24,8 @@ class _SignInState extends State<SignIn> {
   TextEditingController? emailNumController;
   TextEditingController? passwordController;
   void setLogin(ref) async {
-    
+     AlertInfo alertInfo = AlertInfo();
+  AlertLoading alertLoading = AlertLoading();
   }
 
   @override
