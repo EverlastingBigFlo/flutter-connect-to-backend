@@ -58,10 +58,12 @@ class _ConfirmTxPinState extends State<ConfirmTxPin> {
 
   void submit() async {
     final pin1 = refs.watch(txPinProvider);
+    // get the value of the inputbox
     final pin2 = controller1.text +
         controller2.text +
         controller3.text +
         controller4.text;
+    // check if the first pin is the samme as this same pin
     if (pin2 != pin1['pin1']) {
       info.message = 'Pin not match';
       pin1['pin1'];
@@ -69,6 +71,7 @@ class _ConfirmTxPinState extends State<ConfirmTxPin> {
       return;
     }
     loading.showAlertDialog(context);
+    // create the transaction pin if the first pin meet with the same pin
     final response = await AuthController().createTxPin({'pin': pin2});
     loading.closeDialog(context);
     if (response['status'] == 'error') {
