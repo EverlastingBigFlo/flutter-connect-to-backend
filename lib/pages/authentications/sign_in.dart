@@ -19,11 +19,10 @@ class _SignInState extends State<SignIn> {
     });
   }
 
- late TextEditingController? emailNumController;
- late TextEditingController? passwordController;
-  void setLogin() async {
-    final SharedPreferences prefer = await SharedPreferences.getInstance();
-    prefer.setBool("loggedIn", true);
+  TextEditingController? emailNumController;
+  TextEditingController? passwordController;
+  void setLogin(ref) async {
+    
   }
 
   @override
@@ -126,7 +125,9 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   const SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setLogin(ref);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
                       fixedSize: const Size(double.infinity, 60),
