@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Otp;
 use App\Models\User;
 use Carbon\Carbon;
@@ -58,8 +59,8 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {   
-       
+    {
+
         // validate inputs 
         $valid = Validator::make($request->all(), [
             'email_or_phone' => 'required',
@@ -71,11 +72,11 @@ class AuthController extends Controller
             return response()->json(['status' => 'error', 'message' => $valid->errors()->first()]);
         }
 
-        $user = User::where([['email', $request->email_or_phone],['status',1]])->orWhere([['phone', $request->email_or_phone],['status',1]])->first();
+        $user = User::where([['email', $request->email_or_phone], ['status', 1]])->orWhere([['phone', $request->email_or_phone], ['status', 1]])->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-           
-            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect','otp' => false,]);
+
+            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
         }
 
         if (!$user->email_verified_at) {
@@ -93,67 +94,56 @@ class AuthController extends Controller
         // return $user->createToken($request->device_name)->plainTextToken;
     }
 
-public function checkOtp(Request $request){
-    $id = User::where('email', $request->email)->first()->id;
-    return $this->verifyOtp($id, $request->otp);
-}
-
-
-
-
-public function sendOtpNow(Request $request){
-       
-    $id = User::where('email', $request->email)->first()->id;
-    return $this->sendOtp($id);
-}
-
-
-
-
-public function verifyOtp($userId,$code)
-{
-    
-    $time = Otp::where('user_id', $userId)->first();
-    if (!$time) {
-        return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+    public function checkOtp(Request $request)
+    {
+        $id = User::where('email', $request->email)->first()->id;
+        return $this->verifyOtp($id, $request->otp);
     }
 
-    if (!Hash::check($code . '', $time->code)) {
 
-        return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+
+
+    public function sendOtpNow(Request $request)
+    {
+
+        $id = User::where('email', $request->email)->first()->id;
+        return $this->sendOtp($id);
     }
-    $startTime = Carbon::parse($time->updated_at);
-    $finishTime = Carbon::parse(Carbon::now());
-    $totalDuration = $finishTime->diffInSeconds($startTime);
-    if ($totalDuration > 300) {
 
-        return response()->json(['status' => 'error', 'message' => 'OTP has expired']);
-    }
-    
-    Otp::updateOrCreate(['user_id' => $time->user_id], [
-        'code' => Hash::make($this->rand)
 
-    ]);
+
+
+    public function verifyOtp($userId, $code)
+    {
+
+        $time = Otp::where('user_id', $userId)->first();
+        if (!$time) {
+            return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+        }
+
+        if (!Hash::check($code . '', $time->code)) {
+
+            return response()->json(['status' => 'error', 'message' => 'Invalid OTP']);
+        }
+        $startTime = Carbon::parse($time->updated_at);
+        $finishTime = Carbon::parse(Carbon::now());
+        $totalDuration = $finishTime->diffInSeconds($startTime);
+        if ($totalDuration > 300) {
+
+            return response()->json(['status' => 'error', 'message' => 'OTP has expired']);
+        }
+
+        Otp::updateOrCreate(['user_id' => $time->user_id], [
+            'code' => Hash::make($this->rand)
+
+        ]);
         if (!$time->email_verified_at) {
-            $time->email_verified_at=now();
+            $time->email_verified_at = now();
             $time->save();
         }
-  
 
 
-    return response()->json(['status' => 'ok', 'message' => 'OTP has been sent']);
+
+        return response()->json(['status' => 'ok', 'message' => 'OTP has been sent']);
+    }
 }
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
