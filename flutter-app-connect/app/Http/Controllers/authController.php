@@ -72,6 +72,7 @@ class AuthController extends Controller
             return response()->json(['status' => 'error', 'message' => $valid->errors()->first()]);
         }
 
+        // find user by email or phone number
         $user = User::where([['email', $request->email_or_phone], ['status', 1]])->orWhere([['phone', $request->email_or_phone], ['status', 1]])->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
