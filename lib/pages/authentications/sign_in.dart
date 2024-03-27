@@ -19,8 +19,8 @@ class _SignInState extends State<SignIn> {
     });
   }
 
-  TextEditingController? emailController;
-  TextEditingController? passwordController;
+ late TextEditingController? emailNumController;
+ late TextEditingController? passwordController;
   void setLogin() async {
     final SharedPreferences prefer = await SharedPreferences.getInstance();
     prefer.setBool("loggedIn", true);
@@ -75,7 +75,7 @@ class _SignInState extends State<SignIn> {
                       ],
                     ),
                     child: TextFormField(
-                      controller: emailController,
+                      controller: emailNumController,
                       decoration: InputDecoration(
                         hintText: 'Email',
                         hintStyle: const TextStyle(color: Color(0xFF470037)),
