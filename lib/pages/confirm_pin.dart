@@ -74,12 +74,13 @@ class _ConfirmTxPinState extends State<ConfirmTxPin> {
     // create the transaction pin if the first pin meet with the same pin
     final response = await AuthController().createTxPin({'pin': pin2});
     loading.closeDialog(context);
+    // display error messages if the request encounter error
     if (response['status'] == 'error') {
       info.message = response['message'];
       info.showAlertDialog(context);
     }
 
-    // Navigator.pushNamed(context, "logIn");
+    Navigator.pushNamed(context, "dashboard");
   }
 
   @override

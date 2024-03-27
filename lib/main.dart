@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
+        // 'dashboard':(context) => const Dashboard();
       },
     );
   }
