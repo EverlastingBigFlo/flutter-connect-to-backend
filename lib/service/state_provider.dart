@@ -7,7 +7,7 @@ StateProvider<String> dobProvider = StateProvider<String>((ref) => '');
 StateProvider<String> genderProvider = StateProvider<String>((ref) => '');
 StateProvider<Map> signUpProvider = StateProvider<Map>((ref) => {});
 StateProvider<Map> txPinProvider = StateProvider<Map>((ref) => {});
-StateProvider<String> goToProvider = StateProvider<String>((ref) => 'hhhh');
+StateProvider<String> goToProvider = StateProvider<String>((ref) => '');
 
 StateProvider<UserModel> userProvider = StateProvider<UserModel>((ref) {
   return UserModel(
