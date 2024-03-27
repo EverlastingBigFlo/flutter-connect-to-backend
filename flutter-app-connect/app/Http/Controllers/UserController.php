@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Traits\utilities;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +35,7 @@ class UserController extends Controller
                 'status' => 'error',
             ]);
         }
-        // $user = User::find($request->user()->id)->first();
+        $user = User::find($request->user()->id)->first();
         // if (!$user) {
         //     return response()->json(['status' => 'error', "message" => 'User not found']);
         // }
