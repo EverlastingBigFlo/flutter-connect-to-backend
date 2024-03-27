@@ -46,7 +46,12 @@ class UserController extends Controller
         }
         // hash the pin inside the database
         $user->tx_pin = Hash::make($request->pin);
+        // save tx pin to the database 
         $user->save();
-        // return response()->json(['status' => 'ok', "message" => 'You have created your PIN successfully']);
+        // return a message with success 
+        return response()->json(['status' => 'ok', "message" => 'You have created your PIN successfully']);
     }
+
+
+    
 }
