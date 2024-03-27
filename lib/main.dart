@@ -21,11 +21,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => MyForm(),
-        // '/': (context) => const RegistrationForm(),
+        '/': (context) => const RegistrationForm(),
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
-        '/': (context) => const Dashboard(),
+        'dashboard': (context) => const Dashboard(),
       },
     );
   }
