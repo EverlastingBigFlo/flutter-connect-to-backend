@@ -3,6 +3,7 @@ import 'package:connectingtobackend/pages/authentications/registration.dart';
 import 'package:connectingtobackend/pages/authentications/registration_pin.dart';
 import 'package:connectingtobackend/pages/confirm_pin.dart';
 import 'package:connectingtobackend/pages/create_pin.dart';
+import 'package:connectingtobackend/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,11 +21,11 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => MyForm(),
-        '/': (context) => const RegistrationForm(),
+        // '/': (context) => const RegistrationForm(),
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
-        // 'dashboard':(context) => const Dashboard();
+        '/': (context) => const Dashboard(),
       },
     );
   }
