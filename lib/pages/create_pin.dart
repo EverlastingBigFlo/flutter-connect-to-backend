@@ -62,7 +62,6 @@ class _CreateTxPinState extends State<CreateTxPin> {
 
   @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
 
     return Scaffold(
       body: Center(
@@ -159,4 +158,3 @@ class _CreateTxPinState extends State<CreateTxPin> {
     );
   }
 }
-
