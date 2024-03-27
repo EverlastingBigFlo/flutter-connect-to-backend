@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => MyForm(),
         '/': (context) => const RegistrationForm(),
-        'sign': (context) => const RegistrationForm(),
+        'signup': (context) => const RegistrationForm(),
         '/': (context) => const SignIn(),
         // 'signin': (context) => const SignIn(),
         'verify': (context) => const EmailPinVerification(),
