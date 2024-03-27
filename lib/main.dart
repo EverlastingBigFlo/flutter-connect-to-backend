@@ -1,6 +1,7 @@
 // import 'package:connectingtobackend/otp.dart';
 import 'package:connectingtobackend/pages/authentications/registration.dart';
 import 'package:connectingtobackend/pages/authentications/registration_pin.dart';
+import 'package:connectingtobackend/pages/authentications/sign_in.dart';
 import 'package:connectingtobackend/pages/confirm_pin.dart';
 import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:connectingtobackend/pages/dashboard.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => MyForm(),
         '/': (context) => const RegistrationForm(),
+        'signin': (context) => const SignIn(),
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),

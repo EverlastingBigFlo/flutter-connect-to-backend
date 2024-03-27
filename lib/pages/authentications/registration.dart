@@ -652,7 +652,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                         width: 5,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, 'signin');
+                        },
                         child: const Text('Sign In',
                             style: TextStyle(
                                 fontSize: 18,
