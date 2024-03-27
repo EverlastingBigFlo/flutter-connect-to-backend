@@ -57,6 +57,41 @@ class AuthController extends Controller
         return response()->json(['status' => 'ok', 'user' => $user, 'token' => $user->createToken($request->device_model)->plainTextToken]);
     }
 
+    public function login(Request $request)
+    {   
+       
+        // validate inputs 
+        $valid = Validator::make($request->all(), [
+            'email_or_phone' => 'required',
+            'password' => 'required',
+            'device_model' => 'required',
+            'device_id' => 'required',
+        ]);
+        if ($valid->fails()) {
+            return response()->json(['status' => 'error', 'message' => $valid->errors()->first()]);
+        }
+
+        $user = User::where([['email', $request->email_or_phone],['status',1]])->orWhere([['phone', $request->email_or_phone],['status',1]])->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+           
+            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect','otp' => false,]);
+        }
+
+        if (!$user->email_verified_at) {
+            $this->sendOtp($user->id);
+            return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your email has not been verified. please verify it now', 'user' => $user]);
+        }
+
+        if ($user->device_id != $request->device_id) {
+            $this->sendOtp($user->id);
+            return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your account is active on another device, Verification needed to use it here.', 'user' => $user]);
+        }
+        $user->tokens()->delete();
+        return response()->json(['data' => 'Hello world', 'otp' => false, 'status' => 'ok', 'user' => $user, 'token' => $user->createToken($request->device_model)->plainTextToken]);
+
+        // return $user->createToken($request->device_name)->plainTextToken;
+    }
 
 public function checkOtp(Request $request){
     $id = User::where('email', $request->email)->first()->id;
