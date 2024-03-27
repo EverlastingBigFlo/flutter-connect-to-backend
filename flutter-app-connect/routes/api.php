@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// Authenticate Route 
 Route::prefix('/auth')->group(function () {
     Route::post('register', [AuthController::class, 'register']);
     Route::post('checkotp', [AuthController::class, 'checkOtp']);
