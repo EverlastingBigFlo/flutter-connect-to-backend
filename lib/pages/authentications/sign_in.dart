@@ -1,6 +1,7 @@
 import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/components/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/my-text.dart';
+import 'package:connectingtobackend/controllers/auth_controller.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +34,20 @@ class _SignInState extends State<SignIn> {
 
     Map info = await utilities.devicePlatform;
 
-    Map data = ref.watch(signUpProvider.notifier).state;
+    // Map data = ref.watch(signUpProvider.notifier).state;
+
+    String? goto = ref.read(goToProvider.notifier).state = 'dashboard';
 
     ref.read(bvnProvider.notifier).state = false;
+
+    alertLoading.showAlertDialog(context);
+
+    final response = await AuthController().login({
+      "email_or_phone": emailNumController!.text,
+      "password": passwordController!.text,
+      "device_model": info['model'],
+      "device_id": info['id']
+    });
   }
 
   @override
