@@ -91,8 +91,8 @@ class _PinInputScreenState extends State<PinInputScreen> {
       return;
     }
 
-    Navigator.pushNamedAndRemoveUntil(context, goTo, (route) => false);
-    // Navigator.pushNamed(context, 'setpin');
+    // Navigator.pushNamedAndRemoveUntil(context, goTo, (route) => false);
+    Navigator.pushNamed(context, 'setpin');
   }
 
   void sendAgain() async {
