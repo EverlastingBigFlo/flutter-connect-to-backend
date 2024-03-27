@@ -31,8 +31,9 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       body: Center(
         child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16.0),
+          child: Consumer(builder: (context, ref, _) {
+            return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -174,7 +175,9 @@ class _SignInState extends State<SignIn> {
                   )
                 ],
               ),
-            )),
+            );
+          }),
+        ),
       ),
     );
   }
