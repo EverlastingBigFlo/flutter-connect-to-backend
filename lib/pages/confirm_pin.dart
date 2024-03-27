@@ -72,7 +72,6 @@ class _ConfirmPinState extends State<ConfirmPin> {
     loading.showAlertDialog(context);
     final response = await AuthController().createTxPin({'pin': pin2});
     loading.closeDialog(context);
-    print(response);
     if (response['status'] == 'error') {
       info.message = response['message'];
       info.showAlertDialog(context);
