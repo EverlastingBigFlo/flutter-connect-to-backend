@@ -48,6 +48,12 @@ class _SignInState extends State<SignIn> {
       "device_model": info['model'],
       "device_id": info['id']
     });
+    alertLoading.closeDialog(context);
+
+    if (response['status'] == 'error' && response['otp'] == false) {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+    } else if (response['status'] == 'error' && response['otp'] == true) {}
   }
 
   @override
