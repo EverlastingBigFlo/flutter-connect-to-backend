@@ -44,4 +44,15 @@ class AuthController {
       return {'status': 'error', 'message': e.error};
     }
   }
+
+   Future<Map> login(Map creds) async {
+    
+    try {
+      Dio.Response response = await axios().post('/auth/login', data: creds);
+      return response.data;
+    } on Dio.DioException catch (e) {
+      return {'status': 'error', 'message': e.error};
+    }
+  }
+
 }
