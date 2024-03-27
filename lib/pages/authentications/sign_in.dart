@@ -1,6 +1,8 @@
 import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/components/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/my-text.dart';
+import 'package:connectingtobackend/service/state_provider.dart';
+import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,8 +26,16 @@ class _SignInState extends State<SignIn> {
   TextEditingController? emailNumController;
   TextEditingController? passwordController;
   void setLogin(ref) async {
-     AlertInfo alertInfo = AlertInfo();
-  AlertLoading alertLoading = AlertLoading();
+    AlertInfo alertInfo = AlertInfo();
+    AlertLoading alertLoading = AlertLoading();
+
+    Utilities utilities = Utilities();
+
+    Map info = await utilities.devicePlatform;
+
+    Map data = ref.watch(signUpProvider.notifier).state;
+
+    ref.read(bvnProvider.notifier).state = false;
   }
 
   @override
