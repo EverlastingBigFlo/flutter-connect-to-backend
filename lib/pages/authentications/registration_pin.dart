@@ -79,7 +79,7 @@ class _PinInputScreenState extends State<PinInputScreen> {
     // pass the email and otp into the response
     final response =
         await AuthController().checkOtp({"otp": otp, "email": email});
-    print('Helllooooooooooooooooooooooooooo $response');
+    // print('Helllooooooooooooooooooooooooooo $response');
 
     // close dialog box
     alertLoading.closeDialog(context);
