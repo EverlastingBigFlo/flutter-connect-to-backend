@@ -26,3 +26,9 @@ Route::prefix('/auth')->group(function(){
 
 
 });
+
+// proteced routes
+Route::middleware('auth:sanctum')->prefix('/account')->group(function(){
+    
+    // Route::post('createtxpin',[UserController::class,'createTxPin']); 
+});
