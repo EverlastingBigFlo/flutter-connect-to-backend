@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,5 +31,5 @@ Route::prefix('/auth')->group(function(){
 // proteced routes
 Route::middleware('auth:sanctum')->prefix('/account')->group(function(){
     
-    // Route::post('createtxpin',[UserController::class,'createTxPin']); 
+    Route::post('createtxpin',[UserController::class,'createTxPin']); 
 });

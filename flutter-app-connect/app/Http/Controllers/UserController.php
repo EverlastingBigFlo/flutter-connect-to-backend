@@ -51,7 +51,4 @@ class UserController extends Controller
         // return a message with success 
         return response()->json(['status' => 'ok', "message" => 'You have created your PIN successfully']);
     }
-
-
-    
 }
