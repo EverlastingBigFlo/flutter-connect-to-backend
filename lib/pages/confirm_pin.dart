@@ -2,7 +2,6 @@ import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/components/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/pin_inputs.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
-import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
