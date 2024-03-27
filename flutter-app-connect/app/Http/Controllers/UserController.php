@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Traits\utilities;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -35,12 +36,17 @@ class UserController extends Controller
                 'status' => 'error',
             ]);
         }
+
+        // find user by id 
         $user = User::find($request->user()->id)->first();
-        // if (!$user) {
-        //     return response()->json(['status' => 'error', "message" => 'User not found']);
-        // }
-        // $user->tx_pin = Hash::make($request->pin);
-        // $user->save();
+
+        // if user doesn't exist return with error message
+        if (!$user) {
+            return response()->json(['status' => 'error', "message" => 'User not found']);
+        }
+        // hash the pin inside the database
+        $user->tx_pin = Hash::make($request->pin);
+        $user->save();
         // return response()->json(['status' => 'ok', "message" => 'You have created your PIN successfully']);
     }
 }
