@@ -160,16 +160,17 @@ class _SignInState extends State<SignIn> {
                 ),
                 // sign up button
                 const SizedBox(height: 10),
+                // button section
                 Column(
                   children: [
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 60),
                         backgroundColor: const Color(0xFF600852),
                         fixedSize: const Size(double.infinity, 60),
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(8), // Set border radius
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       child: const Text(
@@ -212,8 +213,6 @@ class _SignInState extends State<SignIn> {
                     )
                   ],
                 )
-              
-              
               ],
             ),
           );
