@@ -160,64 +160,56 @@ class _SignInState extends State<SignIn> {
                   height: 10,
                 ),
                 // button section
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Column(
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.infinity, 60),
-                            backgroundColor: const Color(0xFF600852),
-                            fixedSize: const Size(double.infinity, 60),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: const Text(
-                            'SIGN IN',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
+                  Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 60),
+                          backgroundColor: const Color(0xFF600852),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        child: const Text(
+                          'SIGN IN',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                        // already have an account
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 65),
-                          child: Row(
-                            children: [
-                              const MyText(
+                      ),
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 65),
+                        child: Row(
+                          children: [
+                            const MyText(
+                              color: Color(0xFF470037),
+                              fontSize: 1.0,
+                              fontWeight: FontWeight.normal,
+                              text: 'Don`t have an Account?',
+                            ),
+                            const SizedBox(width: 5),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, 'signup');
+                              },
+                              child: const Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
                                   color: Color(0xFF470037),
-                                  fontSize: 1.0,
-                                  fontWeight: FontWeight.normal,
-                                  text: 'Don`t have an Account?'),
-                              const SizedBox(
-                                width: 5,
+                                ),
                               ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.pushNamed(context, 'signup');
-                                },
-                                child: const Text('Sign Up',
-                                    style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                        color: Color(0xFF470037))),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                )
-              ],
+                            ),
+                          ],
             ),
           );
         }),
