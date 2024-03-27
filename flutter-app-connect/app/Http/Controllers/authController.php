@@ -80,11 +80,12 @@ class AuthController extends Controller
             return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
         }
 
+        // check if the user has been verified 
         if (!$user->email_verified_at) {
             $this->sendOtp($user->id);
             return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your email has not been verified. please verify it now', 'user' => $user]);
         }
-
+        // check if the user is login in with new mobile device 
         if ($user->device_id != $request->device_id) {
             $this->sendOtp($user->id);
             return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your account is active on another device, Verification needed to use it here.', 'user' => $user]);
