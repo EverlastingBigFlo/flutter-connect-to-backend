@@ -55,7 +55,9 @@ class _SignInState extends State<SignIn> {
       alertInfo.showAlertDialog(context);
       return;
     } else if (response['status'] == 'error' && response['otp'] == true) {
-      
+      // data['phone']=response['user']['phone'];
+      // data['email']=response['user']['email'];
+      // ref.refresh(userProvider.notifier).state = 
     }
   }
 
