@@ -191,7 +191,7 @@ class _SignInState extends State<SignIn> {
                           color: Color(0xFF470037),
                           fontSize: 1.0,
                           fontWeight: FontWeight.normal,
-                          text: 'Already have an Account?'),
+                          text: 'Don`t have an Account?'),
                       const SizedBox(
                         width: 5,
                       ),
@@ -199,7 +199,7 @@ class _SignInState extends State<SignIn> {
                         onTap: () {
                           Navigator.pushNamed(context, 'signin');
                         },
-                        child: const Text('Sign In',
+                        child: const Text('Sign Up',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
