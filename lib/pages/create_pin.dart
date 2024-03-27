@@ -4,14 +4,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter/material.dart';
 
-class CreatePassword extends StatefulWidget {
-  const CreatePassword({super.key});
+class CreateTxPin extends StatefulWidget {
+  const CreateTxPin({super.key});
 
   @override
-  State<CreatePassword> createState() => _CreatePasswordState();
+  State<CreateTxPin> createState() => _CreateTxPinState();
 }
 
-class _CreatePasswordState extends State<CreatePassword> {
+class _CreateTxPinState extends State<CreateTxPin> {
   late TextEditingController controller1;
   late TextEditingController controller2;
   late TextEditingController controller3;

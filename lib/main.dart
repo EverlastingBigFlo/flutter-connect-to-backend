@@ -22,9 +22,8 @@ class MyApp extends StatelessWidget {
         // '/': (context) => MyForm(),
         '/': (context) => const RegistrationForm(),
         'verify': (context) => const EmailPinVerification(),
-        'setpin': (context) => const CreatePassword(),
-        'confirmPin': (context) => const ConfirmPin(),
-
+        'setpin': (context) => const CreateTxPin(),
+        'confirmPin': (context) => const ConfirmTxPin(),
       },
     );
   }

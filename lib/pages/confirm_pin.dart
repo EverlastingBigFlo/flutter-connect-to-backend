@@ -7,14 +7,14 @@ import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-class ConfirmPin extends StatefulWidget {
-  const ConfirmPin({super.key});
+class ConfirmTxPin extends StatefulWidget {
+  const ConfirmTxPin({super.key});
 
   @override
-  State<ConfirmPin> createState() => _ConfirmPinState();
+  State<ConfirmTxPin> createState() => _ConfirmTxPinState();
 }
 
-class _ConfirmPinState extends State<ConfirmPin> {
+class _ConfirmTxPinState extends State<ConfirmTxPin> {
   late TextEditingController controller1;
   late TextEditingController controller2;
   late TextEditingController controller3;
