@@ -38,7 +38,7 @@ class AuthController {
   Future<Map> createTxPin(Map creds) async {
     try {
       Dio.Response response =
-          await axios().post('/account/createtxpin', data: creds);
+          await axios().post('/account/createTxPin', data: creds);
       return response.data;
     } on Dio.DioException catch (e) {
       return {'status': 'error', 'message': e.error};
