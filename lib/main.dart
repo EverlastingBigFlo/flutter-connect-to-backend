@@ -1,4 +1,5 @@
 // import 'package:connectingtobackend/otp.dart';
+import 'package:connectingtobackend/components/media_query.dart';
 import 'package:connectingtobackend/pages/authentications/registration.dart';
 import 'package:connectingtobackend/pages/authentications/registration_pin.dart';
 import 'package:connectingtobackend/pages/authentications/sign_in.dart';
@@ -23,12 +24,13 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => MyForm(),
         'signup': (context) => const RegistrationForm(),
-        '/': (context) => const SignIn(),
+        // '/': (context) => const SignIn(),
         // 'signin': (context) => const SignIn(),
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
         'dashboard': (context) => const Dashboard(),
+        '/': (context) => const Media(),
       },
     );
   }
