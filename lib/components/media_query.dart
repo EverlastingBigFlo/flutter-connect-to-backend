@@ -13,7 +13,7 @@ class _MediaState extends State<Media> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(';'),
+        title: const Text('media'),
       ),
     );
   }
