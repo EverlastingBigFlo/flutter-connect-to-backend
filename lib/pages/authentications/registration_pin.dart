@@ -79,7 +79,6 @@ class _EmailPinVerificationState extends State<EmailPinVerification> {
     // pass the email and otp into the response
     final response =
         await AuthController().checkOtp({"otp": otp, "email": email});
-    // print('Helllooooooooooooooooooooooooooo $response');
 
     // close dialog box
     alertLoading.closeDialog(context);

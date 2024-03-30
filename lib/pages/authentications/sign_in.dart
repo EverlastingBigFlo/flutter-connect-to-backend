@@ -156,6 +156,8 @@ class _SignInState extends State<SignIn> {
                         "device_model": info['model'],
                         "device_id": info['id']
                       });
+
+                      print('okayyyyyyyyyyyyyyyyyyyy');
                       alertLoading.closeDialog(context);
 
                       if (response['status'] == 'error' &&
