@@ -65,7 +65,7 @@ class _SignInState extends State<SignIn> {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
       Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-    } 
+    }
   }
 
   @override
@@ -119,7 +119,7 @@ class _SignInState extends State<SignIn> {
                     child: TextFormField(
                       controller: emailNumController,
                       decoration: InputDecoration(
-                        hintText: 'Email',
+                        hintText: 'Email or Phone Number',
                         hintStyle: const TextStyle(color: Color(0xFF470037)),
                         filled: true,
                         fillColor: Colors.white,
