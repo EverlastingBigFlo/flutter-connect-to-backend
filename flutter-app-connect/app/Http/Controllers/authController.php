@@ -78,8 +78,13 @@ class AuthController extends Controller
             ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
+            return response()->json([
+                'status' => 'error',
+                'message' => 'The provided credentials are incorrect. Please check your email/phone and password.',
+                'otp' => false,
+            ]);
         }
+
 
         if ($user) {
 
