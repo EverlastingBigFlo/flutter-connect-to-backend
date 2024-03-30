@@ -141,12 +141,8 @@ class _SignInState extends State<SignIn> {
                       Map info = await utilities.devicePlatform;
                       ref.read(goToProvider.notifier).state = 'dashboard';
 
-                      // Map data = ref.watch(signUpProvider.notifier).state;
-
                       String? goto =
                           ref.read(goToProvider.notifier).state = 'dashboard';
-
-                      ref.read(bvnProvider.notifier).state = false;
 
                       alertLoading.showAlertDialog(context);
 
