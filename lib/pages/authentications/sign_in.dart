@@ -150,41 +150,35 @@ class _SignInState extends State<SignIn> {
 
                       alertLoading.showAlertDialog(context);
 
-                      try {
-                        final response = await AuthController().login({
-                          "email_or_phone": emailNumController.text,
-                          "password": passwordController.text,
-                          "device_model": info['model'],
-                          "device_id": info['id']
-                        });
+                      final response = await AuthController().login({
+                        "email_or_phone": emailNumController.text,
+                        "password": passwordController.text,
+                        "device_model": info['model'],
+                        "device_id": info['id']
+                      });
 
-                        alertLoading.closeDialog(context);
+                      alertLoading.closeDialog(context);
 
-                        print('okayyyyyyyyyyyyyyyyyyyy');
+                      print('okayyyyyyyyyyyyyyyyyyyy');
 
-                        if (response['status'] == 'error' &&
-                            response['otp'] == false) {
-                          alertInfo.message = response['message'];
-                          alertInfo.showAlertDialog(context);
-                          return;
-                        } else if (response['status'] == 'error' &&
-                            response['otp'] == true) {
-                          ref.read(userProvider.notifier).state =
-                              UserModel.fromJson(response['user']);
-                          ref.read(reasonProvider.notifier).state =
-                              response['message'];
+                      if (response['status'] == 'error' &&
+                          response['otp'] == false) {
+                        alertInfo.message = response['message'];
+                        alertInfo.showAlertDialog(context);
+                        return;
+                      } else if (response['status'] == 'error' &&
+                          response['otp'] == true) {
+                        ref.read(userProvider.notifier).state =
+                            UserModel.fromJson(response['user']);
+                        ref.read(reasonProvider.notifier).state =
+                            response['message'];
 
-                          Navigator.pushNamed(context, 'verify');
-                        } else if (response['status'] == 'ok') {
-                          ref.read(userProvider.notifier).state =
-                              UserModel.fromJson(response['user']);
-                          Navigator.pushNamedAndRemoveUntil(
-                              context, 'dashboard', (route) => false);
-                        }
-                      } catch (e) {
-                        print('Error during login: $e');
-                        alertLoading.closeDialog(
-                            context); // Ensure dialog is closed in case of error
+                        Navigator.pushNamed(context, 'verify');
+                      } else if (response['status'] == 'ok') {
+                        ref.read(userProvider.notifier).state =
+                            UserModel.fromJson(response['user']);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, 'dashboard', (route) => false);
                       }
                     },
                     style: ElevatedButton.styleFrom(
