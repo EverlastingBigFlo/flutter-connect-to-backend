@@ -79,6 +79,7 @@ class AuthController extends Controller
 
             return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
         }
+        $user->tokens()->delete();
 
         // check if the user has been verified 
         if (!$user->email_verified_at) {
