@@ -33,7 +33,14 @@ class _SignInState extends State<SignIn> {
 
     Utilities utilities = Utilities();
 
+
+if (emailNumController.text == ''|| passwordController.text == '') {
+  alertInfo.message = "fill all required fields";
+  alertLoading.showAlertDialog(context);
+  return;
+}
     Map info = await utilities.devicePlatform;
+    ref.read(goToProvider.notifier).state = 'dashboard';
 
     // Map data = ref.watch(signUpProvider.notifier).state;
 
@@ -44,8 +51,8 @@ class _SignInState extends State<SignIn> {
     alertLoading.showAlertDialog(context);
 
     final response = await AuthController().login({
-      "email_or_phone": emailNumController!.text,
-      "password": passwordController!.text,
+      "email_or_phone": emailNumController.text,
+      "password": passwordController.text,
       "device_model": info['model'],
       "device_id": info['id']
     });
