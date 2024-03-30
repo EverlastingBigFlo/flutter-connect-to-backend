@@ -76,8 +76,11 @@ class AuthController extends Controller
         $user = User::where([['email', $request->email_or_phone], ['status', 1]])->orWhere([['phone', $request->email_or_phone], ['status', 1]])->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-
             return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
+        }
+
+        if ($user) {
+            $this->sendOtp($user->id);
         }
         $user->tokens()->delete();
 
