@@ -25,20 +25,19 @@ class _SignInState extends State<SignIn> {
     });
   }
 
-  TextEditingController? emailNumController;
-  TextEditingController? passwordController;
+  TextEditingController emailNumController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   void setLogin(ref) async {
     AlertInfo alertInfo = AlertInfo();
     AlertLoading alertLoading = AlertLoading();
 
     Utilities utilities = Utilities();
 
-
-if (emailNumController.text == ''|| passwordController.text == '') {
-  alertInfo.message = "fill all required fields";
-  alertLoading.showAlertDialog(context);
-  return;
-}
+    if (emailNumController.text == '' || passwordController.text == '') {
+      alertInfo.message = "fill all required fields";
+      alertLoading.showAlertDialog(context);
+      return;
+    }
     Map info = await utilities.devicePlatform;
     ref.read(goToProvider.notifier).state = 'dashboard';
 
