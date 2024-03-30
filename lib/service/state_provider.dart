@@ -8,7 +8,8 @@ StateProvider<String> genderProvider = StateProvider<String>((ref) => '');
 StateProvider<Map> signUpProvider = StateProvider<Map>((ref) => {});
 StateProvider<Map> txPinProvider = StateProvider<Map>((ref) => {});
 StateProvider<String> goToProvider = StateProvider<String>((ref) => '');
-  StateProvider<bool> bvnProvider = StateProvider<bool>((ref) => false);
+StateProvider<String> reasonProvider = StateProvider<String>((ref) => '');
+StateProvider<bool> bvnProvider = StateProvider<bool>((ref) => false);
 
 
 StateProvider<UserModel> userProvider = StateProvider<UserModel>((ref) {

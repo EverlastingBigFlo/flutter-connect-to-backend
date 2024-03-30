@@ -2,6 +2,7 @@ import 'package:connectingtobackend/components/alerts/alert_info.dart';
 import 'package:connectingtobackend/components/alerts/alert_loading.dart';
 import 'package:connectingtobackend/components/my-text.dart';
 import 'package:connectingtobackend/controllers/auth_controller.dart';
+import 'package:connectingtobackend/models/user_model.dart';
 import 'package:connectingtobackend/service/state_provider.dart';
 import 'package:connectingtobackend/service/utilities.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,8 @@ class _SignInState extends State<SignIn> {
       alertInfo.showAlertDialog(context);
       return;
     } else if (response['status'] == 'error' && response['otp'] == true) {
+      ref.read(userProvider.notifier).state = UserModel.fromJson(response['user']);
+      ref.read(reasonProvider.notifier).state = response['message'];
       // data['phone']=response['user']['phone'];
       // data['email']=response['user']['email'];
       // ref.refresh(userProvider.notifier).state = 
