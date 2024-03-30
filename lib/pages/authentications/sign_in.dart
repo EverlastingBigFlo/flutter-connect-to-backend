@@ -148,6 +148,8 @@ class _SignInState extends State<SignIn> {
 
                       ref.read(bvnProvider.notifier).state = false;
 
+                      print('okayyyyyyyyyyyyyyyyyyyy');
+
                       alertLoading.showAlertDialog(context);
 
                       final response = await AuthController().login({
@@ -157,7 +159,6 @@ class _SignInState extends State<SignIn> {
                         "device_id": info['id']
                       });
 
-                      print('okayyyyyyyyyyyyyyyyyyyy');
                       alertLoading.closeDialog(context);
 
                       if (response['status'] == 'error' &&
