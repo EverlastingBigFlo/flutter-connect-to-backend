@@ -60,51 +60,53 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        // Validate inputs
-        $validator = Validator::make($request->all(), [
+
+        // validate inputs 
+        $valid = Validator::make($request->all(), [
             'email_or_phone' => 'required',
             'password' => 'required',
             'device_model' => 'required',
             'device_id' => 'required',
         ]);
-
-        if ($validator->fails()) {
-            return response()->json(['status' => 'error', 'message' => $validator->errors()->first()]);
+        if ($valid->fails()) {
+            return response()->json(['status' => 'error', 'message' => $valid->errors()->first()]);
         }
 
-        // Find active user by email or phone number
+        // find active user by email or phone number
         $user = User::where([['email', $request->email_or_phone], ['status', 1]])
             ->orWhere([['phone', $request->email_or_phone], ['status', 1]])
             ->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect']);
+            return response()->json(['status' => 'error', 'message' => 'The provided credentials are incorrect', 'otp' => false,]);
         }
 
-        // Send OTP if user login is successful
-        $this->sendOtp($user->id);
+        if ($user) {
+            $this->sendOtp($user->id);
+        }
+        $user->tokens()->delete();
 
-        // Check if additional verification is needed
-        $otpRequired = false;
-        $message = 'Hello world'; // Default message
-
+        // check if the user has been verified 
         if (!$user->email_verified_at) {
-            $otpRequired = true;
-            $message = 'Your email has not been verified. Please verify it now.';
-        } elseif ($user->device_id != $request->device_id) {
-            $otpRequired = true;
-            $message = 'Your account is active on another device. Verification needed to use it here.';
+            $this->sendOtp($user->id);
+            return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your email has not been verified. please verify it now', 'user' => $user]);
         }
-
+        // check if the user is login in with new mobile device 
+        if ($user->device_id != $request->device_id) {
+            $this->sendOtp($user->id);
+            return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your account is active on another device, Verification needed to use it here.', 'user' => $user]);
+        }
+        $user->tokens()->delete();
         return response()->json([
-            'otp' => $otpRequired,
+            'data' => 'Hello world',
+            'otp' => false,
             'status' => 'ok',
-            'message' => $message,
             'user' => $user,
-            'token' => $user->createToken($request->device_model)->plainTextToken,
+            'token' => $user->createToken($request->device_model)->plainTextToken
         ]);
-    }
 
+        // return $user->createToken($request->device_name)->plainTextToken;
+    }
 
     public function checkOtp(Request $request)
     {
