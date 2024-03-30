@@ -135,7 +135,7 @@ class _SignInState extends State<SignIn> {
                       if (emailNumController.text == '' ||
                           passwordController.text == '') {
                         alertInfo.message = "fill all required fields";
-                        alertLoading.showAlertDialog(context);
+                        alertInfo.showAlertDialog(context);
                         return;
                       }
                       Map info = await utilities.devicePlatform;
