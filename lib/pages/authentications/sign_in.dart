@@ -27,52 +27,6 @@ class _SignInState extends State<SignIn> {
 
   TextEditingController emailNumController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  void setLogin(ref) async {
-    AlertInfo alertInfo = AlertInfo();
-    AlertLoading alertLoading = AlertLoading();
-
-    Utilities utilities = Utilities();
-
-    if (emailNumController.text == '' || passwordController.text == '') {
-      alertInfo.message = "fill all required fields";
-      alertLoading.showAlertDialog(context);
-      return;
-    }
-    Map info = await utilities.devicePlatform;
-    ref.read(goToProvider.notifier).state = 'dashboard';
-
-    // Map data = ref.watch(signUpProvider.notifier).state;
-
-    String? goto = ref.read(goToProvider.notifier).state = 'dashboard';
-
-    ref.read(bvnProvider.notifier).state = false;
-
-    alertLoading.showAlertDialog(context);
-
-    final response = await AuthController().login({
-      "email_or_phone": emailNumController.text,
-      "password": passwordController.text,
-      "device_model": info['model'],
-      "device_id": info['id']
-    });
-    alertLoading.closeDialog(context);
-
-    if (response['status'] == 'error' && response['otp'] == false) {
-      alertInfo.message = response['message'];
-      alertInfo.showAlertDialog(context);
-      return;
-    } else if (response['status'] == 'error' && response['otp'] == true) {
-      ref.read(userProvider.notifier).state =
-          UserModel.fromJson(response['user']);
-      ref.read(reasonProvider.notifier).state = response['message'];
-
-      Navigator.pushNamed(context, 'verify');
-    } else if (response['status'] == 'ok') {
-      ref.read(userProvider.notifier).state =
-          UserModel.fromJson(response['user']);
-      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -174,8 +128,57 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   const SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: () {
-                      setLogin(ref);
+                    onPressed: () async {
+                      AlertInfo alertInfo = AlertInfo();
+                      AlertLoading alertLoading = AlertLoading();
+
+                      Utilities utilities = Utilities();
+
+                      if (emailNumController.text == '' ||
+                          passwordController.text == '') {
+                        alertInfo.message = "fill all required fields";
+                        alertLoading.showAlertDialog(context);
+                        return;
+                      }
+                      Map info = await utilities.devicePlatform;
+                      ref.read(goToProvider.notifier).state = 'dashboard';
+
+                      // Map data = ref.watch(signUpProvider.notifier).state;
+
+                      String? goto =
+                          ref.read(goToProvider.notifier).state = 'dashboard';
+
+                      ref.read(bvnProvider.notifier).state = false;
+
+                      alertLoading.showAlertDialog(context);
+
+                      final response = await AuthController().login({
+                        "email_or_phone": emailNumController.text,
+                        "password": passwordController.text,
+                        "device_model": info['model'],
+                        "device_id": info['id']
+                      });
+                      alertLoading.closeDialog(context);
+
+                      if (response['status'] == 'error' &&
+                          response['otp'] == false) {
+                        alertInfo.message = response['message'];
+                        alertInfo.showAlertDialog(context);
+                        return;
+                      } else if (response['status'] == 'error' &&
+                          response['otp'] == true) {
+                        ref.read(userProvider.notifier).state =
+                            UserModel.fromJson(response['user']);
+                        ref.read(reasonProvider.notifier).state =
+                            response['message'];
+
+                        Navigator.pushNamed(context, 'verify');
+                      } else if (response['status'] == 'ok') {
+                        ref.read(userProvider.notifier).state =
+                            UserModel.fromJson(response['user']);
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, 'dashboard', (route) => false);
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
