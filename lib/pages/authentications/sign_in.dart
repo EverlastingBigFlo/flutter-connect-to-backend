@@ -144,7 +144,7 @@ class _SignInState extends State<SignIn> {
                       String? goto =
                           ref.read(goToProvider.notifier).state = 'dashboard';
 
-                      alertLoading.showAlertDialog(context);
+                      // alertLoading.showAlertDialog(context);
 
                       final response = await AuthController().login({
                         "email_or_phone": emailNumController.text,
