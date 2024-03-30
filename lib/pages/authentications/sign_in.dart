@@ -50,7 +50,7 @@ class _SignInState extends State<SignIn> {
     });
     alertLoading.closeDialog(context);
 
-    if (response['status'] == 'error' && response['otp'] == false) {
+    if (response['status'] == 'error' && response['otp'] == false ) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
       return;
