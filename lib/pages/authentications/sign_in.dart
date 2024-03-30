@@ -65,7 +65,7 @@ class _SignInState extends State<SignIn> {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
       Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-    }
+    } 
   }
 
   @override
