@@ -51,16 +51,20 @@ class _SignInState extends State<SignIn> {
     });
     alertLoading.closeDialog(context);
 
-    if (response['status'] == 'error' && response['otp'] == false ) {
+    if (response['status'] == 'error' && response['otp'] == false) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
       return;
     } else if (response['status'] == 'error' && response['otp'] == true) {
-      ref.read(userProvider.notifier).state = UserModel.fromJson(response['user']);
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
       ref.read(reasonProvider.notifier).state = response['message'];
-      // data['phone']=response['user']['phone'];
-      // data['email']=response['user']['email'];
-      // ref.refresh(userProvider.notifier).state = 
+
+      Navigator.pushNamed(context, 'verify');
+    } else if (response['status'] == 'ok') {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
     }
   }
 
