@@ -148,8 +148,6 @@ class _SignInState extends State<SignIn> {
 
                       ref.read(bvnProvider.notifier).state = false;
 
-                      print('okayyyyyyyyyyyyyyyyyyyy');
-
                       alertLoading.showAlertDialog(context);
 
                       final response = await AuthController().login({
@@ -160,6 +158,8 @@ class _SignInState extends State<SignIn> {
                       });
 
                       alertLoading.closeDialog(context);
+
+                      print('okayyyyyyyyyyyyyyyyyyyy');
 
                       if (response['status'] == 'error' &&
                           response['otp'] == false) {
