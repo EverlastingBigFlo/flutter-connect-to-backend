@@ -153,7 +153,7 @@ class _SignInState extends State<SignIn> {
                         "device_id": info['id']
                       });
 
-                      // alertLoading.closeDialog(context);
+                      alertLoading.closeDialog(context);
 
                       print('okayyyyyyyyyyyyyyyyyyyy');
 
