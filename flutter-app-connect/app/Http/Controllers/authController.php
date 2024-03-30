@@ -82,6 +82,7 @@ class AuthController extends Controller
         }
 
         if ($user) {
+
             $this->sendOtp($user->id);
         }
         $user->tokens()->delete();
