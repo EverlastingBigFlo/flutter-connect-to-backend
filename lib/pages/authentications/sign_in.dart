@@ -122,11 +122,9 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                       )),
-                  const SizedBox(height: 20.0),
+                  const SizedBox(height: 40.0),
 
-                  const SizedBox(height: 12.0),
                   // sign up button
-                  const SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: () async {
                       AlertInfo alertInfo = AlertInfo();
