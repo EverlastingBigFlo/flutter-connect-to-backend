@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => MyForm(),
         'signup': (context) => const RegistrationForm(),
-        // '/': (context) => const SignIn(),
+        '/': (context) => const SignIn(),
         // 'signin': (context) => const SignIn(),
         'verify': (context) => const EmailPinVerification(),
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
         'dashboard': (context) => const Dashboard(),
-        '/': (context) => const Media(),
+        // '/': (context) => const Media(),
       },
     );
   }
