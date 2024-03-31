@@ -15,6 +15,23 @@ class _DashboardState extends State<Dashboard> {
         centerTitle: true,
         title: const Text('Dashboard'),
       ),
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.blue,
+                  Colors.red,
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
