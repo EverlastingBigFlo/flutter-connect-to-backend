@@ -33,22 +33,25 @@ class _SignInState extends State<SignIn> {
       return;
     }
 
+// initialize loading modal
     alertLoading.showAlertDialog(context);
 
+// send data to backend to check
     final response = await AuthController().login({
       "email_or_phone": emailNumController.text,
       "password": passwordController.text,
       "device_model": info['model'],
       "device_id": info['id']
     });
+    // close loading screen
     alertLoading.closeDialog(context);
 
-    //   if (response['token'] != null) {
-    //     SharedPreferences pref;
-    //     pref = await SharedPreferences.getInstance();
-    //     pref.setString('token', response['token']);
-    //   }
-    //   print(response);
+      if (response['token'] != null) {
+        SharedPreferences pref;
+        pref = await SharedPreferences.getInstance();
+        pref.setString('token', response['token']);
+      }
+      print(response['token']);
 
     //   if (response['status'] == 'error' && response['otp'] == false) {
     //     alertInfo.message = response['message'];
