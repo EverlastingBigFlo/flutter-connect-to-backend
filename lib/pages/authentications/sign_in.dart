@@ -26,46 +26,48 @@ class _SignInState extends State<SignIn> {
     Utilities utilities = Utilities();
     Map info = await utilities.devicePlatform;
 
-  //   if (emailNumController.text == '' || passwordController.text == '') {
-  //     alertInfo.message = "fill all required fields";
-  //     alertInfo.showAlertDialog(context);
-  //     return;
-  //   }
-  //   alertLoading.showAlertDialog(context);
+// check for the empty inputs and send a message to user
+    if (emailNumController.text == '' || passwordController.text == '') {
+      alertInfo.message = "fill all required fields";
+      alertInfo.showAlertDialog(context);
+      return;
+    }
 
-  //   final response = await AuthController().login({
-  //     "email_or_phone": emailNumController.text,
-  //     "password": passwordController.text,
-  //     "device_model": info['model'],
-  //     "device_id": info['id']
-  //   });
-  //   alertLoading.closeDialog(context);
+    // alertLoading.showAlertDialog(context);
 
-  //   if (response['token'] != null) {
-  //     SharedPreferences pref;
-  //     pref = await SharedPreferences.getInstance();
-  //     pref.setString('token', response['token']);
-  //   }
-  //   print(response);
+    //   final response = await AuthController().login({
+    //     "email_or_phone": emailNumController.text,
+    //     "password": passwordController.text,
+    //     "device_model": info['model'],
+    //     "device_id": info['id']
+    //   });
+    //   alertLoading.closeDialog(context);
 
-  //   if (response['status'] == 'error' && response['otp'] == false) {
-  //     alertInfo.message = response['message'];
-  //     alertInfo.showAlertDialog(context);
-  //     ref.read(userProvider.notifier).state = response['message'];
-  //     Navigator.pushNamed(context, 'verify');
-  //     return;
-  //   } else if (response['status'] == 'error' && response['otp'] == true) {
-  //     ref.read(userProvider.notifier).state =
-  //         UserModel.fromJson(response['user']);
-  //     ref.read(reasonProvider.notifier).state = response['message'];
+    //   if (response['token'] != null) {
+    //     SharedPreferences pref;
+    //     pref = await SharedPreferences.getInstance();
+    //     pref.setString('token', response['token']);
+    //   }
+    //   print(response);
 
-  //     // Navigator.pushNamed(context, 'verify');
-  //   } else if (response['status'] == 'ok') {
-  //     ref.read(userProvider.notifier).state =
-  //         UserModel.fromJson(response['user']);
-  //     Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-  //   }
-  //   print(response);
+    //   if (response['status'] == 'error' && response['otp'] == false) {
+    //     alertInfo.message = response['message'];
+    //     alertInfo.showAlertDialog(context);
+    //     ref.read(userProvider.notifier).state = response['message'];
+    //     Navigator.pushNamed(context, 'verify');
+    //     return;
+    //   } else if (response['status'] == 'error' && response['otp'] == true) {
+    //     ref.read(userProvider.notifier).state =
+    //         UserModel.fromJson(response['user']);
+    //     ref.read(reasonProvider.notifier).state = response['message'];
+
+    //     // Navigator.pushNamed(context, 'verify');
+    //   } else if (response['status'] == 'ok') {
+    //     ref.read(userProvider.notifier).state =
+    //         UserModel.fromJson(response['user']);
+    //     Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
+    //   }
+    //   print(response);
   }
 
   void _togglePasswordVisibility() {
