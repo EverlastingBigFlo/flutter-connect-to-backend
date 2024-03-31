@@ -158,7 +158,8 @@ class AuthController extends Controller
             'code' => Hash::make($this->rand)
 
         ]);
-        if (!$time->email_verified_at) {
+        $user=User::find($userId);
+        if (!$user->email_verified_at) {
             $time->email_verified_at = now();
             $time->save();
         }
