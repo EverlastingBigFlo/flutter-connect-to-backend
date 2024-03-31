@@ -19,7 +19,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _isObscured = true;
 
-  void signIn() async {
+  void signIn(ref) async {
     AlertInfo alertInfo = AlertInfo();
     AlertLoading alertLoading = AlertLoading();
 
@@ -52,17 +52,18 @@ class _SignInState extends State<SignIn> {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
       return;
-    } else if (response['status'] == 'error' && response['otp'] == true) {
-      ref.read(userProvider.notifier).state =
-          UserModel.fromJson(response['user']);
-      ref.read(reasonProvider.notifier).state = response['message'];
+    } 
+    // else if (response['status'] == 'error' && response['otp'] == true) {
+    //   ref.read(userProvider.notifier).state =
+    //       UserModel.fromJson(response['user']);
+    //   ref.read(reasonProvider.notifier).state = response['message'];
 
-      Navigator.pushNamed(context, 'verify');
-    } else if (response['status'] == 'ok') {
-      ref.read(userProvider.notifier).state =
-          UserModel.fromJson(response['user']);
-      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-    }
+    //   Navigator.pushNamed(context, 'verify');
+    // } else if (response['status'] == 'ok') {
+    //   ref.read(userProvider.notifier).state =
+    //       UserModel.fromJson(response['user']);
+    //   Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
+    // }
   }
 
   void _togglePasswordVisibility() {
