@@ -32,6 +32,7 @@ class _SignInState extends State<SignIn> {
       return;
     }
     alertLoading.showAlertDialog(context);
+    alertLoading.closeDialog(context);
 
     // ref.read(goToProvider.notifier).state = 'dashboard';
 
@@ -43,8 +44,6 @@ class _SignInState extends State<SignIn> {
       "device_model": info['model'],
       "device_id": info['id']
     });
-
-    alertLoading.closeDialog(context);
 
     if (response['token'] != null) {
       SharedPreferences pref;
