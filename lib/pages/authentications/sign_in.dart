@@ -180,7 +180,7 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   ElevatedButton(
                     onPressed: () async {
-                      submit(ref);
+                      // submit(ref);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
