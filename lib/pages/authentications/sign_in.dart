@@ -58,23 +58,18 @@ class _SignInState extends State<SignIn> {
     if (response['status'] == 'error' && response['otp'] == false) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
-      
-      ref.read(userProvider.notifier).state = response['message'];
+      print(response);
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      ref.read(reasonProvider.notifier).state = response['message'];
       Navigator.pushNamed(context, 'verify');
       return;
+    } else if (response['status'] == 'ok') {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
     }
-    //else if (response['status'] == 'error' && response['otp'] == true) {
-    //     ref.read(userProvider.notifier).state =
-    //         UserModel.fromJson(response['user']);
-    //     ref.read(reasonProvider.notifier).state = response['message'];
-
-    //     // Navigator.pushNamed(context, 'verify');
-    //   } else if (response['status'] == 'ok') {
-    //     ref.read(userProvider.notifier).state =
-    //         UserModel.fromJson(response['user']);
-    //     Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-    //   }
-    //   print(response);
+    print(response);
   }
 
   void _togglePasswordVisibility() {
