@@ -46,20 +46,23 @@ class _SignInState extends State<SignIn> {
     // close loading screen
     alertLoading.closeDialog(context);
 
-      if (response['token'] != null) {
-        SharedPreferences pref;
-        pref = await SharedPreferences.getInstance();
-        pref.setString('token', response['token']);
-      }
-      print(response['token']);
+// check for token and save it in local storage
+    if (response['token'] != null) {
+      SharedPreferences pref;
+      pref = await SharedPreferences.getInstance();
+      pref.setString('token', response['token']);
+    }
+    print(response['token']);
 
-    //   if (response['status'] == 'error' && response['otp'] == false) {
-    //     alertInfo.message = response['message'];
-    //     alertInfo.showAlertDialog(context);
-    //     ref.read(userProvider.notifier).state = response['message'];
-    //     Navigator.pushNamed(context, 'verify');
-    //     return;
-    //   } else if (response['status'] == 'error' && response['otp'] == true) {
+// check for error messages and check if otp has been verified
+    if (response['status'] == 'error' && response['otp'] == false) {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+      ref.read(userProvider.notifier).state = response['message'];
+      Navigator.pushNamed(context, 'verify');
+      return;
+    }
+    //else if (response['status'] == 'error' && response['otp'] == true) {
     //     ref.read(userProvider.notifier).state =
     //         UserModel.fromJson(response['user']);
     //     ref.read(reasonProvider.notifier).state = response['message'];
