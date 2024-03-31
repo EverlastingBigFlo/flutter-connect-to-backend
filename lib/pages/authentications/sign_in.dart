@@ -58,8 +58,6 @@ class _SignInState extends State<SignIn> {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
       ref.read(reasonProvider.notifier).state = response['message'];
-
-      Navigator.pushNamed(context, 'verify');
     } else if (response['status'] == 'ok') {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
