@@ -48,9 +48,18 @@ class _SignInState extends State<SignIn> {
 
     alertLoading.closeDialog(context);
 
+    if (response['token']!= null) {
+      SharedPreferences pref;
+      pref = await SharedPreferences.getInstance();
+      pref.setString('token', response['token']);
+    }
+    print(response);
+
     if (response['status'] == 'error' && response['otp'] == false) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
+      ref.read(userProvider.notifier).state = response['message'];
+      Navigator.pushNamed(context, 'verify');
       return;
     } 
     // else if (response['status'] == 'error' && response['otp'] == true) {
@@ -59,11 +68,13 @@ class _SignInState extends State<SignIn> {
     //   ref.read(reasonProvider.notifier).state = response['message'];
 
     //   Navigator.pushNamed(context, 'verify');
-    // } else if (response['status'] == 'ok') {
-    //   ref.read(userProvider.notifier).state =
-    //       UserModel.fromJson(response['user']);
-    //   Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
     // }
+     else if (response['status'] == 'ok') {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
+    }
+    print(response);
   }
 
   void _togglePasswordVisibility() {
