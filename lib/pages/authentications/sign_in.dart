@@ -19,6 +19,52 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _isObscured = true;
 
+  void signIn() async {
+    AlertInfo alertInfo = AlertInfo();
+    AlertLoading alertLoading = AlertLoading();
+
+    Utilities utilities = Utilities();
+    Map info = await utilities.devicePlatform;
+
+
+    if (emailNumController.text == '' || passwordController.text == '') {
+      alertInfo.message = "fill all required fields";
+      alertInfo.showAlertDialog(context);
+      return;
+    }
+    alertLoading.showAlertDialog(context);
+
+    // ref.read(goToProvider.notifier).state = 'dashboard';
+
+    // String? goto = ref.read(goToProvider.notifier).state = 'dashboard';
+
+
+    final response = await AuthController().login({
+      "email_or_phone": emailNumController.text,
+      "password": passwordController.text,
+      "device_model": info['model'],
+      "device_id": info['id']
+    });
+
+    alertLoading.closeDialog(context);
+
+    if (response['status'] == 'error' && response['otp'] == false) {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+      return;
+    } else if (response['status'] == 'error' && response['otp'] == true) {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      ref.read(reasonProvider.notifier).state = response['message'];
+
+      Navigator.pushNamed(context, 'verify');
+    } else if (response['status'] == 'ok') {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
+    }
+  }
+
   void _togglePasswordVisibility() {
     setState(() {
       _isObscured = !_isObscured;
@@ -126,55 +172,7 @@ class _SignInState extends State<SignIn> {
 
                   // sign up button
                   ElevatedButton(
-                    onPressed: () async {
-                      AlertInfo alertInfo = AlertInfo();
-                      AlertLoading alertLoading = AlertLoading();
-
-                      Utilities utilities = Utilities();
-
-                      if (emailNumController.text == '' ||
-                          passwordController.text == '') {
-                        alertInfo.message = "fill all required fields";
-                        alertInfo.showAlertDialog(context);
-                        return;
-                      }
-                      Map info = await utilities.devicePlatform;
-                      ref.read(goToProvider.notifier).state = 'dashboard';
-
-                      String? goto =
-                          ref.read(goToProvider.notifier).state = 'dashboard';
-
-                      // alertLoading.showAlertDialog(context);
-
-                      final response = await AuthController().login({
-                        "email_or_phone": emailNumController.text,
-                        "password": passwordController.text,
-                        "device_model": info['model'],
-                        "device_id": info['id']
-                      });
-
-                      alertLoading.closeDialog(context);
-
-                      if (response['status'] == 'error' &&
-                          response['otp'] == false) {
-                        alertInfo.message = response['message'];
-                        alertInfo.showAlertDialog(context);
-                        return;
-                      } else if (response['status'] == 'error' &&
-                          response['otp'] == true) {
-                        ref.read(userProvider.notifier).state =
-                            UserModel.fromJson(response['user']);
-                        ref.read(reasonProvider.notifier).state =
-                            response['message'];
-
-                        Navigator.pushNamed(context, 'verify');
-                      } else if (response['status'] == 'ok') {
-                        ref.read(userProvider.notifier).state =
-                            UserModel.fromJson(response['user']);
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, 'dashboard', (route) => false);
-                      }
-                    },
+                    onPressed: () async {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
                       fixedSize: const Size(double.infinity, 60),
