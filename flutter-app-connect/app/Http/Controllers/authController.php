@@ -86,11 +86,11 @@ class AuthController extends Controller
         }
 
 
-        if ($user) {
+        // if ($user) {
 
-            $this->sendOtp($user->id);
-        }
-        $user->tokens()->delete();
+        //     $this->sendOtp($user->id);
+        // }
+        // $user->tokens()->delete();
 
         // check if the user has been verified 
         if (!$user->email_verified_at) {
