@@ -33,10 +33,6 @@ class _SignInState extends State<SignIn> {
     }
     alertLoading.showAlertDialog(context);
 
-    // ref.read(goToProvider.notifier).state = 'dashboard';
-
-    // String? goto = ref.read(goToProvider.notifier).state = 'dashboard';
-
     final response = await AuthController().login({
       "email_or_phone": emailNumController.text,
       "password": passwordController.text,
@@ -59,13 +55,13 @@ class _SignInState extends State<SignIn> {
       Navigator.pushNamed(context, 'verify');
       return;
     }
-    // else if (response['status'] == 'error' && response['otp'] == true) {
-    //   ref.read(userProvider.notifier).state =
-    //       UserModel.fromJson(response['user']);
-    //   ref.read(reasonProvider.notifier).state = response['message'];
+    else if (response['status'] == 'error' && response['otp'] == true) {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      ref.read(reasonProvider.notifier).state = response['message'];
 
-    //   Navigator.pushNamed(context, 'verify');
-    // }
+      Navigator.pushNamed(context, 'verify');
+    }
     else if (response['status'] == 'ok') {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
