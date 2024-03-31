@@ -58,6 +58,8 @@ class _SignInState extends State<SignIn> {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
       ref.read(reasonProvider.notifier).state = response['message'];
+
+      // Navigator.pushNamed(context, 'verify');
     } else if (response['status'] == 'ok') {
       ref.read(userProvider.notifier).state =
           UserModel.fromJson(response['user']);
@@ -174,7 +176,7 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   ElevatedButton(
                     onPressed: () async {
-                      signIn(ref);
+                      // signIn(ref);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
