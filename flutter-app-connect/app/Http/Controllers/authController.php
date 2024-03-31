@@ -84,13 +84,13 @@ class AuthController extends Controller
                 'otp' => false,
             ]);
         }
+        $user->tokens()->delete();
 
 
         // if ($user) {
 
         //     $this->sendOtp($user->id);
         // }
-        // $user->tokens()->delete();
 
         // check if the user has been verified 
         if (!$user->email_verified_at) {
