@@ -103,6 +103,7 @@ class AuthController extends Controller
             return response()->json(['otp' => true, 'status' => 'error', 'message' => 'Your account is active on another device, Verification needed to use it here.', 'user' => $user]);
         }
         $user->tokens()->delete();
+
         return response()->json([
             'data' => 'Hello world',
             'otp' => false,
