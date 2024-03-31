@@ -19,12 +19,12 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _isObscured = true;
 
-  // void signIn(ref) async {
-  //   AlertInfo alertInfo = AlertInfo();
-  //   AlertLoading alertLoading = AlertLoading();
+  void submit(ref) async {
+    AlertInfo alertInfo = AlertInfo();
+    AlertLoading alertLoading = AlertLoading();
 
-  //   Utilities utilities = Utilities();
-  //   Map info = await utilities.devicePlatform;
+    Utilities utilities = Utilities();
+    Map info = await utilities.devicePlatform;
 
   //   if (emailNumController.text == '' || passwordController.text == '') {
   //     alertInfo.message = "fill all required fields";
@@ -66,7 +66,7 @@ class _SignInState extends State<SignIn> {
   //     Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
   //   }
   //   print(response);
-  // }
+  }
 
   void _togglePasswordVisibility() {
     setState(() {
@@ -176,7 +176,7 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   ElevatedButton(
                     onPressed: () async {
-                      // signIn(ref);
+                      submit(ref);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
