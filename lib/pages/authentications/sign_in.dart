@@ -58,6 +58,7 @@ class _SignInState extends State<SignIn> {
     if (response['status'] == 'error' && response['otp'] == false) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
+      
       ref.read(userProvider.notifier).state = response['message'];
       Navigator.pushNamed(context, 'verify');
       return;
