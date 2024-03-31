@@ -33,15 +33,15 @@ class _SignInState extends State<SignIn> {
       return;
     }
 
-    // alertLoading.showAlertDialog(context);
+    alertLoading.showAlertDialog(context);
 
-    //   final response = await AuthController().login({
-    //     "email_or_phone": emailNumController.text,
-    //     "password": passwordController.text,
-    //     "device_model": info['model'],
-    //     "device_id": info['id']
-    //   });
-    //   alertLoading.closeDialog(context);
+    final response = await AuthController().login({
+      "email_or_phone": emailNumController.text,
+      "password": passwordController.text,
+      "device_model": info['model'],
+      "device_id": info['id']
+    });
+    alertLoading.closeDialog(context);
 
     //   if (response['token'] != null) {
     //     SharedPreferences pref;
