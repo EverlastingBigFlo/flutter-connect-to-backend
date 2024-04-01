@@ -39,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
                     child: Row(
                       children: [
                         Text('Get Verified',
-                            style: GoogleFonts.lato(
+                            style: GoogleFonts.concertOne(
                               textStyle: TextStyle(
                                   fontSize: 23.sp, color: Colors.grey[400]),
                             ))
