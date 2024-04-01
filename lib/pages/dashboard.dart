@@ -30,7 +30,18 @@ class _DashboardState extends State<Dashboard> {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30.0),
                       bottomRight: Radius.circular(30.0))),
-              child: Center(child: Text('data')),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Get Verified',
+                        style: TextStyle(fontSize: 25.sp),
+                      )
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
