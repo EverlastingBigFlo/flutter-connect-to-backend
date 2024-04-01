@@ -34,7 +34,7 @@ class _DashboardState extends State<Dashboard> {
                       bottomLeft: Radius.circular(30.0),
                       bottomRight: Radius.circular(30.0))),
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(18.0),
                 child: Column(
                   children: [
                     SafeArea(
