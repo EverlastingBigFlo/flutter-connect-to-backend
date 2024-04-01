@@ -8,6 +8,7 @@ import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:connectingtobackend/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -18,21 +19,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        // '/': (context) => MyForm(),
-        '/': (context) => const RegistrationForm(),
-        'signup': (context) => const RegistrationForm(),
-        // '/': (context) => const SignIn(),
-        'signin': (context) => const SignIn(),
-        'verify': (context) => const EmailPinVerification(),
-        'setpin': (context) => const CreateTxPin(),
-        'confirmPin': (context) => const ConfirmTxPin(),
-        'dashboard': (context) => const Dashboard(),
-        // '/': (context) => const Media(),
-      },
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          // '/': (context) => MyForm(),
+          '/': (context) => const RegistrationForm(),
+          'signup': (context) => const RegistrationForm(),
+          // '/': (context) => const SignIn(),
+          'signin': (context) => const SignIn(),
+          'verify': (context) => const EmailPinVerification(),
+          'setpin': (context) => const CreateTxPin(),
+          'confirmPin': (context) => const ConfirmTxPin(),
+          'dashboard': (context) => const Dashboard(),
+          // '/': (context) => const Media(),
+        },
+      );
+    });
   }
 }
