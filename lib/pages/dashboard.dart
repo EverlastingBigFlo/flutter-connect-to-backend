@@ -71,7 +71,10 @@ class _DashboardState extends State<Dashboard> {
                     ),
                     const Align(
                         alignment: Alignment.bottomLeft,
-                        child: Text('Virtual Mobile - No Sim - Get Verify'))
+                        child: Text(
+                          'Virtual Mobile - No Sim - Get Verify',
+                          style: TextStyle(color: Color(0xFF1d1d1d)),
+                        ))
                   ],
                 ),
               ),
