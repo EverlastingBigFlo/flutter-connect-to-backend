@@ -39,7 +39,8 @@ class _DashboardState extends State<Dashboard> {
                       children: [
                         Text(
                           'Get Verified',
-                          style: TextStyle(fontSize: 23.sp),
+                          style: TextStyle(
+                              fontSize: 23.sp, color: Colors.grey[400]),
                         )
                       ],
                     ),
