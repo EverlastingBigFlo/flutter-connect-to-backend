@@ -10,7 +10,6 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    var _color;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -18,21 +17,19 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: Column(
         children: [
-          AnimatedContainer(
- duration: Duration(seconds: 2),
- color: _color,
- curve: Curves.fastOutSlowIn,
- height: 200,
- width: 200,
-),
-Inkwell(
- child: Text('Change Color'),
- onPressed: (){
-   setState((){
-     _color= Colors.red;
-   });
- },
-),
+          Container(
+            height: 200,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.blue,
+                  Colors.red,
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
