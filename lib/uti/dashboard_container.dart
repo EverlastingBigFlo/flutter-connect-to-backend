@@ -3,13 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class FirstContainerWidget extends StatelessWidget {
-  height;
-  width;
-  const FirstContainerWidget({super.key});
+  final double height;
+  // final double width;
+  const FirstContainerWidget({super.key, required this.height});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height,
+      // width: width,
       decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.centerLeft,
@@ -53,6 +55,9 @@ class FirstContainerWidget extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             const Align(
                 alignment: Alignment.bottomLeft,
