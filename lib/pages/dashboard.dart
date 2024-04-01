@@ -20,11 +20,18 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Colors.black,
         body: Column(
           children: [
+            // first widget with purple background color
             Device.orientation == Orientation.portrait
                 ? FirstContainerWidget(
                     height: 30.5.h,
                   )
-                : FirstContainerWidget(height: 35.5.h)
+                : FirstContainerWidget(height: 35.5.h),
+
+                Row(
+                  children: [
+                    
+                  ],
+                )
           ],
         ),
       );
