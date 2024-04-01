@@ -1,5 +1,4 @@
 // import 'package:connectingtobackend/otp.dart';
-import 'package:connectingtobackend/components/media_query.dart';
 import 'package:connectingtobackend/pages/authentications/registration.dart';
 import 'package:connectingtobackend/pages/authentications/registration_pin.dart';
 import 'package:connectingtobackend/pages/authentications/sign_in.dart';
@@ -8,7 +7,6 @@ import 'package:connectingtobackend/pages/create_pin.dart';
 import 'package:connectingtobackend/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -19,23 +17,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(builder: (context, orientation, screenType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: '/',
-        routes: {
-          // '/': (context) => MyForm(),
-          '/': (context) => const RegistrationForm(),
-          'signup': (context) => const RegistrationForm(),
-          // '/': (context) => const SignIn(),
-          'signin': (context) => const SignIn(),
-          'verify': (context) => const EmailPinVerification(),
-          'setpin': (context) => const CreateTxPin(),
-          'confirmPin': (context) => const ConfirmTxPin(),
-          'dashboard': (context) => const Dashboard(),
-          // '/': (context) => const Media(),
-        },
-      );
-    });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        // '/': (context) => MyForm(),
+        // '/': (context) => const RegistrationForm(),
+        'signup': (context) => const RegistrationForm(),
+        // '/': (context) => const SignIn(),
+        'signin': (context) => const SignIn(),
+        'verify': (context) => const EmailPinVerification(),
+        'setpin': (context) => const CreateTxPin(),
+        'confirmPin': (context) => const ConfirmTxPin(),
+        'dashboard': (context) => const Dashboard(),
+        '/': (context) => const Dashboard(),
+        // '/': (context) => const Media(),
+      },
+    );
   }
 }

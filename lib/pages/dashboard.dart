@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -10,8 +11,26 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return Scaffold(
+        body: Column(
+          children: [
+            Container(
+              height: 30.5.h,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.blue,
+                    Colors.red,
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      );
+    });
   }
 }
