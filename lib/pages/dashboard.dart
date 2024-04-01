@@ -33,22 +33,26 @@ class _DashboardState extends State<Dashboard> {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(30.0),
                       bottomRight: Radius.circular(30.0))),
-              child: Column(
-                children: [
-                  SafeArea(
-                    child: Row(
-                      children: [
-                        Text('Get Verified',
-                            style: GoogleFonts.concertOne(
-                              textStyle: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 23.sp,
-                                  color: Colors.grey[400]),
-                            ))
-                      ],
-                    ),
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  children: [
+                    SafeArea(
+                      child: Row(
+                        children: [
+                          Text('Get Verified',
+                              style: GoogleFonts.concertOne(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22.sp,
+                                    color: Colors.grey[400]),
+                              )),
+                          const Icon(Icons.verified)
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             )
           ],
