@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class Dashboard extends StatefulWidget {
@@ -18,6 +19,7 @@ class _DashboardState extends State<Dashboard> {
           children: [
             Container(
               height: 30.5.h,
+              width: 100.w,
               decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.centerLeft,
@@ -32,13 +34,15 @@ class _DashboardState extends State<Dashboard> {
                       bottomRight: Radius.circular(30.0))),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Get Verified',
-                        style: TextStyle(fontSize: 25.sp),
-                      )
-                    ],
+                  SafeArea(
+                    child: Row(
+                      children: [
+                        Text(
+                          'Get Verified',
+                          style: TextStyle(fontSize: 23.sp),
+                        )
+                      ],
+                    ),
                   )
                 ],
               ),
