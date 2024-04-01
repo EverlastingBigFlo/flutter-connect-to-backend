@@ -26,14 +26,16 @@ class _DashboardState extends State<Dashboard> {
                     height: 30.5.h,
                   )
                 : FirstContainerWidget(height: 35.5.h),
-
-            const Row(
+            Row(
               children: [
-                CircleAvatar(
-                  backgroundColor: Color(0xFF1d1d1d),
-                  child: Icon(
-                    Icons.arrow_upward_rounded,
-                    color: Colors.white,
+                InkWell(
+                  onTap: () {},
+                  child: const CircleAvatar(
+                    backgroundColor: Color(0xFF1d1d1d),
+                    child: Icon(
+                      Icons.arrow_upward_rounded,
+                      color: Colors.white,
+                    ),
                   ),
                 )
               ],
