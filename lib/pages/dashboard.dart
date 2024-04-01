@@ -66,14 +66,11 @@ class _DashboardState extends State<Dashboard> {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 2.0.h,
-                    ),
                     const Align(
                         alignment: Alignment.bottomLeft,
                         child: Text(
                           'Virtual Mobile - No Sim - Get Verify',
-                          style: TextStyle(color: Color(0xFF1d1d1d)),
+                          style: TextStyle(color: Color(0xFF3d3d54)),
                         ))
                   ],
                 ),
