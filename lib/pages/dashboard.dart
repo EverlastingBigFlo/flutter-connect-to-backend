@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -39,11 +38,11 @@ class _DashboardState extends State<Dashboard> {
                   SafeArea(
                     child: Row(
                       children: [
-                        Text(
-                          'Get Verified',
-                          style: TextStyle(
-                              fontSize: 23.sp, color: Colors.grey[400]),
-                        )
+                        Text('Get Verified',
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 23.sp, color: Colors.grey[400]),
+                            ))
                       ],
                     ),
                   )
