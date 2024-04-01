@@ -13,17 +13,18 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return ResponsiveSizer(builder: (context, orientation, screenType) {
       return Scaffold(
+        backgroundColor: Colors.black,
         body: Column(
           children: [
             Container(
               height: 30.5.h,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                   colors: [
-                    Colors.blue,
-                    Colors.red,
+                    Color(0xFF8A8AD5),
+                    Color(0xFF8771C9),
                   ],
                 ),
               ),
