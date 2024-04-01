@@ -27,11 +27,13 @@ class _DashboardState extends State<Dashboard> {
                   )
                 : FirstContainerWidget(height: 35.5.h),
 
-                Row(
-                  children: [
-                    
-                  ],
+            const Row(
+              children: [
+                CircleAvatar(
+                  backgroundColor: Color(0xFF1d1d1d),
                 )
+              ],
+            )
           ],
         ),
       );
