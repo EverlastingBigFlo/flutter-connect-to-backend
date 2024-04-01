@@ -31,6 +31,10 @@ class _DashboardState extends State<Dashboard> {
               children: [
                 CircleAvatar(
                   backgroundColor: Color(0xFF1d1d1d),
+                  child: Icon(
+                    Icons.arrow_upward_rounded,
+                    color: Colors.white,
+                  ),
                 )
               ],
             )
