@@ -17,19 +17,21 @@ class _DashboardState extends State<Dashboard> {
       ),
       body: Column(
         children: [
-          Container(
-            height: 200,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Colors.blue,
-                  Colors.red,
-                ],
-              ),
-            ),
-          )
+          AnimatedContainer(
+ duration: Duration(seconds: 2),
+ color: _color,
+ curve: Curves.fastOutSlowIn,
+ height: 200,
+ width: 200,
+),
+FlatButton(
+ child: Text('Change Color'),
+ onPressed: (){
+   setState((){
+     _color= Colors.red;
+   });
+ },
+),
         ],
       ),
     );
