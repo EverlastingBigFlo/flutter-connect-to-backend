@@ -19,15 +19,17 @@ class _DashboardState extends State<Dashboard> {
             Container(
               height: 30.5.h,
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
-                  colors: [
-                    Color(0xFF8A8AD5),
-                    Color(0xFF8771C9),
-                  ],
-                ),
-              ),
+                  gradient: LinearGradient(
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                    colors: [
+                      Color(0xFF8A8AD5),
+                      Color(0xFF8771C9),
+                    ],
+                  ),
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30.0),
+                      bottomRight: Radius.circular(30.0))),
             )
           ],
         ),
