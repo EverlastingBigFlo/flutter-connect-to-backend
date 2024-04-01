@@ -39,6 +39,7 @@ class _DashboardState extends State<Dashboard> {
                   children: [
                     SafeArea(
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
@@ -49,12 +50,17 @@ class _DashboardState extends State<Dashboard> {
                                         fontSize: 22.sp,
                                         color: Colors.grey[400]),
                                   )),
-                              const Icon(Icons.verified)
+                              const Icon(
+                                Icons.verified,
+                              )
                             ],
                           ),
                           InkWell(
                             onTap: () {},
-                            child: Icon(Icons.person),
+                            child: const Icon(
+                              Icons.supervised_user_circle,
+                              size: 28,
+                            ),
                           )
                         ],
                       ),
