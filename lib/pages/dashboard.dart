@@ -10,6 +10,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
+    var _color;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
  height: 200,
  width: 200,
 ),
-FlatButton(
+Inkwell(
  child: Text('Change Color'),
  onPressed: (){
    setState((){
