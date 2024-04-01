@@ -40,14 +40,22 @@ class _DashboardState extends State<Dashboard> {
                     SafeArea(
                       child: Row(
                         children: [
-                          Text('Get Verified',
-                              style: GoogleFonts.concertOne(
-                                textStyle: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 22.sp,
-                                    color: Colors.grey[400]),
-                              )),
-                          const Icon(Icons.verified)
+                          Row(
+                            children: [
+                              Text('Get Verified',
+                                  style: GoogleFonts.concertOne(
+                                    textStyle: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 22.sp,
+                                        color: Colors.grey[400]),
+                                  )),
+                              const Icon(Icons.verified)
+                            ],
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Icon(Icons.person),
+                          )
                         ],
                       ),
                     )
