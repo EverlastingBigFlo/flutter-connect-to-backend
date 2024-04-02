@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
