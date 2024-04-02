@@ -77,7 +77,7 @@ class AuthController extends Controller
             ->orWhere([['phone', $request->email_or_phone], ['status', 1]])
             ->first();
 
-            // check the requested password and the password in the database 
+        // check the requested password and the password in the database 
         if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'status' => 'error',
