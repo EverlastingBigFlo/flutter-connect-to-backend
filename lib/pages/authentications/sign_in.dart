@@ -57,7 +57,7 @@ class _SignInState extends State<SignIn> {
     print(response['token']);
 
 // check for error messages and check if otp has been verified
-    if (response['status'] == 'error' && response['otp'] == false) {
+    if (response['status'] == 'error' && response['otp'] == true) {
       alertInfo.message = response['message'];
       alertInfo.showAlertDialog(context);
       print(response);
