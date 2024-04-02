@@ -30,8 +30,6 @@ class _RegistrationFormState extends State<RegistrationForm> {
     // "A special character  (@#^%)",
     // "A number(1)",
     // "8 characters minimum"
-    // 186290
-    // getjommy@gmail.com
   ];
   bool _isObscured = true;
   bool _agreeToTerms = false;
