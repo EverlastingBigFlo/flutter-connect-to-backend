@@ -9,6 +9,7 @@ use App\Models\User;
 
 trait Utilities
 {
+    // 186290
     public $rands;
     public function sendOtp($userId)
     {
