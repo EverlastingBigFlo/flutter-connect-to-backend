@@ -36,7 +36,7 @@ trait Utilities
 
 
 
-    public function sendEmail($data, array $emails)
+    public function sendEmails($data, array $emails)
     {
 
         dispatch(new SendEmail($data, $emails));
