@@ -19,58 +19,58 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   bool _isObscured = true;
 
-//   void submit(ref) async {
-//     AlertInfo alertInfo = AlertInfo();
-//     AlertLoading alertLoading = AlertLoading();
+  void submit(ref) async {
+    AlertInfo alertInfo = AlertInfo();
+    AlertLoading alertLoading = AlertLoading();
 
-//     Utilities utilities = Utilities();
-//     Map info = await utilities.devicePlatform;
+    Utilities utilities = Utilities();
+    Map info = await utilities.devicePlatform;
 
-// // check for the empty inputs and send a message to user
-//     if (emailNumController.text == '' || passwordController.text == '') {
-//       alertInfo.message = "fill all required fields";
-//       alertInfo.showAlertDialog(context);
-//       return;
-//     }
+// check for the empty inputs and send a message to user
+    if (emailNumController.text == '' || passwordController.text == '') {
+      alertInfo.message = "fill all required fields";
+      alertInfo.showAlertDialog(context);
+      return;
+    }
 
-// // initialize loading modal
-//     alertLoading.showAlertDialog(context);
+// initialize loading modal
+    alertLoading.showAlertDialog(context);
 
-// // send data to backend to check
-//     final response = await AuthController().login({
-//       "email_or_phone": emailNumController.text,
-//       "password": passwordController.text,
-//       "device_model": info['model'],
-//       "device_id": info['id']
-//     });
-//     // close loading screen
-//     alertLoading.closeDialog(context);
+// send data to backend to check
+    final response = await AuthController().login({
+      "email_or_phone": emailNumController.text,
+      "password": passwordController.text,
+      "device_model": info['model'],
+      "device_id": info['id']
+    });
+    // close loading screen
+    alertLoading.closeDialog(context);
 
-// // check for token and save it in local storage
-//     if (response['token'] != null) {
-//       SharedPreferences pref;
-//       pref = await SharedPreferences.getInstance();
-//       pref.setString('token', response['token']);
-//     }
-//     print(response['token']);
+// check for token and save it in local storage
+    if (response['token'] != null) {
+      SharedPreferences pref;
+      pref = await SharedPreferences.getInstance();
+      pref.setString('token', response['token']);
+    }
+    print(response['token']);
 
-// // check for error messages and check if otp has been verified
-//     if (response['status'] == 'error' && response['otp'] == false) {
-//       alertInfo.message = response['message'];
-//       alertInfo.showAlertDialog(context);
-//       print(response);
-//       ref.read(userProvider.notifier).state =
-//           UserModel.fromJson(response['user']);
-//       ref.read(reasonProvider.notifier).state = response['message'];
-//       Navigator.pushNamed(context, 'verify');
-//       return;
-//     } else if (response['status'] == 'ok') {
-//       ref.read(userProvider.notifier).state =
-//           UserModel.fromJson(response['user']);
-//       Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
-//     }
-//     print(response);
-//   }
+// check for error messages and check if otp has been verified
+    if (response['status'] == 'error' && response['otp'] == false) {
+      alertInfo.message = response['message'];
+      alertInfo.showAlertDialog(context);
+      print(response);
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      ref.read(reasonProvider.notifier).state = response['message'];
+      Navigator.pushNamed(context, 'verify');
+      return;
+    } else if (response['status'] == 'ok') {
+      ref.read(userProvider.notifier).state =
+          UserModel.fromJson(response['user']);
+      Navigator.pushNamedAndRemoveUntil(context, 'dashboard', (route) => false);
+    }
+    print(response);
+  }
 
   void _togglePasswordVisibility() {
     setState(() {
@@ -180,7 +180,7 @@ class _SignInState extends State<SignIn> {
                   // sign up button
                   ElevatedButton(
                     onPressed: () async {
-                      // submit(ref);
+                      submit(ref);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF600852),
