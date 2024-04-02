@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // '/': (context) => MyForm(),
-        // '/': (context) => const RegistrationForm(),
+        '/': (context) => const RegistrationForm(),
         'signup': (context) => const RegistrationForm(),
         // '/': (context) => const SignIn(),
         'signin': (context) => const SignIn(),
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         'setpin': (context) => const CreateTxPin(),
         'confirmPin': (context) => const ConfirmTxPin(),
         'dashboard': (context) => const Dashboard(),
-        '/': (context) => const Dashboard(),
+        // '/': (context) => const Dashboard(),
         // '/': (context) => const Media(),
       },
     );
