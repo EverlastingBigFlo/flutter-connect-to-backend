@@ -30,10 +30,7 @@ class AuthController extends Controller
                 'required',
                 'confirmed',
                 'digits:6',
-                'numeric',
-                function ($attribute, $value, $fail) {
-                    if (preg_match('/(\d)\1{2,}/', $value) || preg_match('/123|234|345|456|567|678|789|098|987|876|765|654|543|432|321|012/', $value)) {
-                        $fail('The password is too simple.');
+                'numeric', function ($attribute, $value, $fail) {if (preg_match('/(\d)\1{2,}/', $value) || preg_match('/123|234|345|456|567|678|789|098|987|876|765|654|543|432|321|012/', $value)) {$fail('The password is too simple.');
                     }
                 },
             ],
